@@ -1,31 +1,26 @@
-import { Input } from '../../atoms/input/input';
-import { Label } from '../../atoms/label';
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from "react"
+
+import { Input } from "../../atoms/input/input"
+import { Label } from "../../atoms/label"
 
 type InputWithLabelProps = HTMLAttributes<HTMLInputElement> & {
-  label: string;
-  classNameLabel: string;
-};
+	label: string
+	classNameLabel: string
+}
 
 const InputWithLabel = forwardRef<HTMLInputElement, InputWithLabelProps>(
-  ({ label, classNameLabel, ...props }, ref) => {
-    return (
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label htmlFor="email" className={classNameLabel}>
-          {label}
-        </Label>
-        <Input
-          ref={ref}
-          type="email"
-          id="email"
-          placeholder="Email"
-          {...props}
-        />
-      </div>
-    );
-  },
-);
+	({ label, classNameLabel, ...props }, ref) => {
+		return (
+			<div className="grid w-full max-w-sm items-center gap-1.5">
+				<Label htmlFor="email" className={classNameLabel}>
+					{label}
+				</Label>
+				<Input ref={ref} type="email" id="email" placeholder="Email" {...props} />
+			</div>
+		)
+	}
+)
 
-InputWithLabel.displayName = 'InputWithLabel';
+InputWithLabel.displayName = "InputWithLabel"
 
-export { InputWithLabel };
+export { InputWithLabel }
