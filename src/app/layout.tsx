@@ -34,7 +34,7 @@ export default function RootLayout({
 				<link rel="svg" type="image/svg+xml" href="/favicon.svg" />
 			</Head>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				{children}
+				<ToastProvider>{children}</ToastProvider>
 			</body>
 		</html>
 	)

@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from "react"
+import { forwardRef, type HTMLAttributes } from "react"
 
 import { Input } from "../../atoms/input/input"
 import { Label } from "../../atoms/label"

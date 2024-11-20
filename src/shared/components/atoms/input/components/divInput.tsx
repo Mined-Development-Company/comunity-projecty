@@ -1,6 +1,6 @@
 "use client"
 
-import React, { HTMLAttributes, ReactNode } from "react"
+import React, { type HTMLAttributes, type ReactNode } from "react"
 
 import { cn } from "@/shared/utils/cn"
 

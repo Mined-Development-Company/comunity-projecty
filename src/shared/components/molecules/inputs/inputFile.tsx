@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ChangeEvent, HTMLAttributes, useState } from "react"
+import React, { useState, type ChangeEvent, type HTMLAttributes } from "react"
 
 import { cn } from "@/shared/utils/cn"
 
