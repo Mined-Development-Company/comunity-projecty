@@ -4,7 +4,7 @@ import Head from "next/head"
 
 import "../shared/styles/globals.css"
 
-import { ToastProvider } from "@/shared/components/atoms/toast"
+import { Toaster } from "../shared/components/atoms/sonner"
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -35,6 +35,7 @@ export default function RootLayout({
 			</Head>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				{children}
+				<Toaster />
 			</body>
 		</html>
 	)

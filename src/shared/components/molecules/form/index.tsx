@@ -6,11 +6,11 @@ import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
 import {
 	Controller,
-	ControllerProps,
-	FieldPath,
-	FieldValues,
 	FormProvider,
-	useFormContext
+	useFormContext,
+	type ControllerProps,
+	type FieldPath,
+	type FieldValues
 } from "react-hook-form"
 
 import { cn } from "@/shared/utils/cn"
@@ -19,10 +19,10 @@ import { Label } from "../../atoms/label"
 
 const Form = FormProvider
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = {
+> {
 	name: TName
 }
 
@@ -66,7 +66,7 @@ const useFormField = () => {
 	}
 }
 
-type FormItemContextValue = {
+interface FormItemContextValue {
 	id: string
 }
 

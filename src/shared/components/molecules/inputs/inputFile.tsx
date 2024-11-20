@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ChangeEvent, HTMLAttributes, useState } from "react"
+import React, { useState, type ChangeEvent, type HTMLAttributes } from "react"
 
 import { cn } from "@/shared/utils/cn"
 
@@ -20,7 +20,10 @@ const InputFile = React.forwardRef<HTMLInputElement, InputFileProps>(
 
 		function handleChange(e: ChangeEvent<HTMLInputElement>) {
 			setFile(e.target.files?.[0] ?? null)
-			onChange && onChange(e)
+
+			if (onChange) {
+				onChange(e)
+			}
 		}
 
 		return (

@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from "react"
+import { forwardRef, type HTMLAttributes } from "react"
 
 import { Button } from "../../atoms/button"
 import { DivInput } from "../../atoms/input/components/divInput"
