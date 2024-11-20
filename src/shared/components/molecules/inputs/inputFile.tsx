@@ -20,7 +20,10 @@ const InputFile = React.forwardRef<HTMLInputElement, InputFileProps>(
 
 		function handleChange(e: ChangeEvent<HTMLInputElement>) {
 			setFile(e.target.files?.[0] ?? null)
-			onChange && onChange(e)
+
+			if (onChange) {
+				onChange(e)
+			}
 		}
 
 		return (
