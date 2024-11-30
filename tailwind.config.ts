@@ -29,10 +29,10 @@ export default {
 				"orange-light": "#FFAE4B",
 				"orange-soft": "#FFBD6D",
 				// red color
-				"red-hard": "#E81010",
-				"red-mid": "#F41A1A",
-				"red-light": "#FA3131",
-				"red-soft": "#FA4444",
+				"red-hard": "#EA1F1F",
+				"red-mid": "#EB2E2E",
+				"red-light": "#ED3D3D",
+				"red-soft": "#EE4C4C",
 				// blue color
 				"blue-hard": "#0A33FF",
 				"blue-mid": "#143AFF",

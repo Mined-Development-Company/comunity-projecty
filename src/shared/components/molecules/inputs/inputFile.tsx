@@ -4,18 +4,34 @@ import React, { useState, type ChangeEvent, type HTMLAttributes } from "react"
 
 import { cn } from "@/shared/utils/cn"
 
+import Hint from "../../atoms/hint"
 import { DivInput } from "../../atoms/input/components/divInput"
 import { Input } from "../../atoms/input/input"
 import { Label } from "../../atoms/label"
 
 type InputFileProps = HTMLAttributes<HTMLInputElement> & {
 	label: string
+	hint?: string
+	hasHint?: boolean
 	placeholder?: string
+	hintClassName?: string
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const InputFile = React.forwardRef<HTMLInputElement, InputFileProps>(
-	({ className, label, placeholder, onChange, ...props }, ref) => {
+	(
+		{
+			hint,
+			hasHint = true,
+			className,
+			label,
+			placeholder,
+			hintClassName,
+			onChange,
+			...props
+		},
+		ref
+	) => {
 		const [file, setFile] = useState<File | null>(null)
 
 		function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -46,6 +62,7 @@ const InputFile = React.forwardRef<HTMLInputElement, InputFileProps>(
 					{...props}
 					onChange={handleChange}
 				/>
+				{hasHint && <Hint className={hintClassName} text={hint} />}
 			</DivInput>
 		)
 	}

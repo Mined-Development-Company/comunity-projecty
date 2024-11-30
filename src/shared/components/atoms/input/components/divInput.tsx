@@ -15,7 +15,7 @@ const DivInput = React.forwardRef<HTMLInputElement, DivInputProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"grid w-full max-w-sm items-center gap-1.5 text-content-primary",
+					"grid w-full max-w-sm items-center gap-0.5 text-content-primary",
 					className
 				)}
 				{...props}>

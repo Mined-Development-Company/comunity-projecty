@@ -5,7 +5,7 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-green-hard text-content-primary hover:bg-green-hard/90",
+				default: "bg-green-hard hover:bg-green-hard/90",
 				secondary:
 					"bg-content-shape-secondary hover:bg-content-shape-secondary/80 border border-content-shape-quaternary",
 				outline:
@@ -17,8 +17,7 @@ export const buttonVariants = cva(
 			size: {
 				default: "h-9 px-4 py-2",
 				sm: "h-8 rounded-md px-3",
-				lg: "h-10 rounded-md px-8",
-				icon: "h-9 w-10"
+				lg: "h-10 rounded-md px-8"
 			}
 		},
 		defaultVariants: {

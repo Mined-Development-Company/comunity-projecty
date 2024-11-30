@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
 import { Button } from "@/shared/components/atoms/button"
+import { DivStories } from "@/shared/components/atoms/divStories"
 
 const meta: Meta<typeof Button> = {
 	title: "Atoms/Button",
@@ -21,7 +22,7 @@ const meta: Meta<typeof Button> = {
 			}
 		},
 		size: {
-			options: ["default", "sm", "lg", "icon"],
+			options: ["default", "sm", "lg"],
 			control: { type: "select" }
 		}
 	}
@@ -31,16 +32,33 @@ export default meta
 
 type Story = StoryObj<typeof Button>
 
+function renderStore(args: Story) {
+	return (
+		<DivStories>
+			<Button {...args} />
+		</DivStories>
+	)
+}
+
 export const Default: Story = {
 	args: {
 		variant: "default",
 		children: "Button"
 	},
-	render: (args) => <Button {...args} />
+
+	render: renderStore
 }
 
-export const Secondary: Story = { args: { variant: "secondary" } }
-export const Outline: Story = { args: { variant: "outline" } }
-export const OutlineGreen: Story = { args: { variant: "outline-green" } }
-export const Ghost: Story = { args: { variant: "ghost" } }
-export const Link: Story = { args: { variant: "link" } }
+export const Secondary: Story = {
+	args: { variant: "secondary" },
+	render: renderStore
+}
+
+export const OutlineGreen: Story = {
+	args: { variant: "outline-green" },
+	render: renderStore
+}
+
+export const Outline: Story = { args: { variant: "outline" }, render: renderStore }
+export const Ghost: Story = { args: { variant: "ghost" }, render: renderStore }
+export const Link: Story = { args: { variant: "link" }, render: renderStore }

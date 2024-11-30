@@ -6,22 +6,25 @@ import { Label } from "../../atoms/label/index"
 import { Textarea } from "../../atoms/textArea/index"
 
 type TextareaWithLabelProps = HTMLAttributes<HTMLTextAreaElement> & {
-	text: string
-	label: string
-	placeholder: string
-	rootClassName: string
-	labelClassName: string
-	textareaClassName: string
+	hint?: string
+	label?: string
+	hasHint?: boolean
+	placeholder?: string
+	rootClassName?: string
+	hintClassName?: string
+	labelClassName?: string
+	textareaClassName?: string
 }
 
-const TextareaWithText = forwardRef<HTMLTextAreaElement, TextareaWithLabelProps>(
+const TextareaDefault = forwardRef<HTMLTextAreaElement, TextareaWithLabelProps>(
 	(
 		{
-			text,
 			label,
+			hint,
+			hasHint = true,
 			placeholder,
 			rootClassName,
-			labelClassName,
+			hintClassName,
 			textareaClassName,
 			...props
 		},
@@ -29,9 +32,8 @@ const TextareaWithText = forwardRef<HTMLTextAreaElement, TextareaWithLabelProps>
 	) => {
 		return (
 			<div className={cn("grid w-full gap-1.5", rootClassName)}>
-				<Label htmlFor="message" className={labelClassName}>
-					{label}
-				</Label>
+				{label && <Label htmlFor="message">{label}</Label>}
+
 				<Textarea
 					ref={ref}
 					className={textareaClassName}
@@ -39,12 +41,15 @@ const TextareaWithText = forwardRef<HTMLTextAreaElement, TextareaWithLabelProps>
 					id="message"
 					{...props}
 				/>
-				<p className="text-sm text-content-shape-quaternary">{text}</p>
+
+				{hasHint && (
+					<p className={cn("text-sm text-content-tertiary", hintClassName)}>{hint}</p>
+				)}
 			</div>
 		)
 	}
 )
 
-TextareaWithText.displayName = "TextareaWithText"
+TextareaDefault.displayName = "TextareaDefault"
 
-export { TextareaWithText }
+export { TextareaDefault }

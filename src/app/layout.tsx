@@ -4,6 +4,10 @@ import Head from "next/head"
 
 import "../shared/styles/globals.css"
 
+import { Footer } from "@/shared/components/organisms/Footer"
+import { Header } from "@/shared/components/organisms/header"
+import { cn } from "@/shared/utils/cn"
+
 import { Toaster } from "../shared/components/atoms/sonner"
 
 const geistSans = localFont({
@@ -33,8 +37,15 @@ export default function RootLayout({
 			<Head>
 				<link rel="svg" type="image/svg+xml" href="/favicon.svg" />
 			</Head>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				{children}
+			<body
+				className={cn(
+					"flex flex-col bg-content-shape-primary antialiased",
+					geistSans.variable,
+					geistMono.variable
+				)}>
+				<Header />
+				<div className="flex-1">{children}</div>
+				<Footer />
 				<Toaster />
 			</body>
 		</html>
