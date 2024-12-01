@@ -32,12 +32,12 @@ const listAvatar = [
 
 export function Footer() {
 	return (
-		<footer className="h-[138px] bg-content-shape-secondary">
-			<div className="container m-auto flex size-full items-center justify-between px-[7.5rem]">
+		<footer className="h-[86px] bg-content-shape-secondary lg:h-[138px]">
+			<div className="container m-auto flex size-full items-center justify-between px-4 lg:px-[7.5rem]">
 				<div className="">
 					<div className="flex items-center gap-1">
-						<Image src={Logo} alt="Logo" />
-						<p className="text-2xl font-bold text-content-primary">Rai Sync</p>
+						<Image className="size-[35px] lg:size-10" src={Logo} alt="Logo" />
+						<p className="font-bold text-content-primary lg:text-2xl">Rai Sync</p>
 					</div>
 
 					<nav className="ml-[53px]">
@@ -56,7 +56,7 @@ export function Footer() {
 					</nav>
 				</div>
 
-				<div className="flex flex-col items-center justify-center text-content-primary">
+				<div className="hidden flex-col items-center justify-center text-content-primary lg:flex">
 					<p className="text-xl font-bold">Junte-se à nossa comunidade!</p>
 					<p className="text-sm">
 						Venha fazer parte de uma comunidade vibrante de desenvolvedores
@@ -64,8 +64,10 @@ export function Footer() {
 				</div>
 
 				<div className="space-y-2">
-					<p className="font-bold text-white">Nossos desenvolvedores</p>
-					<MultiAvatar className="w-full justify-end" listAvatar={listAvatar} />
+					<p className="text-xs font-bold text-white lg:text-base">
+						Nossos desenvolvedores
+					</p>
+					<MultiAvatar className="w-full justify-end" listAvatar={listAvatar} size="xs" />
 				</div>
 			</div>
 		</footer>

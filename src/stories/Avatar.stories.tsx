@@ -12,6 +12,9 @@ const meta: Meta<typeof AvatarDefault> = {
 export default meta
 
 export const Default: StoryObj<typeof AvatarDefault> = {
+	argTypes: {
+		size: { control: { type: "radio" }, options: ["xs", "sm", "md", "lg"] }
+	},
 	args: {
 		src: "https://github.com/shadcn.png",
 		name: "Rogerinho"
