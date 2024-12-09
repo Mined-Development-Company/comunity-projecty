@@ -4,6 +4,7 @@ import Head from "next/head"
 
 import "../shared/styles/globals.css"
 
+import Provider from "@/app/providers/app"
 import { Footer } from "@/shared/components/organisms/Footer"
 import { Header } from "@/shared/components/organisms/header"
 import { cn } from "@/shared/utils/cn"
@@ -43,10 +44,12 @@ export default function RootLayout({
 					geistSans.variable,
 					geistMono.variable
 				)}>
-				<Header />
-				<div className="flex-1">{children}</div>
-				<Footer />
-				<Toaster />
+				<Provider>
+					<Header />
+					<div className="flex-1">{children}</div>
+					<Footer />
+					<Toaster />
+				</Provider>
 			</body>
 		</html>
 	)
