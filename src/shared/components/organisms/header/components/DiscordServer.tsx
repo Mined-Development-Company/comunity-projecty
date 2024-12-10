@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AvatarDefault } from "../../molecules/avatars/AvatarDefault"
+import { AvatarDefault } from "../../../molecules/avatars/AvatarDefault"
 
 type DiscordServerProps = {
 	variant: "desktop" | "mobile"
@@ -9,7 +9,7 @@ type DiscordServerProps = {
 export function DiscordServer({ variant }: DiscordServerProps) {
 	if (variant === "desktop")
 		return (
-			<div className="absolute right-24 hidden w-fit items-center justify-between gap-2 lg:flex">
+			<div className="absolute right-[5%] hidden w-fit items-center justify-between gap-2 lg:hidden xl:flex">
 				<AvatarDefault
 					src="https://freepnglogo.com/images/all_img/1708701355discord-icon-png.png"
 					size="xs"

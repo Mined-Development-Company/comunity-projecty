@@ -32,9 +32,9 @@ const listAvatar = [
 
 export function Footer() {
 	return (
-		<footer className="h-[86px] bg-content-shape-secondary lg:h-[138px]">
-			<div className="container m-auto flex size-full items-center justify-between px-4 lg:px-[7.5rem]">
-				<div className="">
+		<footer className="h-[86px] bg-content-shape-secondary xl:h-[138px]">
+			<div className="container m-auto flex size-full items-center justify-between px-4 xl:px-[7.5rem]">
+				<div>
 					<div className="flex items-center gap-1">
 						<Image className="size-[35px] lg:size-10" src={Logo} alt="Logo" />
 						<p className="font-bold text-content-primary lg:text-2xl">Rai Sync</p>
@@ -43,12 +43,12 @@ export function Footer() {
 					<nav className="ml-[53px]">
 						<ul className="flex gap-3">
 							<li className="transition-all duration-300 hover:scale-110">
-								<Link href={""}>
+								<Link href={"https://discord.gg/krY98xMNQg"} target="_blank">
 									<Image src={Discord} alt="Discord" />
 								</Link>
 							</li>
 							<li>
-								<Link href={""}>
+								<Link href={"https://www.twitch.tv/devrogerinho"} target="_blank">
 									<Image src={Twitch} alt="Twitch" />
 								</Link>
 							</li>
