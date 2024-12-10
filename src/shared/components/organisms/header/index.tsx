@@ -1,32 +1,35 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
+import Link from "next/link"
+
+import { useHeader } from "@/shared/hooks/useHeader"
 
 import Logo from "../../../../../public/favicon.svg"
 import { Button } from "../../atoms/button"
 import { SheetDefault } from "../../molecules/sheets/SheetDefault"
-import { ButtonSideBar } from "./ButtonSideBar"
-import { DiscordServer } from "./DiscordServer"
-import { NavLink } from "./NavLink"
+import { ButtonSideBar } from "./components/ButtonSideBar"
+import { DiscordServer } from "./components/DiscordServer"
+import { NavLink } from "./components/NavLink"
 
 const NavData = [
-	{ name: "Home", path: "" },
+	{ name: "Home", path: "/" },
 	{ name: "Ajuda", path: "" },
 	{ name: "Desafio", path: "" },
 	{ name: "Projetos", path: "" }
 ]
 
 export function Header() {
-	const [open, setOpen] = useState(false)
+	const { open, router, setOpen } = useHeader()
 
 	return (
 		<header className="w-full bg-content-shape-secondary shadow-md">
-			<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[7.5rem]">
-				<div className="flex items-center gap-1">
+			<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]">
+				<Link className="flex items-center gap-1" href="/">
 					<Image src={Logo} alt="Logo" />
 					<p className="text-2xl font-bold text-content-primary">Rai Sync</p>
-				</div>
+				</Link>
 
 				{/* Desktop */}
 				<nav className="hidden lg:block">
@@ -40,8 +43,10 @@ export function Header() {
 				</nav>
 
 				<div className="hidden gap-3 lg:flex">
-					<Button>Entrar</Button>
-					<Button variant="outline">Registrar</Button>
+					<Button onClick={() => router.push("/login")}>Entrar</Button>
+					<Button variant="outline" onClick={() => router.push("/register")}>
+						Registrar
+					</Button>
 				</div>
 
 				<DiscordServer variant="desktop" />
