@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import useHeader from "@/shared/hooks/useHeader"
+import { useHeader } from "@/shared/hooks/useHeader"
 
 import Logo from "../../../../../public/favicon.svg"
 import { Button } from "../../atoms/button"

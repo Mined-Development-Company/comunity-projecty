@@ -1,7 +1,8 @@
 // src/mocks/handlers.js
 
+import { api } from "@/shared/libs/axios"
+
 export async function getApp() {
-	const response = await fetch("http://localhost:3000/user")
-	const user = await response.json()
-	return user
+	const { data } = await api.get("/user")
+	return data
 }
