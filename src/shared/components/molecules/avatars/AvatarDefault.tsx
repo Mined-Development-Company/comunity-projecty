@@ -1,8 +1,8 @@
 import React from "react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "../../atoms/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/atoms/avatar"
 
-type AvatarDefaultProps = {
+interface AvatarDefaultProps {
 	src: string
 	size?: "xs" | "sm" | "md" | "lg"
 	name?: string
