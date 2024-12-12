@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 import { MultiAvatar as MultiAvatarType } from "@/shared/components/molecules/avatars/MultiAvatar"
 
@@ -19,11 +18,7 @@ export const Default: StoryObj<typeof AvatarDefault> = {
 		src: "https://github.com/shadcn.png",
 		name: "Rogerinho"
 	},
-	render: (args) => (
-		<DivStories>
-			<AvatarDefault {...args} />
-		</DivStories>
-	)
+	render: (args) => <AvatarDefault {...args} />
 }
 
 export const MultiAvatar: StoryObj<typeof MultiAvatarType> = {
@@ -47,9 +42,5 @@ export const MultiAvatar: StoryObj<typeof MultiAvatarType> = {
 			}
 		]
 	},
-	render: (args) => (
-		<DivStories>
-			<MultiAvatarType {...args} />
-		</DivStories>
-	)
+	render: (args) => <MultiAvatarType {...args} />
 }

@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { TextareaDefault } from "@/shared/components/molecules/textareas/TextareaDefault"
 
 const meta: Meta<typeof TextareaDefault> = {
@@ -18,9 +17,5 @@ export const Default: StoryObj<typeof TextareaDefault> = {
 		placeholder: "Animais",
 		hint: "Escreva sua dica aqui"
 	},
-	render: (args) => (
-		<DivStories>
-			<TextareaDefault {...args} />
-		</DivStories>
-	)
+	render: (args) => <TextareaDefault {...args} />
 }
