@@ -8,7 +8,6 @@ import {
 	PopoverContent,
 	PopoverTrigger
 } from "@/shared/components/atoms/popover/popover"
-import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 import { CardInfo } from "@/shared/components/molecules/cardInfo"
 import { cn } from "@/shared/utils/cn"
 

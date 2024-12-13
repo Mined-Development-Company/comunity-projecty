@@ -8,7 +8,6 @@ import { useHeader } from "@/shared/hooks/useHeader"
 
 import Logo from "../../../../../public/favicon.svg"
 import { Button } from "../../atoms/button"
-import { AvatarDefault } from "../../molecules/avatars/AvatarDefault"
 import { CardInfo } from "../../molecules/cardInfo"
 import { SheetDefault } from "../../molecules/sheets/SheetDefault"
 import { ButtonSideBar } from "./components/ButtonSideBar"
