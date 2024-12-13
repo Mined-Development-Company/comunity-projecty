@@ -1,12 +1,15 @@
 async function initMocks() {
 	if (typeof window === "undefined") {
 		const { server } = await import("./server")
-		return server.listen({ onUnhandledRequest: "bypass" })
+		server.listen()
+		console.log("passou na validação 1")
+	} else {
+		const { worker } = await import("./browser")
+		await worker.start()
+		console.log("passou na validação 2")
 	}
-	const { worker } = await import("./browser")
-	return worker.start({ onUnhandledRequest: "bypass" })
 }
 
-initMocks()
+await initMocks()
 
 export {}

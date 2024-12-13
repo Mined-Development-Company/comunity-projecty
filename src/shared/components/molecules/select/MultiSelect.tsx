@@ -62,7 +62,6 @@ export const MultiSelect = ({
 		const newSelectedValues = values.includes(value)
 			? values.filter((selectedValue) => selectedValue !== value)
 			: [...values, value]
-
 		onValueChange && onValueChange(newSelectedValues)
 		setValues(newSelectedValues)
 	}

@@ -1,7 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { MultiSelect } from "@/shared/components/molecules/select/MultiSelect"
 
 const meta: Meta<typeof MultiSelect> = {
@@ -33,9 +32,5 @@ export const Default: StoryObj<typeof MultiSelect> = {
 		],
 		hint: { className: "", text: "Escreva sua dica aqui", align: "end" }
 	},
-	render: (args) => (
-		<DivStories>
-			<MultiSelect {...args} />
-		</DivStories>
-	)
+	render: (args) => <MultiSelect {...args} />
 }

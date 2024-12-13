@@ -1,7 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { SelectDefault } from "@/shared/components/molecules/select/SelectDefault"
 
 const meta: Meta<typeof SelectDefault> = {
@@ -27,9 +26,5 @@ export const Default: StoryObj<typeof SelectDefault> = {
 		],
 		hint: { className: "", text: "Escreva sua dica aqui", align: "end" }
 	},
-	render: (args) => (
-		<DivStories>
-			<SelectDefault {...args} />
-		</DivStories>
-	)
+	render: (args) => <SelectDefault {...args} />
 }

@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
 
 const meta: Meta<typeof InputDefault> = {
@@ -25,9 +24,5 @@ export const Default: StoryObj<typeof InputDefault> = {
 		iconPosition: "right",
 		hint: { className: "", text: "Escreva sua dica aqui", align: "end" }
 	},
-	render: (args) => (
-		<DivStories>
-			<InputDefault {...args} />
-		</DivStories>
-	)
+	render: (args) => <InputDefault {...args} />
 }
