@@ -1,8 +1,8 @@
 import React from "react"
 
-import { AvatarDefault } from "../../../molecules/avatars/AvatarDefault"
+import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 
-type DiscordServerProps = {
+interface DiscordServerProps {
 	variant: "desktop" | "mobile"
 }
 
@@ -46,7 +46,7 @@ export function DiscordServer({ variant }: DiscordServerProps) {
 		)
 }
 
-type CircleValuesProps = {
+interface CircleValuesProps {
 	color: string
 	value: string | number
 }

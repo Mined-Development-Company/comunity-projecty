@@ -4,6 +4,7 @@ import "../src/shared/styles/globals.css"
 
 const preview: Preview = {
 	parameters: {
+		layoyt: "centered",
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

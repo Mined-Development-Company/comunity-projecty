@@ -3,7 +3,7 @@ import React, { type MouseEventHandler } from "react"
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
-type AuthCardProps = {
+interface AuthCardProps {
 	action: "login" | "register"
 	onClickDiscord?: MouseEventHandler<HTMLButtonElement>
 	onClickGithub?: MouseEventHandler<HTMLButtonElement>

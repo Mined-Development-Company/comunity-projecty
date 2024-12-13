@@ -5,7 +5,7 @@ import Link from "next/link"
 
 import { cn } from "@/shared/utils/cn"
 
-type NavLinkProps = {
+interface NavLinkProps {
 	href: string
 	children: ReactNode
 	className?: string

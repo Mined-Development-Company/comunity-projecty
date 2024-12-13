@@ -7,11 +7,11 @@ async function initMocks() {
 		console.log("passou na validação 1")
 	} else {
 		const { worker } = await import("./browser")
-		worker.start()
+		await worker.start()
 		console.log("passou na validação 2")
 	}
 }
 
-initMocks()
+await initMocks()
 
 export {}

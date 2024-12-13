@@ -17,7 +17,7 @@ const SHEET_SIDES = ["top", "right", "bottom", "left"] as const
 
 type SheetDefault = (typeof SHEET_SIDES)[number]
 
-type SheetDefaultProps = {
+interface SheetDefaultProps {
 	open?: boolean
 	header?: ReactNode
 	footer?: ReactNode

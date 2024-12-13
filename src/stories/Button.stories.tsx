@@ -1,7 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
 import { Button } from "@/shared/components/atoms/button"
-import { DivStories } from "@/shared/components/atoms/divStories"
 
 const meta: Meta<typeof Button> = {
 	title: "Atoms/Button",
@@ -33,11 +32,7 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 function renderStore(args: Story) {
-	return (
-		<DivStories>
-			<Button {...args} />
-		</DivStories>
-	)
+	return <Button {...args} />
 }
 
 export const Default: Story = {
