@@ -2,18 +2,19 @@
 
 import React from "react"
 
-import { useQuery } from "@tanstack/react-query"
-
-import { getApp } from "../../api/getApp"
 import { AuthCard } from "../../components/AuthCard"
+import { useModel } from "./hooks/useModel"
 
 export default function Login() {
-	const { data } = useQuery({ queryKey: ["dados"], queryFn: () => getApp() })
-	console.log(data)
-
+	const { setEnable, isLoading } = useModel()
 	return (
 		<div className="flex flex-1 items-center justify-center">
-			<AuthCard action="login" />
+			<AuthCard
+				action="login"
+				isLoading={isLoading}
+				onClickDiscord={() => setEnable((prev) => !prev)}
+				onClickGithub={() => setEnable((prev) => !prev)}
+			/>
 		</div>
 	)
 }

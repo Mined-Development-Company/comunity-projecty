@@ -36,7 +36,7 @@ export function Footer() {
 			<div className="container m-auto flex size-full items-center justify-between px-4 xl:px-[7.5rem]">
 				<div>
 					<div className="flex items-center gap-1">
-						<Image className="size-[35px] lg:size-10" src={Logo} alt="Logo" />
+						<Image className="size-[35px] lg:size-10" src={Logo} alt="Logo" priority />
 						<p className="font-bold text-content-primary lg:text-2xl">Rai Sync</p>
 					</div>
 

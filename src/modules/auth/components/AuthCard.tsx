@@ -1,15 +1,33 @@
-import React, { type MouseEventHandler } from "react"
+import React, { useState } from "react"
 
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
 type AuthCardProps = {
 	action: "login" | "register"
-	onClickDiscord?: MouseEventHandler<HTMLButtonElement>
-	onClickGithub?: MouseEventHandler<HTMLButtonElement>
+	isLoading: boolean
+	onClickDiscord?: () => void
+	onClickGithub?: () => void
 }
 
-export function AuthCard({ action, onClickGithub, onClickDiscord }: AuthCardProps) {
+export function AuthCard({
+	action,
+	isLoading,
+	onClickGithub,
+	onClickDiscord
+}: AuthCardProps) {
+	const [loads, setLoads] = useState({ discord: false, github: false })
+
+	function handleSetLoads(action: "github" | "discord") {
+		if (action === "github") {
+			onClickGithub && onClickGithub()
+			setLoads((prev) => ({ ...prev, github: true }))
+		} else {
+			onClickDiscord && onClickDiscord()
+			setLoads((prev) => ({ ...prev, discord: true }))
+		}
+	}
+
 	return (
 		<section className="flex w-[400px] flex-col items-center justify-center gap-5 rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-6">
 			<div className="space-y-1 text-center text-content-primary">
@@ -27,7 +45,9 @@ export function AuthCard({ action, onClickGithub, onClickDiscord }: AuthCardProp
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
-					onClick={onClickGithub}>
+					onClick={() => handleSetLoads("github")}
+					isLoading={loads.github}
+					disabled={isLoading}>
 					<Icon
 						className="min-h-[20px] min-w-[20px]"
 						name="GithubLogo"
@@ -39,7 +59,9 @@ export function AuthCard({ action, onClickGithub, onClickDiscord }: AuthCardProp
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
-					onClick={onClickDiscord}>
+					isLoading={loads.discord}
+					onClick={() => handleSetLoads("discord")}
+					disabled={isLoading}>
 					<Icon
 						className="min-h-[20px] min-w-[20px]"
 						name="DiscordLogo"

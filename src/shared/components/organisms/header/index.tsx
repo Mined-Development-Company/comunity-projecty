@@ -8,33 +8,29 @@ import { useHeader } from "@/shared/hooks/useHeader"
 
 import Logo from "../../../../../public/favicon.svg"
 import { Button } from "../../atoms/button"
+import { AvatarDefault } from "../../molecules/avatars/AvatarDefault"
 import { SheetDefault } from "../../molecules/sheets/SheetDefault"
 import { ButtonSideBar } from "./components/ButtonSideBar"
 import { DiscordServer } from "./components/DiscordServer"
 import { NavLink } from "./components/NavLink"
-
-const NavData = [
-	{ name: "Home", path: "/" },
-	{ name: "Ajuda", path: "" },
-	{ name: "Desafio", path: "" },
-	{ name: "Projetos", path: "" }
-]
+import Profile from "./components/Profile"
 
 export function Header() {
-	const { open, router, setOpen } = useHeader()
+	const { open, userData, navMobile, navDesktop, setOpen, handleNav, handleLogOut } =
+		useHeader()
 
 	return (
 		<header className="w-full bg-content-shape-secondary shadow-md">
 			<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]">
 				<Link className="flex items-center gap-1" href="/">
-					<Image src={Logo} alt="Logo" />
+					<Image src={Logo} alt="Logo" priority />
 					<p className="text-2xl font-bold text-content-primary">Rai Sync</p>
 				</Link>
 
 				{/* Desktop */}
 				<nav className="hidden lg:block">
 					<ul className="flex gap-16 font-medium text-content-primary">
-						{NavData.map(({ name, path }) => (
+						{navDesktop.map(({ name, path }) => (
 							<NavLink href={path} key={name}>
 								{name}
 							</NavLink>
@@ -42,12 +38,31 @@ export function Header() {
 					</ul>
 				</nav>
 
-				<div className="hidden gap-3 lg:flex">
-					<Button onClick={() => router.push("/login")}>Entrar</Button>
-					<Button variant="outline" onClick={() => router.push("/register")}>
-						Registrar
-					</Button>
-				</div>
+				{!userData ? (
+					<div className="hidden gap-3 lg:flex">
+						<Button onClick={() => handleNav("/login")}>Entrar</Button>
+						<Button variant="outline" onClick={() => handleNav("/register")}>
+							Registrar
+						</Button>
+					</div>
+				) : (
+					<Profile
+						{...userData}
+						content={
+							<div className="">
+								<Button
+									className="w-full"
+									variant="ghost"
+									onClick={() => handleNav("Profile")}>
+									Perfil
+								</Button>
+								<Button className="w-full" variant="ghost" onClick={handleLogOut}>
+									Sair
+								</Button>
+							</div>
+						}
+					/>
+				)}
 
 				<DiscordServer variant="desktop" />
 
@@ -60,15 +75,39 @@ export function Header() {
 					content={
 						<nav className="flex-1">
 							<ul className="flex flex-col font-medium text-content-primary">
-								{NavData.map(({ name, path }) => (
+								{navMobile.map(({ name, path }) => (
 									<NavLink className="w-fit py-3" href={path} key={name}>
 										{name}
 									</NavLink>
 								))}
 							</ul>
+							{userData?.id && (
+								<button
+									className="group flex flex-col font-normal text-content-primary"
+									onClick={handleLogOut}>
+									<p>sair</p>
+
+									<span className="min-h-[1px] w-0 rounded-full bg-green-hard transition-all duration-300 group-hover:w-full"></span>
+								</button>
+							)}
 						</nav>
 					}
-					footer={<DiscordServer variant="mobile" />}
+					footer={
+						<div className="w-full space-y-4">
+							{userData && (
+								<div className="flex items-center gap-2">
+									<AvatarDefault src={userData?.avatar ?? ""} size="sm" />
+									<div className="">
+										<span className="text-sm font-semibold text-content-primary">
+											{userData?.name}
+										</span>
+										<span className="block text-xs text-content-quaternary">usuário</span>
+									</div>
+								</div>
+							)}
+							<DiscordServer variant="mobile" />
+						</div>
+					}
 				/>
 			</div>
 		</header>
