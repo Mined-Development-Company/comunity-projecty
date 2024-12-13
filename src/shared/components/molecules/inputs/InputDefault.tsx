@@ -30,7 +30,7 @@ const InputDefault = React.forwardRef<HTMLInputElement, InputDefaultProps>(
 
 		return (
 			<DivInput>
-				<div className="space-y-1.5">
+				<div className="flex flex-col gap-1.5">
 					{label && <Label htmlFor="input">{label}</Label>}
 					<Label htmlFor="input" className="relative">
 						{iconPosition === "left" && icon && (
@@ -40,7 +40,7 @@ const InputDefault = React.forwardRef<HTMLInputElement, InputDefaultProps>(
 								size={20}
 							/>
 						)}
-						<Input ref={ref} id="picture" className={variantStyle} {...props} />
+						<Input ref={ref} id="input" className={variantStyle} {...props} />
 						{iconPosition === "right" && icon && (
 							<Icon
 								className="absolute right-2 top-1/2 -translate-y-1/2"

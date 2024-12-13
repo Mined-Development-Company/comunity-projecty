@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { useQuery } from "@tanstack/react-query"
 
-import { getAuth } from "@/modules/Auth/api/getAuth"
+import { getAuth } from "@/modules/auth/api/getAuth"
 
 export function useModel() {
 	const [enable, setEnable] = useState(false)

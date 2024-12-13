@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { DivStories } from "@/shared/components/atoms/divStories"
 import { CardInfo } from "@/shared/components/molecules/cardInfo"
 
 const meta: Meta<typeof CardInfo> = {
@@ -20,9 +19,5 @@ export const Default: StoryObj<typeof CardInfo> = {
 		description: "usurário",
 		dp: "top"
 	},
-	render: (args) => (
-		<DivStories>
-			<CardInfo {...args} />
-		</DivStories>
-	)
+	render: (args) => <CardInfo {...args} />
 }
