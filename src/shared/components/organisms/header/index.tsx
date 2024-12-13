@@ -9,6 +9,7 @@ import { useHeader } from "@/shared/hooks/useHeader"
 import Logo from "../../../../../public/favicon.svg"
 import { Button } from "../../atoms/button"
 import { AvatarDefault } from "../../molecules/avatars/AvatarDefault"
+import { CardInfo } from "../../molecules/cardInfo"
 import { SheetDefault } from "../../molecules/sheets/SheetDefault"
 import { ButtonSideBar } from "./components/ButtonSideBar"
 import { DiscordServer } from "./components/DiscordServer"
@@ -95,15 +96,13 @@ export function Header() {
 					footer={
 						<div className="w-full space-y-4">
 							{userData && (
-								<div className="flex items-center gap-2">
-									<AvatarDefault src={userData?.avatar ?? ""} size="sm" />
-									<div className="">
-										<span className="text-sm font-semibold text-content-primary">
-											{userData?.name}
-										</span>
-										<span className="block text-xs text-content-quaternary">usuário</span>
-									</div>
-								</div>
+								<CardInfo
+									rootClassName="w-fit"
+									image={userData.avatar}
+									title={userData.name}
+									description="Usuário"
+									dp="bottom"
+								/>
 							)}
 							<DiscordServer variant="mobile" />
 						</div>

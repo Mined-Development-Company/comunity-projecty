@@ -1,7 +1,6 @@
 import React from "react"
 
 import Login from "@/modules/Auth/pages/Login"
-import type { UserProps } from "@/shared/@types"
 
 export default function LoginPage() {
 	return (

@@ -9,6 +9,7 @@ import {
 	PopoverTrigger
 } from "@/shared/components/atoms/popover/popover"
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
+import { CardInfo } from "@/shared/components/molecules/cardInfo"
 import { cn } from "@/shared/utils/cn"
 
 type ProfileProps = {
@@ -34,11 +35,7 @@ export default function Profile({ avatar, name, content }: ProfileProps) {
 		<Popover open={open} onOpenChange={(open) => setOpen(open)}>
 			<PopoverTrigger className="hidden lg:block" ref={triggerButtonRef}>
 				<div className="flex items-center justify-center gap-2">
-					<AvatarDefault src={avatar} size="sm" />
-					<div className="flex flex-col items-start">
-						<span className="text-xs text-content-quaternary">usuário</span>
-						<span className="text-sm font-semibold text-content-primary">{name}</span>
-					</div>
+					<CardInfo image={avatar} title={name} description="Usuário" />
 					<Icon
 						name="CaretDown"
 						color="white"
