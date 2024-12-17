@@ -19,10 +19,10 @@ import { Label } from "../../atoms/label"
 
 const Form = FormProvider
 
-interface FormFieldContextValue<
+type FormFieldContextValue<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> {
+> = {
 	name: TName
 }
 
@@ -66,7 +66,7 @@ const useFormField = () => {
 	}
 }
 
-interface FormItemContextValue {
+type FormItemContextValue = {
 	id: string
 }
 

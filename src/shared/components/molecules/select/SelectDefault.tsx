@@ -17,7 +17,7 @@ import {
 } from "../../atoms/select"
 import { selectVariants } from "./selectVariants"
 
-export interface SelectDefaultProps {
+export type SelectDefaultProps = {
 	icon?: iconProps["name"]
 	items: { label: ReactNode; value: string }[]
 	hint?: HintProps

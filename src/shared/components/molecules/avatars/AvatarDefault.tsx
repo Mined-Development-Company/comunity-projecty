@@ -2,7 +2,7 @@ import React from "react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/atoms/avatar"
 
-interface AvatarDefaultProps {
+type AvatarDefaultProps = {
 	src: string
 	size?: "xs" | "sm" | "md" | "lg"
 	name?: string
