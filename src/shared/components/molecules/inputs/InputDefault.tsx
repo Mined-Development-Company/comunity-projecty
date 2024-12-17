@@ -2,8 +2,6 @@
 
 import React, { type ChangeEvent } from "react"
 
-import { cn } from "@/shared/utils/cn"
-
 import Hint, { type HintProps } from "../../atoms/hint"
 import { Icon } from "../../atoms/icon/Icon"
 import type { iconProps } from "../../atoms/icon/iconType"

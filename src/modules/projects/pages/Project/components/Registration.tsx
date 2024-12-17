@@ -1,7 +1,5 @@
 "use client"
 
-import { useState } from "react"
-
 import { Box } from "@/shared/components/atoms/box"
 import { Button } from "@/shared/components/atoms/button"
 import { Checkbox } from "@/shared/components/atoms/checkbox"
@@ -23,8 +21,6 @@ const radios = [
 ]
 
 export function Registration() {
-	const [radio, setRadio] = useState("")
-
 	return (
 		<Box>
 			<form action="" className="space-y-6">

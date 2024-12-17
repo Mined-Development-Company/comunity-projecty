@@ -16,8 +16,8 @@ export function Breadcrumb() {
 		.split("/")
 		.reduce<{ title: string; href: string }[]>((ac, va) => {
 			// ac => acumulador , va => valorAtual
-			const regex = /-/
-			if (regex.test(va)) {
+
+			if (va.includes("-")) {
 				return [...ac, { title: capitalize(va.split("-").join(" ")), href: "/" + va }]
 			}
 			if (va !== "") {

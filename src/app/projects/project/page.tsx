@@ -1,11 +1,13 @@
-import React from "react"
+import React, { Suspense } from "react"
 
 import { Project } from "@/modules/projects/pages/Project"
 
 export default function ProjectPage() {
 	return (
 		<div>
-			<Project />
+			<Suspense fallback={<div>Carregando...</div>}>
+				<Project />
+			</Suspense>
 		</div>
 	)
 }

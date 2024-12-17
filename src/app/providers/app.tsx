@@ -11,7 +11,7 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === "enable") {
 	await import("@/shared/libs/mocks")
 }
 
-interface ProviderProps {
+type ProviderProps = {
 	children: ReactNode
 }
 

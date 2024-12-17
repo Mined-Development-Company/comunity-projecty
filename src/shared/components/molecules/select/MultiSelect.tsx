@@ -19,7 +19,7 @@ import { Label } from "../../atoms/label"
 import { Popover, PopoverContent, PopoverTrigger } from "../../atoms/popover/popover"
 import { selectVariants } from "./selectVariants"
 
-interface ISelectProps {
+type ISelectProps = {
 	max: number
 	hint?: HintProps
 	items: { label: ReactNode; value: string }[]
@@ -58,7 +58,7 @@ export const MultiSelect = ({
 		if (triggerButtonRef.current) {
 			setWidthContent(triggerButtonRef.current.offsetWidth)
 		}
-	}, [triggerButtonRef.current, classTrigger])
+	}, [triggerButtonRef, classTrigger])
 
 	const handleSelectChange = (value: string) => {
 		const newSelectedValues = values.includes(value)

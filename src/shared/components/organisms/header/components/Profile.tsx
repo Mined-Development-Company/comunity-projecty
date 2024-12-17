@@ -28,7 +28,7 @@ export default function Profile({ avatar, name, content }: ProfileProps) {
 		if (triggerButtonRef.current) {
 			setWidthContent(triggerButtonRef.current.offsetWidth)
 		}
-	}, [triggerButtonRef.current])
+	}, [triggerButtonRef])
 
 	return (
 		<Popover open={open} onOpenChange={(open) => setOpen(open)}>
