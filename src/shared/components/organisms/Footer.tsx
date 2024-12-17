@@ -32,7 +32,7 @@ const listAvatar = [
 
 export function Footer() {
 	return (
-		<footer className="h-[86px] bg-content-shape-secondary xl:h-[138px]">
+		<footer className="min-h-[86px] bg-content-shape-secondary xl:min-h-[138px]">
 			<div className="container m-auto flex size-full items-center justify-between px-4 xl:px-[7.5rem]">
 				<div>
 					<div className="flex items-center gap-1">

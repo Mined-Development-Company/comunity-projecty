@@ -22,7 +22,7 @@ export function Header() {
 	return (
 		<header className="w-full bg-content-shape-secondary shadow-md">
 			<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]">
-				<Link className="flex items-center gap-1" href="/">
+				<Link className="-ml-2 flex items-center gap-1" href="/">
 					<Image src={Logo} alt="Logo" priority />
 					<p className="text-2xl font-bold text-content-primary">Rai Sync</p>
 				</Link>

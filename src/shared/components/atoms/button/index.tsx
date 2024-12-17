@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 
 import { Slot } from "@radix-ui/react-slot"
@@ -22,15 +24,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			<Comp
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref}
-				children={
-					isLoading ? (
-						<Icon name="CircleNotch" className="animate-spin text-white" />
-					) : (
-						children
-					)
-				}
-				{...props}
-			/>
+				{...props}>
+				{isLoading ? (
+					<Icon name="CircleNotch" className="animate-spin text-white" />
+				) : (
+					children
+				)}
+			</Comp>
 		)
 	}
 )
