@@ -24,7 +24,7 @@ interface ISelectProps {
 	hint?: HintProps
 	items: { label: ReactNode; value: string }[]
 	label?: string
-	hasHint: boolean
+	hasHint?: boolean
 	placeholder: string
 	classTrigger?: string
 	selectedValues?: string[]
@@ -63,7 +63,7 @@ export const MultiSelect = ({
 			? values.filter((selectedValue) => selectedValue !== value)
 			: [...values, value]
 		onValueChange && onValueChange(newSelectedValues)
-		setValues(newSelectedValues)
+		setValues(newSelectedValues) 
 	}
 
 	const isOptionSelected = (value: string) => values.includes(value)
