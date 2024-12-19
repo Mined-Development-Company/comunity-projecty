@@ -8,7 +8,7 @@ import type { UserProps } from "../@types"
 const defaultNav = [
 	{ name: "Home", path: "/" },
 	{ name: "Ajuda", path: "" },
-	{ name: "Desafio", path: "" },
+	{ name: "Desafio", path: "/desafios" },
 	{ name: "Projetos", path: "" }
 ]
 

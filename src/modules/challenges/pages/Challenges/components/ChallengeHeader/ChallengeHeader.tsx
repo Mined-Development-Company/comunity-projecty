@@ -14,8 +14,8 @@ type ChallengeHeaderProps = {
 
 export default function ChallengeHeader({ items }: ChallengeHeaderProps) {
 	return (
-		<div className="flex max-w-[1198px] justify-between mx-auto my-16">
-			<div className="flex gap-3">
+		<div className="flex max-w-[1198px] justify-between mx-auto my-16 xl:p-0 p-10 ">
+			<div className="flex gap-3 flex-col md:flex-row">
 				<h2 className="text-3xl capitalize">desafios</h2>
 				<div className="flex gap-3 lg:w-[505px]">
 					<InputDefault
@@ -27,7 +27,7 @@ export default function ChallengeHeader({ items }: ChallengeHeaderProps) {
 				</div>
 			</div>
 
-			<Button className="w-[141px]">
+			<Button className="hidden md:flex w-[141px]">
 				Criar seu Desafio
 			</Button>
 		</div>
