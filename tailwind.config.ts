@@ -87,5 +87,8 @@ export default {
 			}
 		}
 	},
-	plugins: [animate]
+	plugins: [animate],
+	corePlugins: {
+		preflight: true
+	}
 } satisfies Config

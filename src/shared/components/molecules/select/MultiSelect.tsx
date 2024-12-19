@@ -19,14 +19,15 @@ import { Label } from "../../atoms/label"
 import { Popover, PopoverContent, PopoverTrigger } from "../../atoms/popover/popover"
 import { selectVariants } from "./selectVariants"
 
-interface ISelectProps {
+type ISelectProps = {
 	max: number
 	hint?: HintProps
 	items: { label: ReactNode; value: string }[]
 	label?: string
 	hasHint?: boolean
-	placeholder: string
+	placeholder?: string
 	classTrigger?: string
+	className?: string
 	selectedValues?: string[]
 	onValueChange?: Dispatch<SetStateAction<string[]>>
 }
@@ -37,6 +38,7 @@ export const MultiSelect = ({
 	items = [],
 	label,
 	hasHint = true,
+	className,
 	placeholder,
 	classTrigger,
 	selectedValues = [],
@@ -56,7 +58,7 @@ export const MultiSelect = ({
 		if (triggerButtonRef.current) {
 			setWidthContent(triggerButtonRef.current.offsetWidth)
 		}
-	}, [triggerButtonRef.current, classTrigger])
+	}, [triggerButtonRef, classTrigger])
 
 	const handleSelectChange = (value: string) => {
 		const newSelectedValues = values.includes(value)
@@ -70,10 +72,10 @@ export const MultiSelect = ({
 
 	return (
 		<Popover>
-			<div className="space-y-0.5">
+			<div className={cn("space-y-0.5", className)}>
 				<div className="flex flex-col gap-2">
 					{label && <Label>{label}</Label>}
-					<PopoverTrigger className="w-auto">
+					<PopoverTrigger className="flex w-auto flex-1">
 						<div className={variantStyle} ref={triggerButtonRef}>
 							<div className="flex flex-1 items-end gap-1">
 								{values.length !== 0 && items.length ? (

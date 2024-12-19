@@ -9,7 +9,7 @@ const defaultNav = [
 	{ name: "Home", path: "/" },
 	{ name: "Ajuda", path: "" },
 	{ name: "Desafio", path: "" },
-	{ name: "Projetos", path: "" }
+	{ name: "Projetos", path: "/projects" }
 ]
 
 const navGuest = [
