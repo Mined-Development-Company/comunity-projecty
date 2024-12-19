@@ -37,6 +37,7 @@ export default tseslint.config(
 			...reactplugin.configs["jsx-runtime"].rules,
 			...nextplugin.configs.recommended.rules,
 			...nextplugin.configs["core-web-vitals"].rules,
+			"@typescript-eslint/no-unused-expressions": false,
 			"@typescript-eslint/no-misused-promises": [
 				"error",
 				{

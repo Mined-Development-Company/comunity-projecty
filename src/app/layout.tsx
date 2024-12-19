@@ -40,7 +40,7 @@ export default function RootLayout({
 			</Head>
 			<body
 				className={cn(
-					"flex flex-col bg-content-shape-primary antialiased",
+					"flex flex-col bg-content-shape-primary antialiased text-content-primary",
 					geistSans.variable,
 					geistMono.variable
 				)}>
