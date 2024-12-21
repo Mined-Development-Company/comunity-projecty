@@ -5,9 +5,9 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-green-hard hover:bg-green-hard/90",
+				default: "bg-green-hard hover:bg-green-hard/85",
 				secondary:
-					"bg-content-shape-secondary hover:bg-content-shape-secondary/80 border border-content-shape-quaternary",
+					"bg-content-shape-secondary hover:bg-content-shape-primary border border-content-shape-quaternary",
 				outline:
 					"border border-input-mid bg-transparent hover:bg-content-shape-quaternary",
 				"outline-green": "border border-green-hard hover:bg-content-shape-secondary",

@@ -39,7 +39,7 @@ home/
 Essa abordagem modular facilita a separação de responsabilidades e melhora a organização do código. Cada módulo implementa o padrão **MVVM**, organizando as responsabilidades em:
 
 - **Model:** Gerenciamento de dados e lógica de negócios.
-- **View:** Componentes e páginas que renderizam a interface do usuário.
+- **View:** Componentes e páginas que renderizam a type do usuário.
 - **ViewModel:** Intermediação entre a View e o Model, contendo lógica de apresentação e estado.
 
 #### **3. shared**
@@ -61,9 +61,9 @@ shared/
 
 Os componentes dentro de `shared/components` seguem o padrão **Arquitetura Atômica**, divididos em:
 
-- **Átomos:** Os menores componentes da interface, como botões, ícones ou inputs.
+- **Átomos:** Os menores componentes da type, como botões, ícones ou inputs.
 - **Moléculas:** Conjuntos de átomos que formam estruturas simples, como um campo de busca com botão.
-- **Organismos:** Combinações de moléculas e átomos que criam partes completas da interface, como cabeçalhos ou formulários.
+- **Organismos:** Combinações de moléculas e átomos que criam partes completas da type, como cabeçalhos ou formulários.
 
 #### **4. stories**
 Este diretório contém as histórias de componentes utilizadas com Storybook. Ele é organizado de forma paralela aos componentes no diretório `shared`.

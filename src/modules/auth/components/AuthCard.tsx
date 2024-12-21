@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
-interface AuthCardProps {
+type AuthCardProps = {
 	action: "login" | "register"
 	isLoading: boolean
 	onClickDiscord?: () => void

@@ -2,8 +2,6 @@
 
 import React, { type ChangeEvent } from "react"
 
-import { cn } from "@/shared/utils/cn"
-
 import Hint, { type HintProps } from "../../atoms/hint"
 import { Icon } from "../../atoms/icon/Icon"
 import type { iconProps } from "../../atoms/icon/iconType"
@@ -29,7 +27,7 @@ const InputDefault = React.forwardRef<HTMLInputElement, InputDefaultProps>(
 		const variantStyle = inputVariant({ iconPosition, className })
 
 		return (
-			<DivInput>
+			<DivInput className={className}>
 				<div className="flex flex-col gap-1.5">
 					{label && <Label htmlFor="input">{label}</Label>}
 					<Label htmlFor="input" className="relative">

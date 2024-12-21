@@ -46,8 +46,11 @@ export default tseslint.config(
 					}
 				}
 			],
+			"@typescript-eslint/consistent-type-definitions": ["warn", { using: "type" }],
+			"@typescript-eslint/no-unsafe-assignment": "off",
+			"@typescript-eslint/no-unused-expressions": "off",
 			"@typescript-eslint/no-unused-vars": [
-				"error",
+				"warn",
 				{
 					args: "all",
 					argsIgnorePattern: "^_",

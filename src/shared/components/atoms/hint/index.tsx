@@ -2,7 +2,7 @@ import React from "react"
 
 import { cn } from "@/shared/utils/cn"
 
-export interface HintProps {
+export type HintProps = {
 	text?: string
 	align?: "start" | "center" | "end"
 	className?: string

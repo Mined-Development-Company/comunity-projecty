@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 
 import { Slot } from "@radix-ui/react-slot"
@@ -8,12 +10,11 @@ import { cn } from "@/shared/utils/cn"
 import { Icon } from "../icon/Icon"
 import { buttonVariants } from "./variants"
 
-export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-		VariantProps<typeof buttonVariants> {
-	asChild?: boolean
-	isLoading?: boolean
-}
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+	VariantProps<typeof buttonVariants> & {
+		asChild?: boolean
+		isLoading?: boolean
+	}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ className, variant, size, asChild = false, children, isLoading, ...props }, ref) => {
@@ -22,15 +23,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			<Comp
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref}
-				children={
-					isLoading ? (
-						<Icon name="CircleNotch" className="animate-spin text-white" />
-					) : (
-						children
-					)
-				}
-				{...props}
-			/>
+				{...props}>
+				{isLoading ? (
+					<Icon name="CircleNotch" className="animate-spin text-white" />
+				) : (
+					children
+				)}
+			</Comp>
 		)
 	}
 )

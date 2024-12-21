@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 
 import { cn } from "@/shared/utils/cn"
 
-interface NavLinkProps {
+type NavLinkProps = {
 	href: string
 	children: ReactNode
 	className?: string
