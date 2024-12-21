@@ -13,9 +13,11 @@ export default function RootLayout({ children }: LayoutProps) {
 	const router = useRouter()
 
 	useEffect(() => {
-		const user = localStorage.getItem("userData") as UserProps | null
-		if (user) {
-			router.push("/")
+		if (typeof window !== "undefined") {
+			const user = localStorage.getItem("userData") as UserProps | null
+			if (user) {
+				router.push("/")
+			}
 		}
 	}, [router])
 
