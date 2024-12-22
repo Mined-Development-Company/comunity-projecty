@@ -1,4 +1,4 @@
-export type UserProps = {
+export interface UserProps {
 	avatar: string
 	email: string
 	id: string

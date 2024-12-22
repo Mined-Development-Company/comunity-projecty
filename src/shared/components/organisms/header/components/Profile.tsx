@@ -11,7 +11,7 @@ import {
 import { CardInfo } from "@/shared/components/molecules/cardInfo"
 import { cn } from "@/shared/utils/cn"
 
-type ProfileProps = {
+interface ProfileProps {
 	name: string
 	avatar: string
 	content: ReactNode
@@ -28,7 +28,7 @@ export default function Profile({ avatar, name, content }: ProfileProps) {
 		if (triggerButtonRef.current) {
 			setWidthContent(triggerButtonRef.current.offsetWidth)
 		}
-	}, [triggerButtonRef])
+	}, [])
 
 	return (
 		<Popover open={open} onOpenChange={(open) => setOpen(open)}>

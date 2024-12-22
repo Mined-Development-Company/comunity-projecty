@@ -3,7 +3,7 @@ import { cn } from "@/shared/utils/cn"
 import { AvatarDefault } from "../avatars/AvatarDefault"
 import { variantDescription, variantTitle } from "./variants"
 
-type CardInfoProps = {
+interface CardInfoProps {
 	dp?: "top" | "center" | "bottom"
 	size?: "xs" | "sm" | "md" | "lg"
 	image: string
