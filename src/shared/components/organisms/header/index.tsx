@@ -53,7 +53,7 @@ export function Header() {
 								<Button
 									className="w-full"
 									variant="ghost"
-									onClick={() => handleNav("Profile")}>
+									onClick={() => handleNav("profile")}>
 									Perfil
 								</Button>
 								<Button className="w-full" variant="ghost" onClick={handleLogOut}>
