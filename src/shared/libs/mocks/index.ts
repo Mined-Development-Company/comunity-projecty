@@ -10,6 +10,6 @@ async function initMocks() {
 	}
 }
 
-await initMocks()
+if (process.env.NODE_ENV === "development") await initMocks()
 
 export {}
