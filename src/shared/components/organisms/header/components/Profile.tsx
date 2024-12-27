@@ -11,7 +11,7 @@ import {
 import { CardInfo } from "@/shared/components/molecules/cardInfo"
 import { cn } from "@/shared/utils/cn"
 
-interface ProfileProps {
+export type ProfileProps = {
 	name: string
 	avatar: string
 	content: ReactNode
