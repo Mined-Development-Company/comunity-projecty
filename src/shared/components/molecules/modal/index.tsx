@@ -31,7 +31,7 @@ const Modal = forwardRef<React.ElementRef<typeof ModalContent>, ModalProps>(
 			description,
 			trigger,
 			children,
-			defaultCloseButton,
+			defaultCloseButton = false,
 			layout = "WithCloseAction",
 			customActions,
 			...props
@@ -43,7 +43,10 @@ const Modal = forwardRef<React.ElementRef<typeof ModalContent>, ModalProps>(
 				<ModalTrigger asChild>{trigger}</ModalTrigger>
 				<ModalPortal>
 					<ModalOverlay />
-					<ModalContent ref={ref} {...props}>
+					<ModalContent
+						ref={ref}
+						onInteractOutside={(e) => e.preventDefault()}
+						{...props}>
 						<ModalHeader>
 							<ModalTitle>{title}</ModalTitle>
 							<ModalDescription>{description}</ModalDescription>
@@ -61,7 +64,7 @@ const Modal = forwardRef<React.ElementRef<typeof ModalContent>, ModalProps>(
 									{customActions}
 								</ModalActions>
 							) : (
-								<ModalClose>
+								<ModalClose className="absolute right-2.5 top-2.5 inline-flex size-10 justify-end">
 									<Icon name="X" size="20" />
 									<span className="sr-only">FECHAR</span>
 								</ModalClose>
@@ -74,5 +77,5 @@ const Modal = forwardRef<React.ElementRef<typeof ModalContent>, ModalProps>(
 	}
 )
 
-export { Modal }
+export { Modal, ModalClose }
 export type { ModalProps }
