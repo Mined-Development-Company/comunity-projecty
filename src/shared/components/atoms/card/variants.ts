@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 export const variantContent = cva("w-full h-fit flex p-4 [&>header>img]:bg-cover", {
 	variants: {
 		orientation: {
-			vertical: "flex-col min-w-[364px] [&>header]:has-[img]:p-0",
+			vertical: "flex-col [&>header]:has-[img]:p-0",
 			horizontal:
 				"flex-row space-x-4 [&>header]:items-center [&>footer]:justify-center [&>header]:has-[img]:min-w-[118px] [&>header]:has-[img]:p-0 [&>header>img]:rounded-sm"
 		}

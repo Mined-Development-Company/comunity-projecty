@@ -17,6 +17,7 @@ type CardProps = {
 	footerChildren?: React.ReactNode
 	badges?: React.ReactNode
 	orientation?: "vertical" | "horizontal"
+	titleSize?: "sm" | "md" | "lg"
 } & React.ComponentPropsWithoutRef<typeof CardContent>
 
 export function Card({
@@ -25,6 +26,7 @@ export function Card({
 	description,
 	image,
 	badges,
+	titleSize,
 	orientation = "horizontal",
 	...props
 }: CardProps) {
@@ -42,7 +44,7 @@ export function Card({
 						/>
 					) : (
 						<>
-							<CardTitle>{title}</CardTitle>
+							<CardTitle size={titleSize}>{title}</CardTitle>
 							{badges && (
 								<div className="flex flex-row items-center gap-2.5">{badges}</div>
 							)}
@@ -63,7 +65,7 @@ export function Card({
 					role={image ? "contentinfo" : "footer"}>
 					{image ? (
 						<>
-							<CardTitle>{title}</CardTitle>
+							<CardTitle size={titleSize}>{title}</CardTitle>
 							{badges && (
 								<div className="flex flex-row items-center gap-2.5">{badges}</div>
 							)}
