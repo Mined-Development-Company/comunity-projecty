@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 
 import { getAuth, type GetAuthDataProps } from "@/modules/auth/api/getAuth"
+import { queryClient } from "@/shared/libs/react-query"
 
 export function useModel() {
 	const [enable, setEnable] = useState(false)
@@ -12,7 +13,9 @@ export function useModel() {
 		queryFn: async () => {
 			await new Promise((resolver) => setTimeout(resolver, 1000))
 			const response = await getAuth()
-			localStorage.setItem("userData", JSON.stringify(response))
+			queryClient.setQueryData(["userData"], response)
+			if (process.env.NODE_ENV === "development")
+				localStorage.setItem("userData", JSON.stringify(response))
 			window.location.reload()
 			return response
 		},
