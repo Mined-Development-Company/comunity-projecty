@@ -3,7 +3,7 @@
 import React, { useEffect, type ReactNode } from "react"
 import { useRouter } from "next/navigation"
 
-import type { UserProps } from "@/shared/@types"
+import type { UserProps } from "@/shared/schemas/UserProps"
 
 type LayoutProps = {
 	children: ReactNode
