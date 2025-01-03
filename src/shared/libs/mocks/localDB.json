@@ -1,0 +1,99 @@
+{
+	"users": [
+		{
+			"id": "c7b3d8e0",
+			"name": "John Cena",
+			"email": "johncena@mail.com",
+			"avatar": "https://github.com/shadcn.png",
+			"profileId": "3fb746a9"
+		},
+		{
+			"id": "90da0225",
+			"name": "Julia Silva  Camargo",
+			"email": "juliacamargo@mail.com",
+			"avatar": "https://github.com/shadcn.png",
+			"profileId": "dca06ff6"
+		}
+	],
+	"profiles": [
+		{
+			"id": "3fb746a9",
+			"description": "Desenvolvedor Front-End apaixonado por design e UX.",
+			"banner": "https://placehold.co/874x240.png?text=Placeholder%0A(874x240)&font=roboto",
+			"avatar": "https://github.com/shadcn.png",
+			"social": {
+				"github": "https://github.com/johncena",
+				"facebook": "https://facebook.com/johncena",
+				"instagram": "https://instagram.com/johncena",
+				"linkedin": "https://linkedin.com/in/johncena"
+			},
+			"createdAt": "2024-01-16T22:00:00.000Z",
+			"updatedAt": "2024-01-16T22:00:00.000Z",
+			"challengeId": [1, 2],
+			"postId": [1, 2]
+		},
+		{
+			"id": "dca06ff6",
+			"description": "Desenvolvedor(a) Full Stack com foco em Next.js, TypeScript e Tailwind CSS, especializado(a) em criar interfaces acessíveis e responsivas, priorizando a experiência do usuário.",
+			"banner": "https://placehold.co/874x240.png?text=Placeholder%0A(874x240)&font=roboto",
+			"avatar": "https://github.com/shadcn.png",
+			"social": {
+				"github": "https://github.com/juliacamargo",
+				"facebook": "https://facebook.com/juliacamargo",
+				"instagram": "https://instagram.com/juliacamargo",
+				"linkedin": "https://linkedin.com/in/juliacamargo"
+			},
+			"createdAt": "2024-01-16T22:00:00.000Z",
+			"updatedAt": "2024-01-16T22:00:00.000Z",
+			"challengeId": [1, 2],
+			"postId": [1, 2]
+		}
+	],
+	"challenges": [
+		{
+			"id": 1,
+			"thumbnail": {
+				"src": "https://placehold.co/118x98.png?text=Placeholder%0A(118x98)&font=roboto",
+				"alt": "Challenge Thumbnail Image"
+			},
+			"title": "Pagina de vendas E-commerce",
+			"body": "Transformar em página o design da Loja de Chicletes, uma marca fictícia de gomas de mascar com diferentes sabores e embalagens. O objetivo é criar uma página responsiva e atraente que mostre os produtos da loja.",
+			"badges": ["HTML", "CSS", "JS"],
+			"createdAt": "2024-01-16T22:00:00.000Z",
+			"updatedAt": "2024-01-16T22:00:00.000Z",
+			"profileId": "3fb746a9"
+		}
+	],
+	"posts": [
+		{
+			"id": 1,
+			"profileId": "3fb746a9",
+			"title": "Como formatar datas em ISO 8601 adicionando horas e minutos em JavaScript?",
+			"body": "Estou trabalhando em um projeto que exige que eu manipule datas no formato ISO 8601 e adicione horas e minutos específicos a elas. Atualmente, estou usando a biblioteca date-fns para trabalhar com datas, mas não encontrei uma maneira clara de adicionar horas e minutos a uma data no formato ISO 8601 diretamente. Por exemplo, se eu tiver a data 2024-11-03T00:00:00Z, quero poder adicionar 3 horas e 30 minutos para que o resultado final seja 2024-11-03T03:30:00Z. Alguém sabe como fazer isso com date-fns ou algum outro método em JavaScript?",
+			"comments": [
+				{
+					"id": 1,
+					"likes": 5,
+					"profileId": "3fb746a9",
+					"createdAt": "2024-01-16T22:00:00.000Z",
+					"updatedAt": "2024-01-16T22:00:00.000Z"
+				}
+			],
+			"createdAt": "2024-01-16T22:00:00.000Z",
+			"updatedAt": "2024-01-16T22:00:00.000Z"
+		}
+	],
+	"projects": [
+		{
+			"id": 1,
+			"title": "Desenvolvendo um Sistema de Gerenciamento de Tarefas Inovador",
+			"body": "Estamos empolgados em compartilhar os detalhes do nosso mais recente projeto: um Sistema de Gerenciamento de Tarefas inovador. Este sistema está sendo projetado para revolucionar a forma como equipes e indivíduos organizam e acompanham suas tarefas diárias.",
+			"thumbnail": {
+				"src": "https://placehold.co/118x98.png?text=Placeholder%0A(118x98)&font=roboto",
+				"alt": "Project Thumbnail Image"
+			},
+			"createdAt": "2024-01-16T22:00:00.000Z",
+			"updatedAt": "2024-01-16T22:00:00.000Z"
+		}
+	]
+}
