@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
-import type { UserProps } from "@/shared/schemas/UserProps"
+import type { UserProps } from "@/shared/@types/UserProps"
 
 const defaultNav = [
 	{ name: "Home", path: "/" },

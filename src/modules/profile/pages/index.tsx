@@ -2,18 +2,16 @@
 
 import type React from "react"
 
-import {
-	ProfileActivities,
-	ProfileInfo,
-	ProfileStats
-} from "@/modules/profile/components"
-import { useProfile } from "@/modules/profile/pages/hooks/useProfile"
 import { Skeleton } from "@/shared/components/molecules/skeleton"
 import { Donation } from "@/shared/components/organisms/donation"
 
-import { ProfileActivitiesSkeleton } from "../components/ProfileActivities"
-import { ProfileInfoSkeleton } from "../components/ProfileInfo"
-import { ProfileStatsSkeleton } from "../components/ProfileStats"
+import { ProfileActivities } from "../components/ProfileActivities"
+import ProfileInfo from "../components/ProfileInfo"
+import ProfileStats from "../components/ProfileStats"
+import { ProfileActivitiesSkeleton } from "../components/skeletons/ProfileActivitiesSkeleton"
+import { ProfileInfoSkeleton } from "../components/skeletons/ProfileInfoSkeleton"
+import { ProfileStatsSkeleton } from "../components/skeletons/ProfileStatsSkeleton"
+import { useModel } from "./hooks/useModel"
 
 function ProfileLayoutSkeleton() {
 	return (
@@ -33,8 +31,8 @@ function ProfileLayoutSkeleton() {
 	)
 }
 
-export function ProfileLayout() {
-	const { data: profileData, isLoading } = useProfile()
+export function Profile() {
+	const { data: profileData, isLoading } = useModel()
 
 	if (isLoading && !profileData) return <ProfileLayoutSkeleton />
 

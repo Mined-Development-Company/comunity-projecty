@@ -5,8 +5,6 @@ import type React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
-import { ProfileSchema, type ProfileProps } from "@/shared/schemas/Profile.schema"
-import { useProfile } from "@/modules/profile/pages/hooks/useProfile"
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { Input } from "@/shared/components/atoms/input/input"
@@ -23,15 +21,19 @@ import {
 import { InputFile } from "@/shared/components/molecules/inputs/inputFile"
 import { Modal, ModalClose } from "@/shared/components/molecules/modal"
 
+import { useModel } from "../../pages/hooks/useModel"
+import { ProfileSchema, type ProfileProps } from "../../schema/Profile.schema"
+
 export default ({
 	className,
 	...props
 }: React.ComponentPropsWithoutRef<typeof Button>) => {
-	const { updateProfile } = useProfile()
+	const { updateProfile } = useModel()
 
 	const form = useForm<ProfileProps>({
 		resolver: zodResolver(ProfileSchema)
 	})
+
 	return (
 		<Modal
 			className="max-h-[816px] max-w-[395px] md:w-[670px]"

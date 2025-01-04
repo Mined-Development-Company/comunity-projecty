@@ -11,11 +11,11 @@ import {
 	getProfile,
 	updateProfile
 } from "@/modules/profile/api/controllers"
-import type { ProfileProps } from "@/shared/schemas/Profile.schema"
-import type { UserProps } from "@/shared/schemas/UserProps"
+import type { ProfileProps } from "@/modules/profile/schema/Profile.schema"
+import type { UserProps } from "@/shared/@types/UserProps"
 import { queryClient } from "@/shared/libs/react-query"
 
-export function useProfile() {
+export function useModel() {
 	const { id } = useParams<{ id: string }>()
 	const [userData, setUserData] = useState<Omit<UserProps, "profileId"> | null>(null)
 

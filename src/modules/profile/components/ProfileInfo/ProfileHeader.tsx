@@ -1,9 +1,11 @@
 import React from "react"
 import Image from "next/image"
 
-import type { ProfileProps } from "@/shared/schemas/Profile.schema"
 import { EditProfile } from "@/modules/profile/components/ProfileInfo"
+import type { ProfileProps } from "@/modules/profile/schema/Profile.schema"
 import { Avatar, AvatarImage } from "@/shared/components/atoms/avatar"
+
+import Banner from "../../../../../public/profile/banner.webp"
 
 interface ProfileHeaderProps {
 	banner: ProfileProps["banner"]
@@ -15,10 +17,9 @@ const ProfileHeader = ({ avatar, banner, editEnabled = false }: ProfileHeaderPro
 	return (
 		<header>
 			<Image
-				src={banner}
-				datatype="image/png"
+				src={banner ?? Banner}
 				alt="Profile background"
-				className="w-full rounded-t-lg object-cover"
+				className="max-h-[240px] w-full max-w-[874px] rounded-t-lg object-cover"
 				width={874}
 				height={240}
 			/>

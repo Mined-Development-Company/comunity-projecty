@@ -1,7 +1,7 @@
 import React from "react"
 
-import { ProfileLayout } from "@/modules/profile/pages/ProfileLayout"
+import { Profile } from "@/modules/profile/pages"
 
 export default function ProfilePage() {
-	return <ProfileLayout />
+	return <Profile />
 }

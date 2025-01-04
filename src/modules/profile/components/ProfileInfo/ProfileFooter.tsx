@@ -1,11 +1,11 @@
 import React from "react"
 import Link from "next/link"
 
-import type { UserProps } from "@/shared/schemas/UserProps"
+import type { UserProps } from "@/shared/@types/UserProps"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { capitalize } from "@/shared/utils/capitalize"
 
-import type { ProfileProps } from "../../../../shared/schemas/Profile.schema"
+import type { ProfileProps } from "../../schema/Profile.schema"
 
 interface ProfileFooterProps {
 	name: UserProps["name"] | ProfileProps["nickName"]

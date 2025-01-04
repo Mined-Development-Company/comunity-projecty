@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-import type { UserProps } from "@/shared/schemas/UserProps"
+import type { UserProps } from "@/shared/@types/UserProps"
 import { Card } from "@/shared/components/molecules/card"
 import { CardInfo } from "@/shared/components/molecules/cardInfo"
 import { formatTimestamp } from "@/shared/utils/formatTimestamp"
 
-import type { ProfileProps } from "../../../../shared/schemas/Profile.schema"
+import type { ProfileProps } from "../../schema/Profile.schema"
 
 interface QuestionsCardProps {
 	name: ProfileProps["nickName"] | UserProps["name"]
