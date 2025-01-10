@@ -20,10 +20,10 @@ export function AuthCard({
 
 	function handleSetLoads(action: "github" | "discord") {
 		if (action === "github") {
-			onClickGithub && onClickGithub()
+			onClickGithub!() 
 			setLoads((prev) => ({ ...prev, github: true }))
 		} else {
-			onClickDiscord && onClickDiscord()
+			onClickDiscord!()
 			setLoads((prev) => ({ ...prev, discord: true }))
 		}
 	}
