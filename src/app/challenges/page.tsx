@@ -1,13 +1,11 @@
-import Challanges from '@/modules/challenges/pages/main/index'
+import {Challenges} from '@/modules/challenges/pages/Challenges'
 import React from 'react'
 
 
-const page = () => {
+export default function ChallengesRoute() {
   return (
-    <div className='text-content-primary'>
-      <Challanges />
+    <div>
+      <Challenges />
     </div>
   )
 }
-
-export default page

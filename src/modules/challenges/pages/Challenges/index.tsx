@@ -1,61 +1,39 @@
+"use client"
+
 import React from "react"
 
-import ChallengeCard from "./components/Cards/ChallengeCard"
-import ContentChallengeCards from "./components/Cards/parts/ContentChallengeCards"
-import ChallengeHeader from "./components/ChallengeHeader/ChallengeHeader"
+import { ChallengeCard } from "./components/ChallengeCard"
+import { ChallengeHeader } from "./components/ChallengeHeader"
+import { cardData } from "../../components/cardData"
 
-export default function Challenges() {
-	const items = [
-		{
-			label: "Filtro1",
-			value: "0"
-		},
-		{
-			label: "Filtro2",
-			value: "1"
-		},
-		{
-			label: "Filtro3",
-			value: "3"
-		}
-	]
+// variaveis
 
-	const cardData = [
-		{
-			image: "https://placehold.co/300",
-			alt: "Image 1",
-			level: "iniciante",
-			title: "Loja de criação de lojas",
-			description:
-				"Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz malandris se pirulitá. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Manduma pindureta quium dia nois paga. Eu nunca mais boto a boca num copo de cachaça, agora eu ",
-			skills: ["html", "css", "js"]
-		},
-		{
-			image: "https://placehold.co/300",
-			alt: "Image 1",
-			level: "iniciante",
-			title: "Loja de criação de lojas",
-			description:
-				"Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz malandris se pirulitá. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Manduma pindureta quium dia nois paga. Eu nunca mais boto a boca num copo de cachaça, agora eu ",
-			skills: ["html", "css", "js"]
-		},
-		{
-			image: "https://placehold.co/300",
-			alt: "Image 1",
-			level: "iniciante",
-			title: "Loja de criação de lojas",
-			description:
-				"Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz malandris se pirulitá. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Manduma pindureta quium dia nois paga. Eu nunca mais boto a boca num copo de cachaça, agora eu ",
-			skills: ["html", "css", "js"]
-		}
-	]
+const items = [
+	{
+		label: "Filtro1",
+		value: "0"
+	},
+	{
+		label: "Filtro2",
+		value: "1"
+	},
+	{
+		label: "Filtro3",
+		value: "3"
+	}
+]
 
+
+
+export function Challenges() {
 	return (
 		<div>
 			<ChallengeHeader items={items} />
-			<ContentChallengeCards>
-				<ChallengeCard cards={cardData} />
-			</ContentChallengeCards>
+			<div className="m-auto grid max-w-[1200px] flex-col items-center justify-center gap-3 gap-y-7 p-2 sm:grid-cols-2 lg:grid-cols-3">
+				{cardData.map((c) => (
+					<ChallengeCard key={c.id} cardData={c} />
+				))}
+			</div>
 		</div>
 	)
 }

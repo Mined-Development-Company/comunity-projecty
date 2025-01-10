@@ -4,7 +4,7 @@ interface skillsProps {
 	skills: string[]
 }
 
-export default function Skills({ skills }: skillsProps) {
+export function Skills({ skills }: skillsProps) {
 	return (
 		<div className="flex gap-3">
 			{skills.map((s, index) => (
