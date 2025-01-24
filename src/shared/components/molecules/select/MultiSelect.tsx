@@ -64,6 +64,7 @@ export const MultiSelect = ({
 		const newSelectedValues = values.includes(value)
 			? values.filter((selectedValue) => selectedValue !== value)
 			: [...values, value]
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 		onValueChange && onValueChange(newSelectedValues)
 		setValues(newSelectedValues) 
 	}

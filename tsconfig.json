@@ -36,5 +36,5 @@
 		}
 	},
 	"exclude": ["node_modules", ".next"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".storybook/**/*.ts", ".storybook/**/*.tsx", "src/modules/profile/components/skeletons/ProfileLayoutSkeleton.tss"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".storybook/**/*.ts", ".storybook/**/*.tsx"]
 }
