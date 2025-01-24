@@ -1,5 +1,7 @@
 "use client"
 
+// depois pergunto pro gpt
+
 import React from "react"
 import { usePathname } from "next/navigation"
 
@@ -7,6 +9,9 @@ import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
 import { cardData } from "../../components/cardData"
+import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
+
+
 
 export function Challenge() {
 	const pathName = usePathname()
@@ -28,11 +33,12 @@ export function Challenge() {
 	return (
 		<div className="max-w-[1200px]">
 			{/* HEADER */}
-			<header>
-				<p className="flex items-center text-content-quaternary">
-					Desafios <Icon name="CaretRight" size={20} />
-					<span className="text-green-hard">Desafio</span>
-				</p>
+			<div className="mt-7">
+
+			<Breadcrumb  />
+
+				{/* esse P é outra coisa, confundi */}
+				{/* a live caiu rogério */}
 				<div className="flex items-center justify-between">
 					<div className="flex-col">
 						<h1 className="text-3xl font-bold">{card.title}</h1>
@@ -54,7 +60,7 @@ export function Challenge() {
 				<div className="w-[541px] text-content-quaternary">
 					<p>{card.description}</p>
 				</div>
-			</header>
+			</div>
 
 			{/* BOTÕES */}
 
@@ -75,9 +81,8 @@ export function Challenge() {
 
 			{/* IMAGEM */}
 
-			<div className="w-[1200px]">
-				<img src={card.image} alt="" className="w-full" />
-			</div>
+
+			<iframe className="w-full h-[477px]" src="https://embed.figma.com/design/jrpkGxF4Px3jH4QhwEKwiY/Community-Project?embed-host=share"></iframe>
 
 			{/* DESCRIÇÃO */}
 
