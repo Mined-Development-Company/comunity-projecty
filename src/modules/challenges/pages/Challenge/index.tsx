@@ -1,17 +1,14 @@
 "use client"
 
 // depois pergunto pro gpt
-
 import React from "react"
 import { usePathname } from "next/navigation"
 
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
-
-import { cardData } from "../../components/cardData"
 import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
 
-
+import { cardData } from "../../components/cardData"
 
 export function Challenge() {
 	const pathName = usePathname()
@@ -34,8 +31,7 @@ export function Challenge() {
 		<div className="max-w-[1200px]">
 			{/* HEADER */}
 			<div className="mt-7">
-
-			<Breadcrumb  />
+				<Breadcrumb />
 
 				{/* esse P é outra coisa, confundi */}
 				{/* a live caiu rogério */}
@@ -64,7 +60,7 @@ export function Challenge() {
 
 			{/* BOTÕES */}
 
-			<div className="flex gap-5 my-5">
+			<div className="my-5 flex gap-5">
 				<Button variant="outline-green" className="font-bold">
 					Enviar Solução
 					<Icon name="PaperPlaneRight" />
@@ -81,21 +77,19 @@ export function Challenge() {
 
 			{/* IMAGEM */}
 
-
-			<iframe className="w-full h-[477px]" src="https://embed.figma.com/design/jrpkGxF4Px3jH4QhwEKwiY/Community-Project?embed-host=share"></iframe>
+			<iframe
+				className="h-[477px] w-full"
+				src="https://embed.figma.com/design/jrpkGxF4Px3jH4QhwEKwiY/Community-Project?embed-host=share"></iframe>
 
 			{/* DESCRIÇÃO */}
 
 			<div>
-				<div className="max-w-[512px] my-7">
-					<h3 className="font-bold my-4">Requisitos</h3>
+				<div className="my-7 max-w-[512px]">
+					<h3 className="my-4 font-bold">Requisitos</h3>
 					<p className="text-content-quaternary">{card.requirements}</p>
 				</div>
-				<div>
-					
-				</div>
+				<div></div>
 			</div>
-
 		</div>
 	)
 }
