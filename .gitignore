@@ -33,6 +33,10 @@ yarn-error.log*
 .env.*
 !.env.local
 
+# pnpm
+pnpm-workspace.yaml
+pnpm-lock.yaml
+
 # vercel
 .vercel
 
@@ -41,4 +45,5 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
-mockServiceWorker.*
+
+WindowsPowerShell
