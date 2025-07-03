@@ -1,8 +1,8 @@
 import React from "react"
 
-import Register from "@/modules/auth/pages/register"
+import Register from "@/modules/Auth/pages/register"
 
-export default function RegisterPage() {
+export default function Page() {
 	return (
 		<div className="flex flex-1 flex-col">
 			<Register />

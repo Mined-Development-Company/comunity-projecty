@@ -10,8 +10,8 @@ import {
 	deleteProfile,
 	getProfile,
 	updateProfile
-} from "@/modules/profile/api/controllers"
-import type { ProfileProps } from "@/modules/profile/schema/Profile.schema"
+} from "@/modules/Profile/api/controllers"
+import type { ProfileProps } from "@/modules/Profile/schema/Profile.schema"
 import type { UserProps } from "@/shared/@types/UserProps"
 import { queryClient } from "@/shared/libs/react-query"
 

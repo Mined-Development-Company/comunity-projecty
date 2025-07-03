@@ -76,6 +76,10 @@ body {
 		--chart-4: 280 65% 60%;
 		--chart-5: 340 75% 55%;
 	}
+  .theme {
+		--animate-marquee: marquee var(--duration) infinite linear;
+		--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+	}
 }
 
 @layer base {
@@ -85,4 +89,51 @@ body {
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation-name: marquee;
+  animation-duration: var(--duration, 20s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--direction, normal); /* <-- aqui está a mágica */
+}
+
+
+.animation-slow {
+  animation-duration: 40s !important; /* hover mais lento */
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+		}
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+		}
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+		}
+	}
+}
+
+.div-com-fade {
+  /* Para suportar navegadores baseados em WebKit */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 80%, transparent);
 }

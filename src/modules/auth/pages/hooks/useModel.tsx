@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { useQuery } from "@tanstack/react-query"
 
-import { getAuth, type GetAuthDataProps } from "@/modules/auth/api/getAuth"
+import { getAuth, type GetAuthDataProps } from "@/modules/Auth/api/getAuth"
 import { queryClient } from "@/shared/libs/react-query"
 
 export function useModel() {

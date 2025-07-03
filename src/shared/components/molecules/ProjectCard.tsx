@@ -4,11 +4,13 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 import { Button } from "@/shared/components/atoms/button"
+import { cn } from "@/shared/utils/cn"
 
 type ProjectCardProps = {
 	id: number
 	img: string
 	title: string
+	classname?: string
 	description: string
 	inProgress: boolean
 }
@@ -17,13 +19,18 @@ export function ProjectCard({
 	id,
 	img,
 	title,
+	classname,
 	description,
 	inProgress
 }: ProjectCardProps) {
 	const router = useRouter()
 
 	return (
-		<div className="flex w-full flex-col overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary">
+		<div
+			className={cn(
+				"flex w-full flex-col overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary",
+				classname
+			)}>
 			<Image
 				width={300}
 				height={180}

@@ -2,8 +2,8 @@
 
 import React from "react"
 
+import { ProjectCard } from "../../../../shared/components/molecules/ProjectCard"
 import { Filter } from "./components/Filter"
-import { ProjectCard } from "./components/ProjectCard"
 
 export const projects = [
 	{

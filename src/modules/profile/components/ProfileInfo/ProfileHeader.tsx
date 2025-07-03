@@ -1,8 +1,8 @@
 import React from "react"
 import Image from "next/image"
 
-import { EditProfile } from "@/modules/profile/components/ProfileInfo"
-import type { ProfileProps } from "@/modules/profile/schema/Profile.schema"
+import { EditProfile } from "@/modules/Profile/components/ProfileInfo"
+import type { ProfileProps } from "@/modules/Profile/schema/Profile.schema"
 import { Avatar, AvatarImage } from "@/shared/components/atoms/avatar"
 
 import Banner from "../../../../../public/profile/banner.webp"
