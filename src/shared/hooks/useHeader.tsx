@@ -7,7 +7,7 @@ import type { UserProps } from "@/shared/@types/UserProps"
 
 const defaultNav = [
 	{ name: "Home", path: "/" },
-	{ name: "Ajuda", path: "" },
+	{ name: "Ajuda", path: "/help" },
 	{ name: "Desafio", path: "/challenges" },
 	{ name: "Projetos", path: "/projects" }
 ]
