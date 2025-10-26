@@ -1,0 +1,55 @@
+{
+  "user": {
+    "name": "Nome do usuário",
+    "socialLinkedin": "#",
+    "socialGithub": "#",
+    "socialTwitter": "#",
+    "socialFacebook": "#",
+    "socialInstagram": "#",
+    "questionsCount": 24,
+    "answersCount": 32
+  },
+  "question": {
+    "title": "Como formatar datas em ISO 8601 adicionando horas e minutos em JavaScript?",
+    "description": "Estou trabalhando em um projeto que exige que eu manipule datas no formato ISO 8601 e adicione horas e minutos específicos a elas. Atualmente, estou usando a biblioteca `date-fns` para trabalhar com datas, mas não encontrei uma solução direta...",
+    "createdAt": "1 month ago",
+    "answersCount": 8,
+    "bestAnswersCount": 2
+  },
+  "answers": [
+    {
+      "authorName": "Nome do usuário",
+      "createdAt": "1 month ago",
+      "likes": 12,
+      "content": "Você pode usar a biblioteca `date-fns` para adicionar horas e minutos à sua data ISO 8601.\n\n```ts\nimport { addHours, addMinutes } from 'date-fns'\n\nconst originalDate = new Date('2024-11-03T00:00:00Z')\nconst withHours = addHours(originalDate, 3)\nconst finalDate = addMinutes(withHours, 30)\n\nconsole.log(finalDate.toISOString())\n```\n",
+      "comments": [
+        {
+          "authorName": "Nome",
+          "createdAt": "1 month ago",
+          "content": "Quero agradecer pela resposta, foi muito útil e esclarecedora.",
+          "replies": [
+            {
+              "authorName": "Outro usuário",
+              "createdAt": "1 month ago",
+              "content": "Obrigado pelo retorno!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "authorName": "Nome do usuário",
+      "createdAt": "1 month ago",
+      "likes": 5,
+      "content": "Outra resposta de exemplo apenas para composição visual.",
+      "comments": [
+        {
+          "authorName": "Nome do usuário",
+          "createdAt": "1 month ago",
+          "content": "Quero agradecer pela resposta, foi muito útil e esclarecedora.",
+          "replies": []
+        }
+      ]
+    }
+  ]
+}

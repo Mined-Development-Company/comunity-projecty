@@ -1,5 +1,6 @@
 ﻿"use client"
 
+import Link from "next/link"
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 
 export type QuestionCardProps = {
@@ -10,12 +11,17 @@ export type QuestionCardProps = {
   userName: string
   userAvatarSrc: string
   date: string
+  href?: string
 }
 
-export function QuestionCard({ title, excerpt, answersCount, bestAnswersCount, userName, userAvatarSrc, date }: QuestionCardProps) {
+export function QuestionCard({ title, excerpt, answersCount, bestAnswersCount, userName, userAvatarSrc, date, href = "/help/question" }: QuestionCardProps) {
   return (
     <article className="rounded-xl border border-content-shape-quaternary bg-content-shape-secondary p-5 shadow-sm">
-      <h2 className="text-lg font-semibold text-content-primary sm:text-xl">{title}</h2>
+      <h2 className="text-lg font-semibold sm:text-xl">
+        <Link href={href} className="text-content-primary hover:underline focus:outline-none focus:ring-2 focus:ring-blue-mid rounded-sm">
+          {title}
+        </Link>
+      </h2>
       <p className="mt-2 text-sm leading-6 text-content-secondary">{excerpt}</p>
       <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex items-center gap-4 text-sm">
@@ -35,4 +41,3 @@ export function QuestionCard({ title, excerpt, answersCount, bestAnswersCount, u
     </article>
   )
 }
-
