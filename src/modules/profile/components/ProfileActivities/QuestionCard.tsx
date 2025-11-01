@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import type { UserProps } from "@/shared/@types/UserProps"
 import { Card } from "@/shared/components/molecules/card"
-import { CardInfo } from "@/shared/components/molecules/cardInfo"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 import { formatTimestamp } from "@/shared/utils/formatTimestamp"
 
 import type { ProfileProps } from "../../schema/Profile.schema"
@@ -47,9 +47,9 @@ export function QuestionsCard({ name, avatar, posts }: QuestionsCardProps) {
 									</div>
 								</header>
 								<footer>
-									<CardInfo
+									<AvatarInfo
 										image={`${avatar}`}
-										title={`${name}`}
+										name={`${name}`}
 										description={`${formattedDate}`}
 										dp="bottom"
 										size="sm"

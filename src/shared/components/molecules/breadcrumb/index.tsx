@@ -9,12 +9,16 @@ import { cn } from "@/shared/utils/cn"
 
 import { Icon } from "../../atoms/icon/Icon"
 
-export function Breadcrumb() {
+type Props = {
+	paths: { title: string; href: string }[]
+}
+
+export function Breadcrumb({ paths: customPaths }: Props) {
 	const pathName = usePathname()
 
-	const paths = pathName
-		.split("/")
-		.reduce<{ title: string; href: string }[]>((ac, va) => {
+	const paths =
+		customPaths ??
+		pathName.split("/").reduce<{ title: string; href: string }[]>((ac, va) => {
 			// ac => acumulador , va => valorAtual
 
 			if (va.includes("-")) {
@@ -31,17 +35,35 @@ export function Breadcrumb() {
 		<nav>
 			<ul className="flex space-x-2">
 				{paths.map(({ title, href }, index) => (
-					<li
-						key={index}
-						className={cn(
-							"flex items-center gap-2 font-medium text-content-quaternary transition-all duration-300 hover:text-content-secondary",
-							index + 1 === paths.length && "text-green-hard hover:text-green-soft"
-						)}>
-						<Link href={href}>{title}</Link>
-						{index + 1 !== paths.length && (
-							<Icon className="text-content-quaternary" name="CaretRight" weight="bold" />
+					<React.Fragment key={index}>
+						{paths.length !== index + 1 && (
+							<li
+								key={index}
+								className={cn(
+									"flex items-center gap-2 font-medium text-content-quaternary transition-all duration-300 hover:text-content-secondary"
+								)}>
+								<Link href={href}>{title}</Link>
+								{index + 1 !== paths.length && (
+									<Icon
+										className="text-content-quaternary"
+										name="CaretRight"
+										weight="bold"
+									/>
+								)}
+							</li>
 						)}
-					</li>
+
+						{paths.length === index + 1 && (
+							<li
+								className={cn(
+									"flex items-center gap-2 font-medium text-content-quaternary transition-all duration-300 hover:text-content-secondary",
+									index + 1 === paths.length && "text-green-hard hover:text-green-soft"
+								)}>
+								{" "}
+								{title}
+							</li>
+						)}
+					</React.Fragment>
 				))}
 			</ul>
 		</nav>

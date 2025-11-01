@@ -44,7 +44,7 @@ export default function RootLayout({
 				)}>
 				<Provider>
 					<Header />
-					<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]"></div>
+					<div className="container m-auto flex min-h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]"></div>
 					<div className="flex-1">{children}</div>
 					<Footer />
 					<Toaster />

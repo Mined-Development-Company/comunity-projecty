@@ -4,14 +4,18 @@
 import React from "react"
 import { usePathname } from "next/navigation"
 
+import { useRouter } from "nextjs-toploader/app"
+
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 
 import { cardData } from "../../components/cardData"
 
 export function Challenge() {
 	const pathName = usePathname()
+	const router = useRouter()
 
 	if (!pathName) {
 		return <h1>404 PAGE NOT FOUND</h1>
@@ -28,17 +32,13 @@ export function Challenge() {
 	}
 
 	return (
-		<div className="max-w-[1200px]">
+		<div>
 			{/* HEADER */}
-			<div className="mt-7">
+			<div className="space-y-5">
 				<Breadcrumb />
-
-				{/* esse P é outra coisa, confundi */}
-				{/* a live caiu rogério */}
 				<div className="flex items-center justify-between">
-					<div className="flex-col">
-						<h1 className="text-3xl font-bold">{card.title}</h1>
-					</div>
+					<h2 className="text-3xl font-bold">{card.title}</h2>
+
 					<div>
 						<h2 className="text-xl font-semibold uppercase">{card.level}</h2>
 						<div className="h-0.5 w-full bg-green-hard"></div>
@@ -59,14 +59,19 @@ export function Challenge() {
 			</div>
 
 			{/* BOTÕES */}
-
 			<div className="my-5 flex gap-5">
-				<Button variant="outline-green" className="font-bold">
+				<Button
+					variant="outline-green"
+					className="font-bold"
+					onClick={() => router.push("/challenges/challenge/send-solution/1")}>
 					Enviar Solução
 					<Icon name="PaperPlaneRight" />
 				</Button>
-				<Button variant="outline-green" className="font-bold">
-					Ver solução
+				<Button
+					variant="outline-green"
+					className="font-bold"
+					onClick={() => router.push("/challenges/challenge/solutions/1")}>
+					Ver soluções
 					<Icon name="Lightbulb" />
 				</Button>
 				<Button variant="outline-green" className="font-bold">
@@ -78,17 +83,26 @@ export function Challenge() {
 			{/* IMAGEM */}
 
 			<iframe
-				className="h-[477px] w-full"
+				className="h-[477px] w-full rounded-md"
 				src="https://embed.figma.com/design/jrpkGxF4Px3jH4QhwEKwiY/Community-Project?embed-host=share"></iframe>
 
 			{/* DESCRIÇÃO */}
 
-			<div>
-				<div className="my-7 max-w-[512px]">
-					<h3 className="my-4 font-bold">Requisitos</h3>
+			<div className="flex w-full justify-between py-7">
+				<div className="max-w-[512px] space-y-4">
+					<h3 className="font-bold">Requisitos</h3>
 					<p className="text-content-quaternary">{card.requirements}</p>
 				</div>
-				<div></div>
+
+				<div className="flex h-[113px] w-[300px] items-center rounded-[8px] border border-content-shape-quaternary bg-content-shape-secondary pl-6">
+					<AvatarInfo
+						image="https://github.com/shadcn.png"
+						name="Rogerinho"
+						description="Adicionado por"
+						size="md"
+						dp="top"
+					/>
+				</div>
 			</div>
 		</div>
 	)

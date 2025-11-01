@@ -34,8 +34,7 @@ export function ProjectCard({
 			<Image
 				width={300}
 				height={180}
-				className="max-h-[200px] min-h-[200px] w-full md:max-h-[180px] md:min-h-[180px] 2xl:max-h-[250px] 2xl:min-h-[250px]"
-				objectFit="fill"
+				className="max-h-[200px] min-h-[200px] w-full object-fill md:max-h-[180px] md:min-h-[180px] 2xl:max-h-[250px] 2xl:min-h-[250px]"
 				src={img}
 				alt={"imagem do projeto" + title}
 			/>

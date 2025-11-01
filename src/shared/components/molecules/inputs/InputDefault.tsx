@@ -29,7 +29,11 @@ const InputDefault = React.forwardRef<HTMLInputElement, InputDefaultProps>(
 		return (
 			<DivInput className={className}>
 				<div className="flex flex-col gap-1.5">
-					{label && <Label htmlFor="input">{label}</Label>}
+					{label && (
+						<Label className="font-bold" htmlFor="input">
+							{label}
+						</Label>
+					)}
 					<Label htmlFor="input" className="relative">
 						{iconPosition === "left" && icon && (
 							<Icon

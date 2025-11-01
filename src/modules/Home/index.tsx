@@ -1,13 +1,12 @@
 "use client"
 
-import Image from "next/image"
-
 import { PiDiscordLogoFill } from "react-icons/pi"
 
 import { Button } from "@/shared/components/atoms/button"
 
 import { ChallengesCard } from "./components/ChallengesCard"
 import { DiscussionForum } from "./components/DiscussionForum"
+import { InteractiveGlobe } from "./components/InteractiveGlobe"
 import { ProjectsCarousel } from "./components/ProjectsCarousel"
 
 export default function Home() {
@@ -32,13 +31,14 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="size-[456px]"></div>
-				<Image
-					className="absolute right-24 top-16"
-					src={"/globe.svg"}
-					width={550}
-					height={550}
-					alt="Globe image"
-				/>
+				<div className="absolute right-24 top-16">
+					<InteractiveGlobe
+						autoRotate={true}
+						rotationSpeed={0.002}
+						enableZoom={true}
+						enableRotate={true}
+					/>
+				</div>
 			</div>
 
 			<ChallengesCard />

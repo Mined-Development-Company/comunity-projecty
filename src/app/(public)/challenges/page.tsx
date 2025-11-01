@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Challenges } from "@/modules/Challenges/pages/Challenges"
+import { Challenges } from "@/modules/Challenges"
 
 export default function Page() {
 	return (

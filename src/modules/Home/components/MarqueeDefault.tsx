@@ -8,7 +8,7 @@ const ReviewCard = () => {
 			<div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-[#0C0D14]/20 to-transparent" />
 			<Image
 				className=""
-				src={"/challenge.png"}
+				src={"/challenges/challenge.png"}
 				width={350}
 				height={250}
 				alt="Globe image"

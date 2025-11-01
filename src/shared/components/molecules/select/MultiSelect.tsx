@@ -22,7 +22,8 @@ import { selectVariants } from "./selectVariants"
 type ISelectProps = {
 	max: number
 	hint?: HintProps
-	items: { label: ReactNode; value: string }[]
+	items?: { label: ReactNode; value: string }[]
+	itemsWithTitle?: { title: string; items: { label: ReactNode; value: string }[] }[]
 	label?: string
 	hasHint?: boolean
 	placeholder?: string
@@ -36,6 +37,7 @@ export const MultiSelect = ({
 	max,
 	hint,
 	items = [],
+	itemsWithTitle = [],
 	label,
 	hasHint = true,
 	className,
@@ -66,7 +68,7 @@ export const MultiSelect = ({
 			: [...values, value]
 		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 		onValueChange && onValueChange(newSelectedValues)
-		setValues(newSelectedValues) 
+		setValues(newSelectedValues)
 	}
 
 	const isOptionSelected = (value: string) => values.includes(value)
@@ -79,7 +81,8 @@ export const MultiSelect = ({
 					<PopoverTrigger className="flex w-auto flex-1">
 						<div className={variantStyle} ref={triggerButtonRef}>
 							<div className="flex flex-1 items-end gap-1">
-								{values.length !== 0 && items.length ? (
+								{values.length !== 0 &&
+									(!!items.length || !!itemsWithTitle.length) &&
 									items
 										.filter(
 											(item) =>
@@ -96,11 +99,9 @@ export const MultiSelect = ({
 												}}>
 												{item.label}
 											</div>
-										))
-								) : (
-									<span>{placeholder}</span>
-								)}
+										))}
 
+								{values.length === 0 && items.length === 0 && <span>{placeholder}</span>}
 								{values.length > max && <span>...</span>}
 							</div>
 							<ChevronDown className="h-4 w-4 opacity-50" />
@@ -127,6 +128,31 @@ export const MultiSelect = ({
 						</span>
 					</button>
 				))}
+
+				<div>
+					{itemsWithTitle.map(({ title, items }) => (
+						<div key={title}>
+							<span className="px-2 text-xs font-semibold text-content-quaternary">
+								{title}
+							</span>
+							{items.map(({ label, value }) => (
+								<button
+									key={value}
+									className="relative flex w-full cursor-default items-center rounded-sm py-1.5 pl-2 pr-8 text-sm text-content-primary outline-none hover:bg-content-shape-tertiary"
+									onClick={() => handleSelectChange(value)}>
+									{label}
+									<span
+										className={cn(
+											"absolute right-2 hidden h-3.5 w-3.5 items-center justify-center",
+											isOptionSelected(value) && "flex"
+										)}>
+										<Icon name="Check" className="h-4 w-4 text-white" />
+									</span>
+								</button>
+							))}
+						</div>
+					))}
+				</div>
 			</PopoverContent>
 		</Popover>
 	)

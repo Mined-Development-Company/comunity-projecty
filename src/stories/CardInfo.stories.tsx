@@ -1,23 +1,23 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { CardInfo } from "@/shared/components/molecules/cardInfo"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 
-const meta: Meta<typeof CardInfo> = {
-	title: "Molecules/CardInfo",
-	component: CardInfo
+const meta: Meta<typeof AvatarInfo> = {
+	title: "Molecules/AvatarInfo",
+	component: AvatarInfo
 }
 
 export default meta
 
-export const Default: StoryObj<typeof CardInfo> = {
+export const Default: StoryObj<typeof AvatarInfo> = {
 	argTypes: {
 		size: { control: { type: "radio" }, options: ["xs", "sm", "md", "lg"] }
 	},
 	args: {
 		image: "https://github.com/shadcn.png",
-		title: "Rogerinho",
+		name: "Rogerinho",
 		description: "usurário",
 		dp: "top"
 	},
-	render: (args) => <CardInfo {...args} />
+	render: (args) => <AvatarInfo {...args} />
 }

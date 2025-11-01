@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/shared/components/atoms/button"
-import { CardInfo } from "@/shared/components/molecules/cardInfo"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 import { SheetDefault } from "@/shared/components/molecules/sheets/SheetDefault"
 import { ButtonSideBar } from "@/shared/components/organisms/header/components/ButtonSideBar"
 import { DiscordServer } from "@/shared/components/organisms/header/components/DiscordServer"
@@ -21,7 +21,7 @@ export function Header() {
 		useHeader()
 
 	return (
-		<header className="fixed z-50 w-full bg-content-shape-secondary drop-shadow-[0px_2px_20px_rgba(0,0,0,0.25)]">
+		<header className="fixed z-50 w-full bg-content-shape-secondary drop-shadow-[0px_2px_10px_rgba(0,0,0,0.10)]">
 			<div className="container m-auto flex h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]">
 				<Link className="-ml-2 flex items-center gap-1" href="/">
 					<Image src={Logo} alt="Logo" priority />
@@ -96,10 +96,10 @@ export function Header() {
 					footer={
 						<div className="w-full space-y-4">
 							{userData && (
-								<CardInfo
+								<AvatarInfo
 									rootClassName="w-fit"
 									image={userData.avatar}
-									title={userData.name}
+									name={userData.name}
 									description="Usuário"
 									dp="bottom"
 								/>

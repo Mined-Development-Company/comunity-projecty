@@ -1,9 +1,11 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
+
+import { AvatarInfo, type AvatarInfoProps } from "@/shared/components/molecules/cardInfo"
 
 import { Skills } from "./Skills"
-import Link from "next/link"
 
 interface Card {
 	id: number
@@ -14,17 +16,19 @@ interface Card {
 	description: string
 	skills: string[]
 	thumb: string
+	user?: { name: string; image: string }
+	sendDate?: string
 }
 
 interface ChallengeCardProps {
 	cardData: Card
+	redirectUrl: string
 }
 
-
-export function ChallengeCard({ cardData }: ChallengeCardProps) {
+export function ChallengeCard({ cardData, redirectUrl }: ChallengeCardProps) {
 	return (
-		<Link href={`challenges/challange/${cardData.id}`}>
-			<div className="overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary lg:max-w-[364px]">
+		<Link href={redirectUrl}>
+			<div className="w-full overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary">
 				<div className="flex h-[272px] items-center justify-center overflow-hidden">
 					<img
 						src={cardData.thumb}
@@ -43,6 +47,16 @@ export function ChallengeCard({ cardData }: ChallengeCardProps) {
 					<h2 className="text-2xl font-semibold capitalize">{cardData.title}</h2>
 					<Skills skills={cardData.skills} /> {/* Corrigido aqui */}
 					<p className="text-content-tertiary">{cardData.description}</p>
+					{cardData.sendDate && cardData.user && (
+						<div className="flex w-full items-center justify-between">
+							<p className="text-sm font-bold text-content-tertiary">Enviado por:</p>
+							<AvatarInfo
+								description={cardData.sendDate}
+								dp="bottom"
+								{...cardData.user}
+							/>
+						</div>
+					)}
 				</div>
 			</div>
 		</Link>
