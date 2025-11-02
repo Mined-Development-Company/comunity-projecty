@@ -1,6 +1,6 @@
 import React from "react"
 
-import Register from "@/modules/Auth/pages/register/index"
+import Register from "@/modules/Auth/pages/register"
 
 export default function Page() {
 	return (
