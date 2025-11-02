@@ -1,6 +1,6 @@
 import React from "react"
 
-import Login from "@/modules/Auth/pages/login"
+import Login from "@/modules/Auth/pages/login/index"
 
 export default function Page() {
 	return (
