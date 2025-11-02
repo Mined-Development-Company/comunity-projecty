@@ -74,7 +74,15 @@ export function Project() {
 	const { currentProject } = useModel()
 	return (
 		<div className="space-y-4 py-4 md:space-y-8 md:py-6">
-			<Breadcrumb />
+			<Breadcrumb
+				paths={[
+					{ title: "Projetos", href: "/projects" },
+					{
+						title: currentProject?.title || "",
+						href: `/projects/project/${currentProject?.id}`
+					}
+				]}
+			/>
 			<div className="flex flex-col justify-between gap-8 lg:flex-row">
 				<div className="w-full space-y-6">
 					<About

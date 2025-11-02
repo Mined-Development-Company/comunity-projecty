@@ -7,11 +7,25 @@ import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
 import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
 
+// type Props = {
+// 	card?: {
+// 		id: number
+// 		title: string
+// 	}
+// }
+
+// { title: "Soluções", href: `/challenges/challenge/solutions/${card.id}` },
 export default function SendSolution() {
 	return (
 		<div className="space-y-[36px]">
 			<div className="max-w-[519px] space-y-5">
-				<Breadcrumb />
+				<Breadcrumb
+					paths={[
+						{ title: "Desafios", href: "/challenges" },
+						{ title: "Soluções", href: `/challenges/challenge/solutions/1` },
+						{ title: "Enviar Solução", href: "" }
+					]}
+				/>
 				<h2 className="text-3xl font-bold">Pagina de vendas E-commerce</h2>
 
 				<p className="text-content-tertiary">

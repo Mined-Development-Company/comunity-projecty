@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, extend, useThree } from "@react-three/fiber"
-import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from "three"
+import { Color, PerspectiveCamera, Scene, Vector3 } from "three"
 import ThreeGlobe from "three-globe"
 
 import countries from "./globe.json"
@@ -63,8 +63,6 @@ interface WorldProps {
 	globeConfig: GlobeConfig
 	data: Position[]
 }
-
-let numbersOfRings = [0]
 
 export function Globe({ globeConfig, data }: WorldProps) {
 	const globeRef = useRef<ThreeGlobe | null>(null)

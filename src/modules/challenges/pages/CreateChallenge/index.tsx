@@ -13,7 +13,12 @@ export default function CreateChallenge() {
 	return (
 		<div className="space-y-[36px]">
 			<div className="max-w-[519px] space-y-5">
-				<Breadcrumb />
+				<Breadcrumb
+					paths={[
+						{ title: "Desafios", href: "/challenges" },
+						{ title: "Criar desafio", href: "" }
+					]}
+				/>
 				<h2 className="text-3xl font-bold">Criar desafio</h2>
 
 				<p className="text-content-tertiary">

@@ -23,7 +23,7 @@ export function Challenge() {
 
 	const idString = pathName.split("/")[3]
 
-	const id = idString ? parseInt(idString, 10) : null
+	const id = idString ? Number.parseInt(idString, 10) : null
 
 	const card = cardData.find((item) => item.id === id)
 
@@ -35,7 +35,12 @@ export function Challenge() {
 		<div>
 			{/* HEADER */}
 			<div className="space-y-5">
-				<Breadcrumb />
+				<Breadcrumb
+					paths={[
+						{ title: "Desafios", href: "/challenges" },
+						{ title: card.title, href: `/challenges/challenge/${card.id}` }
+					]}
+				/>
 				<div className="flex items-center justify-between">
 					<h2 className="text-3xl font-bold">{card.title}</h2>
 

@@ -27,7 +27,13 @@ export function Solutions() {
 	return (
 		<div className="mx-auto my-12 max-w-[1280px] space-y-8">
 			<div className="space-y-2">
-				<Breadcrumb />
+				<Breadcrumb
+					paths={[
+						{ title: "Desafios", href: "/challenges" },
+						{ title: "Soluções", href: "/challenges/challenge/solutions" },
+						{ title: "Solução", href: "" }
+					]}
+				/>
 				<h2 className="text-3xl font-bold">Pagina de vendas E-commerce</h2>
 			</div>
 

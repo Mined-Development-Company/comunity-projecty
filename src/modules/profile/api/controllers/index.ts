@@ -1,5 +1,0 @@
-export * from "./createProfile"
-export * from "./deleteProfile"
-export * from "./updateProfile"
-export * from "./getProfile"
-export * from "./getAllProfile"

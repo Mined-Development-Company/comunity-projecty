@@ -10,7 +10,7 @@ import {
 	CardTitle
 } from "@/shared/components/atoms/card"
 
-type CardProps = {
+export type CardProps = {
 	title: string
 	description?: string
 	image?: ImageProps

@@ -6,7 +6,7 @@ import { OrbitControls, Sphere, Stars } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
-import type { EarthGlobeProps, InteractiveGlobeProps } from "./InteractiveGlobe.types"
+import type { InteractiveGlobeProps } from "./InteractiveGlobe.types"
 
 // Componente do globo com textura pontilhada da Terra
 function EarthGlobe({ rotationSpeed = 0.003 }: { rotationSpeed?: number }) {
@@ -14,7 +14,7 @@ function EarthGlobe({ rotationSpeed = 0.003 }: { rotationSpeed?: number }) {
 	const [hovered, setHovered] = useState(false)
 
 	// Rotação automática
-	useFrame((state) => {
+	useFrame((_state) => {
 		if (meshRef.current && !hovered) {
 			meshRef.current.rotation.y += rotationSpeed
 		}

@@ -2,8 +2,8 @@
 
 import React from "react"
 
-import { AuthCard } from "@/modules/Auth/components/AuthCard"
-import { useModel } from "@/modules/Auth/pages/hooks/useModel"
+import { AuthCard } from "../../components/AuthCard"
+import { useModel } from "../hooks/useModel"
 
 export default function Login() {
 	const { setEnable, isLoading } = useModel()

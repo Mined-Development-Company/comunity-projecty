@@ -9,7 +9,7 @@ function CorrectedEarthGlobe({ rotationSpeed = 0.003 }: { rotationSpeed?: number
 	const meshRef = useRef<THREE.Mesh>(null)
 	const [hovered, setHovered] = useState(false)
 
-	useFrame((state) => {
+	useFrame((_state) => {
 		if (meshRef.current && !hovered) {
 			meshRef.current.rotation.y += rotationSpeed
 		}
