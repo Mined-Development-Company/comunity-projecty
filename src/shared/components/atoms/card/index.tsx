@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import { cn } from "../../../utils/cn"
 import {
 	variantContent,
 	variantDescription,
@@ -7,8 +8,7 @@ import {
 	type variantContentProps,
 	type variantDescriptionProps,
 	type variantTitleProps
-} from "@/shared/components/atoms/card/variants"
-import { cn } from "@/shared/utils/cn"
+} from "./variants"
 
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
 	({ className, ...props }, ref) => (

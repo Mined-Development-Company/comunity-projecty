@@ -1,7 +1,6 @@
 import React from "react"
 
-import { Box } from "@/shared/components/atoms/box"
-
+import { Box } from "../../../../../../shared/components/atoms/box"
 import { Card } from "./components/Card"
 
 type TechnologiesProps = {

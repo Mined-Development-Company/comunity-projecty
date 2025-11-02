@@ -1,4 +1,4 @@
-import { Box } from "@/shared/components/atoms/box"
+import { Box } from "../../../../../shared/components/atoms/box"
 
 type AboutProps = {
 	title: string

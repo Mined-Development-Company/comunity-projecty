@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { Card } from "@/shared/components/molecules/card"
+import { Button } from "../shared/components/atoms/button"
+import { Card } from "../shared/components/molecules/card"
 
 const meta: Meta<typeof Card> = {
 	title: "Molecules/Card",

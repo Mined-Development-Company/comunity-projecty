@@ -2,8 +2,8 @@ import { randomUUID } from "crypto"
 
 import { http, HttpResponse, type PathParams } from "msw"
 
-import { type ProfileProps } from "@/modules/Profile/schema/Profile.schema"
-import { type UserProps } from "@/shared/@types/UserProps"
+import { type ProfileProps } from "../../../modules/Profile/schema/Profile.schema"
+import { type UserProps } from "../../@types/UserProps"
 
 const localhost = String(process.env.NEXT_PUBLIC_DB_HOST)
 const localDB = String(process.env.MSW_LOCAL_DATABASE_URL || "http://localhost:3005")

@@ -1,7 +1,6 @@
 import { forwardRef, type HTMLAttributes } from "react"
 
-import { cn } from "@/shared/utils/cn"
-
+import { cn } from "../../../utils/cn"
 import { Label } from "../../atoms/label/index"
 import { Textarea } from "../../atoms/textArea/index"
 

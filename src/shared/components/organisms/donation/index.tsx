@@ -1,11 +1,11 @@
 import React from "react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { Icon } from "@/shared/components/atoms/icon/Icon"
-import { Input } from "@/shared/components/atoms/input/input"
-import { Label } from "@/shared/components/atoms/label"
-import { Card } from "@/shared/components/molecules/card"
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../utils/cn"
+import { Button } from "../../atoms/button"
+import { Icon } from "../../atoms/icon/Icon"
+import { Input } from "../../atoms/input/input"
+import { Label } from "../../atoms/label"
+import { Card } from "../../molecules/card"
 
 export const Donation = ({
 	className,

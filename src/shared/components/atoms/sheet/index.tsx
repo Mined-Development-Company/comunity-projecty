@@ -6,7 +6,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../utils/cn"
 
 import { sheetVariants } from "./vatiants"
 

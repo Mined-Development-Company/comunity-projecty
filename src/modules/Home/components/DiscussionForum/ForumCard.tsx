@@ -1,8 +1,8 @@
 import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
-import { cn } from "@/shared/utils/cn"
+import { Button } from "../../../../shared/components/atoms/button"
+import { AvatarDefault } from "../../../../shared/components/molecules/avatars/AvatarDefault"
+import { cn } from "../../../../shared/utils/cn"
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 

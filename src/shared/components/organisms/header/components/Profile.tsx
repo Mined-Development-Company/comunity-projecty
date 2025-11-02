@@ -2,14 +2,10 @@
 
 import React, { useEffect, useRef, useState, type ReactNode } from "react"
 
-import { Icon } from "@/shared/components/atoms/icon/Icon"
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger
-} from "@/shared/components/atoms/popover/popover"
-import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../../utils/cn"
+import { Icon } from "../../../atoms/icon/Icon"
+import { Popover, PopoverContent, PopoverTrigger } from "../../../atoms/popover/popover"
+import { AvatarInfo } from "../../../molecules/cardInfo"
 
 export type ProfileProps = {
 	name: string

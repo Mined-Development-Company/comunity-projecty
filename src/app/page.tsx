@@ -1,5 +1,5 @@
-import Home from "@/modules/Home"
-import { ElipseBlur } from "@/shared/components/atoms/ElipseBlur"
+import Home from "src/modules/Home"
+import { ElipseBlur } from "src/shared/components/atoms/ElipseBlur"
 
 export default function Page() {
 	return (

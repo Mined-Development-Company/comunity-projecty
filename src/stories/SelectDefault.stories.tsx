@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 
-import { SelectDefault } from "@/shared/components/molecules/select/SelectDefault"
+import { SelectDefault } from "../shared/components/molecules/select/SelectDefault"
 
 const meta: Meta<typeof SelectDefault> = {
 	title: "Molecules/SelectDefault",

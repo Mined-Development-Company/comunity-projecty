@@ -2,7 +2,7 @@
 
 import React, { type HTMLAttributes, type ReactNode } from "react"
 
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../../utils/cn"
 
 type DivInputProps = HTMLAttributes<HTMLDivElement> & {
 	className?: string

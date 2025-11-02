@@ -3,8 +3,8 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-import { Button } from "@/shared/components/atoms/button"
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../utils/cn"
+import { Button } from "../atoms/button"
 
 type ProjectCardProps = {
 	id: number

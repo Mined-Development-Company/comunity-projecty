@@ -2,10 +2,10 @@
 
 import React from "react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { Icon } from "@/shared/components/atoms/icon/Icon"
-import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
-import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
+import { Button } from "../../../../../../shared/components/atoms/button"
+import { Icon } from "../../../../../../shared/components/atoms/icon/Icon"
+import { Breadcrumb } from "../../../../../../shared/components/molecules/breadcrumb"
+import { InputDefault } from "../../../../../../shared/components/molecules/inputs/InputDefault"
 
 // type Props = {
 // 	card?: {

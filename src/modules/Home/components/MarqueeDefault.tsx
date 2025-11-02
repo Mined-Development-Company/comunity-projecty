@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { Marquee } from "@/shared/components/atoms/marquee"
+import { Marquee } from "../../../shared/components/atoms/marquee"
 
 const ReviewCard = () => {
 	return (

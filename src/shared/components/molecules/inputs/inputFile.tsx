@@ -2,7 +2,7 @@
 
 import React, { useState, type ChangeEvent, type HTMLAttributes } from "react"
 
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../utils/cn"
 
 import Hint from "../../atoms/hint"
 import { DivInput } from "../../atoms/input/components/divInput"

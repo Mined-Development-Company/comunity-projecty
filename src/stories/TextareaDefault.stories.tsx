@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { TextareaDefault } from "@/shared/components/molecules/textareas/TextareaDefault"
+import { TextareaDefault } from "../shared/components/molecules/textareas/TextareaDefault"
 
 const meta: Meta<typeof TextareaDefault> = {
 	title: "Molecules/TextareaDefault",

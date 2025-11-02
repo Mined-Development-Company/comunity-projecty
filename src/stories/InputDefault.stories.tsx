@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
+import { InputDefault } from "../shared/components/molecules/inputs/InputDefault"
 
 const meta: Meta<typeof InputDefault> = {
 	title: "Molecules/InputDefault",

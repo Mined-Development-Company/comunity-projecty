@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { Input } from "@/shared/components/atoms/input/input"
-import { Label } from "@/shared/components/atoms/label"
-import { SheetClose, SheetDescription, SheetTitle } from "@/shared/components/atoms/sheet"
-import { SheetDefault } from "@/shared/components/molecules/sheets/SheetDefault"
+import { Button } from "../shared/components/atoms/button"
+import { Input } from "../shared/components/atoms/input/input"
+import { Label } from "../shared/components/atoms/label"
+import { SheetClose, SheetDescription, SheetTitle } from "../shared/components/atoms/sheet"
+import { SheetDefault } from "../shared/components/molecules/sheets/SheetDefault"
 
 const meta: Meta<typeof SheetDefault> = {
 	title: "Molecules/SheetDefault",

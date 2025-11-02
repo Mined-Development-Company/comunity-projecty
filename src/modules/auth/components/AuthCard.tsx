@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
-import { Button } from "@/shared/components/atoms/button"
-import { Icon } from "@/shared/components/atoms/icon/Icon"
+import { Button } from "../../../shared/components/atoms/button"
+import { Icon } from "../../../shared/components/atoms/icon/Icon"
 
 type AuthCardProps = {
 	action: "login" | "register"

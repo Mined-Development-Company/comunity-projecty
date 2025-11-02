@@ -1,8 +1,8 @@
 import React from "react"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/atoms/tabs"
-import { capitalize } from "@/shared/utils/capitalize"
-import { cn } from "@/shared/utils/cn"
+import { capitalize } from "../../../utils/capitalize"
+import { cn } from "../../../utils/cn"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../atoms/tabs"
 
 interface IContent {
 	title: string

@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
+import { AvatarInfo } from "../shared/components/molecules/cardInfo"
 
 const meta: Meta<typeof AvatarInfo> = {
 	title: "Molecules/AvatarInfo",

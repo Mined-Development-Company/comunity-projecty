@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { Box } from "@/shared/components/atoms/box"
+import { Box } from "../../../../../shared/components/atoms/box"
 
 type ImagesProps = {
 	data: string[]

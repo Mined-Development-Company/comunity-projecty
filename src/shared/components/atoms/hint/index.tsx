@@ -1,6 +1,6 @@
 import React from "react"
 
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../utils/cn"
 
 export type HintProps = {
 	text?: string

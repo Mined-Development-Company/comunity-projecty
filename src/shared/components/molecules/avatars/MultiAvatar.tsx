@@ -1,6 +1,6 @@
 import React from "react"
 
-import { cn } from "@/shared/utils/cn"
+import { cn } from "../../../utils/cn"
 
 import { Avatar, AvatarFallback, AvatarImage, type AvatarProps } from "../../atoms/avatar"
 

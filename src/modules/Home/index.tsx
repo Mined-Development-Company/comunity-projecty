@@ -2,7 +2,7 @@
 
 import { PiDiscordLogoFill } from "react-icons/pi"
 
-import { Button } from "@/shared/components/atoms/button"
+import { Button } from "../../shared/components/atoms/button"
 
 import { ChallengesCard } from "./components/ChallengesCard"
 import { DiscussionForum } from "./components/DiscussionForum"

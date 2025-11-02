@@ -1,5 +1,5 @@
-import { Box } from "@/shared/components/atoms/box"
-import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
+import { Box } from "../../../../../shared/components/atoms/box"
+import { AvatarDefault } from "../../../../../shared/components/molecules/avatars/AvatarDefault"
 
 const avatars = [
 	{

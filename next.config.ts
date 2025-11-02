@@ -1,4 +1,3 @@
-import path from "node:path"
 import type { NextConfig } from "next"
 
 const baseConfig: NextConfig = {
@@ -10,12 +9,6 @@ const baseConfig: NextConfig = {
 			".jsx": [".jsx", ".tsx"],
 			".ts": [".ts", ".tsx"],
 			".tsx": [".tsx"]
-		}
-
-		// Configura aliases para resolução de caminhos
-		config.resolve.alias = {
-			...config.resolve.alias,
-			"@": path.resolve(__dirname, "./src")
 		}
 
 		// Garante que as extensões sejam resolvidas na ordem correta
