@@ -1,9 +1,38 @@
 import type { NextConfig } from "next"
 
+const baseConfig: NextConfig = {
+	reactStrictMode: true,
+	webpack: (config) => {
+		// Garante resolução correta de módulos em sistemas case-sensitive (Linux/Vercel)
+		config.resolve.extensionAlias = {
+			".js": [".js", ".ts", ".tsx"],
+			".jsx": [".jsx", ".tsx"],
+			".ts": [".ts", ".tsx"],
+			".tsx": [".tsx"]
+		}
+
+		// Garante que as extensões sejam resolvidas na ordem correta
+		if (!config.resolve.extensions) {
+			config.resolve.extensions = []
+		}
+
+		// Prioriza .tsx e .ts antes de .js
+		config.resolve.extensions = [
+			".tsx",
+			".ts",
+			...config.resolve.extensions.filter(
+				(ext: string) => ext !== ".tsx" && ext !== ".ts"
+			)
+		]
+
+		return config
+	}
+}
+
 const nextConfig: NextConfig =
 	process.env.NODE_ENV === "development"
 		? {
-				reactStrictMode: true,
+				...baseConfig,
 				images: {
 					remotePatterns: [
 						{
@@ -26,7 +55,7 @@ const nextConfig: NextConfig =
 				}
 			}
 		: {
-				reactStrictMode: true,
+				...baseConfig,
 				eslint: {
 					ignoreDuringBuilds: true
 				},
