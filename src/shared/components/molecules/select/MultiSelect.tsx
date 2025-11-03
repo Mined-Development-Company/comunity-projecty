@@ -11,7 +11,8 @@ import {
 
 import { ChevronDown } from "lucide-react"
 
-import { cn } from "../../../utils/cn"
+import { cn } from "@/shared/utils/cn"
+
 import Hint, { type HintProps } from "../../atoms/hint"
 import { Icon } from "../../atoms/icon/Icon"
 import { Label } from "../../atoms/label"

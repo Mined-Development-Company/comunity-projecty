@@ -4,7 +4,7 @@ import React, { type ReactNode } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { cn } from "../../../../utils/cn"
+import { cn } from "@/shared/utils/cn"
 
 type NavLinkProps = {
 	href: string

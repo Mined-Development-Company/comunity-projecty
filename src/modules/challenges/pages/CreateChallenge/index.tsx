@@ -2,12 +2,12 @@
 
 import React from "react"
 
-import { Button } from "../../../../shared/components/atoms/button"
-import { Icon } from "../../../../shared/components/atoms/icon/Icon"
-import { Breadcrumb } from "../../../../shared/components/molecules/breadcrumb"
-import { ImageUpload } from "../../../../shared/components/molecules/ImageUpload"
-import { InputDefault } from "../../../../shared/components/molecules/inputs/InputDefault"
-import { TextareaDefault } from "../../../../shared/components/molecules/textareas/TextareaDefault"
+import { Button } from "@/shared/components/atoms/button"
+import { Icon } from "@/shared/components/atoms/icon/Icon"
+import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
+import { ImageUpload } from "@/shared/components/molecules/ImageUpload"
+import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
+import { TextareaDefault } from "@/shared/components/molecules/textareas/TextareaDefault"
 
 export default function CreateChallenge() {
 	return (

@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 
-import "../shared/styles/globals.css"
+import "@/shared/styles/globals.css"
 
-import Provider from "./providers/app"
-import { Toaster } from "../shared/components/atoms/sonner"
-import { Footer } from "../shared/components/organisms/Footer"
-import { Header } from "../shared/components/organisms/header"
-import { cn } from "../shared/utils/cn"
+import Provider from "@/app/providers/app"
+import { Toaster } from "@/shared/components/atoms/sonner"
+import { Footer } from "@/shared/components/organisms/Footer"
+import { Header } from "@/shared/components/organisms/header"
+import { cn } from "@/shared/utils/cn"
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",

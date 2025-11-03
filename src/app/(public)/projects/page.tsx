@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Projects } from "../../../modules/Projects/pages/Projects"
+import { Projects } from "@/modules/Projects/pages/Projects"
 
 export default function page() {
 	return (

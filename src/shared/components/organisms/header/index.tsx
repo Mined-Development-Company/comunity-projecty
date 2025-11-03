@@ -5,15 +5,16 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
+import { Button } from "@/shared/components/atoms/button"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
+import { SheetDefault } from "@/shared/components/molecules/sheets/SheetDefault"
+import { ButtonSideBar } from "@/shared/components/organisms/header/components/ButtonSideBar"
+import { DiscordServer } from "@/shared/components/organisms/header/components/DiscordServer"
+import { NavLink } from "@/shared/components/organisms/header/components/NavLink"
+import Profile from "@/shared/components/organisms/header/components/Profile"
+import { useHeader } from "@/shared/hooks/useHeader"
+
 import Logo from "../../../../../public/favicon.svg"
-import { useHeader } from "../../../hooks/useHeader"
-import { Button } from "../../atoms/button"
-import { AvatarInfo } from "../../molecules/cardInfo"
-import { SheetDefault } from "../../molecules/sheets/SheetDefault"
-import { ButtonSideBar } from "./components/ButtonSideBar"
-import { DiscordServer } from "./components/DiscordServer"
-import { NavLink } from "./components/NavLink"
-import Profile from "./components/Profile"
 
 export function Header() {
 	const { open, userData, navMobile, navDesktop, setOpen, handleNav, handleLogOut } =

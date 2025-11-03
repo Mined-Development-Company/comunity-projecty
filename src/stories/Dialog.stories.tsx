@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { Button } from "../shared/components/atoms/button"
-import { Dialog } from "../shared/components/molecules/dialog"
+import { Button } from "@/shared/components/atoms/button"
+import { Dialog } from "@/shared/components/molecules/dialog"
 
 const meta: Meta<typeof Dialog> = {
 	title: "Molecules/Dialog",

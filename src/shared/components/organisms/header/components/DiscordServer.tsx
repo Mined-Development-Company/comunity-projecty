@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AvatarDefault } from "../../../molecules/avatars/AvatarDefault"
+import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 
 type DiscordServerProps = {
 	variant: "desktop" | "mobile"

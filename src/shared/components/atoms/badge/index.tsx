@@ -3,8 +3,8 @@ import * as React from "react"
 import {
 	badgeVariants,
 	type BadgeVariants
-} from "./variants"
-import { cn } from "../../../utils/cn"
+} from "@/shared/components/atoms/badge/variants"
+import { cn } from "@/shared/utils/cn"
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, BadgeVariants {}
 

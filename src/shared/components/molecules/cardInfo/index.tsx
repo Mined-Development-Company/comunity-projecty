@@ -1,4 +1,4 @@
-import { cn } from "../../../utils/cn"
+import { cn } from "@/shared/utils/cn"
 
 import { AvatarDefault } from "../avatars/AvatarDefault"
 import { variantDescription, variantTitle } from "./variants"

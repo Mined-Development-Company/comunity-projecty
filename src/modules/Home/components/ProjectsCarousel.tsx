@@ -1,14 +1,14 @@
 import { PiGithubLogoFill } from "react-icons/pi"
 
-import { Button } from "../../../shared/components/atoms/button"
+import { Button } from "@/shared/components/atoms/button"
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious
-} from "../../../shared/components/atoms/carousel"
-import { ProjectCard } from "../../../shared/components/molecules/ProjectCard"
+} from "@/shared/components/atoms/carousel"
+import { ProjectCard } from "@/shared/components/molecules/ProjectCard"
 
 const mockData = {
 	id: 0,

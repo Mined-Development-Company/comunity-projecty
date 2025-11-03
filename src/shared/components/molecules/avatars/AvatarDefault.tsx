@@ -1,7 +1,7 @@
 import React from "react"
 
-import { cn } from "../../../utils/cn"
-import { Avatar, AvatarFallback, AvatarImage } from "../../atoms/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/atoms/avatar"
+import { cn } from "@/shared/utils/cn"
 
 type AvatarDefaultProps = {
 	src: string

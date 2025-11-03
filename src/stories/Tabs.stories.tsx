@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { NavigationTabs } from "../shared/components/molecules/tabs"
+import { NavigationTabs } from "@/shared/components/molecules/tabs"
 
 const meta: Meta<typeof NavigationTabs> = {
 	title: "Molecules/NavigationTabs",

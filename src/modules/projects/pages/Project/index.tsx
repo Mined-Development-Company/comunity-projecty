@@ -1,8 +1,9 @@
 "use client"
 
-import { Button } from "../../../../shared/components/atoms/button"
-import { Icon } from "../../../../shared/components/atoms/icon/Icon"
-import { Breadcrumb } from "../../../../shared/components/molecules/breadcrumb"
+import { Button } from "@/shared/components/atoms/button"
+import { Icon } from "@/shared/components/atoms/icon/Icon"
+import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
+
 import { About } from "./components/About"
 import { Images } from "./components/Images"
 import { NextSteps } from "./components/NextSteps"

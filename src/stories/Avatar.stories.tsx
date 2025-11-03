@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { AvatarDefault } from "../shared/components/molecules/avatars/AvatarDefault"
-import { MultiAvatar as MultiAvatarType } from "../shared/components/molecules/avatars/MultiAvatar"
+import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
+import { MultiAvatar as MultiAvatarType } from "@/shared/components/molecules/avatars/MultiAvatar"
 
 const meta: Meta<typeof AvatarDefault> = {
 	title: "Molecules/Avatar",

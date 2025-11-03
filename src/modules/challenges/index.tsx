@@ -4,9 +4,10 @@ import React from "react"
 
 import { useRouter } from "nextjs-toploader/app"
 
-import { Button } from "../../shared/components/atoms/button"
-import { InputDefault } from "../../shared/components/molecules/inputs/InputDefault"
-import { MultiSelect } from "../../shared/components/molecules/select/MultiSelect"
+import { Button } from "@/shared/components/atoms/button"
+import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
+import { MultiSelect } from "@/shared/components/molecules/select/MultiSelect"
+
 import { ChallengeCard } from "./components/ChallengeCard"
 
 const cardData = {

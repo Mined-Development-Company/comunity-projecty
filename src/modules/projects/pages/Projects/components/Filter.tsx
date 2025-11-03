@@ -2,8 +2,8 @@
 
 import React from "react"
 
-import { InputDefault } from "../../../../../shared/components/molecules/inputs/InputDefault"
-import { MultiSelect } from "../../../../../shared/components/molecules/select/MultiSelect"
+import { InputDefault } from "@/shared/components/molecules/inputs/InputDefault"
+import { MultiSelect } from "@/shared/components/molecules/select/MultiSelect"
 
 const items = [
 	{ label: "NextJS", value: "1" },

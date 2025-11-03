@@ -1,4 +1,4 @@
-import { cn } from "../../../utils/cn"
+import { cn } from "@/shared/utils/cn"
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
 	return (

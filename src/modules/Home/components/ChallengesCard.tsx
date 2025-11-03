@@ -1,6 +1,6 @@
 import { FaArrowRight } from "react-icons/fa6"
 
-import { Button } from "../../../shared/components/atoms/button"
+import { Button } from "@/shared/components/atoms/button"
 
 import { MarqueeDefault } from "./MarqueeDefault"
 

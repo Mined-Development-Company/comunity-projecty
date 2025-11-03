@@ -4,8 +4,9 @@ import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { capitalize } from "../../../utils/capitalize"
-import { cn } from "../../../utils/cn"
+import { capitalize } from "@/shared/utils/capitalize"
+import { cn } from "@/shared/utils/cn"
+
 import { Icon } from "../../atoms/icon/Icon"
 
 type Props = {

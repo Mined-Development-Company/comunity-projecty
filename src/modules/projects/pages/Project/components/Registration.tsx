@@ -1,10 +1,10 @@
 "use client"
 
-import { Box } from "../../../../../shared/components/atoms/box"
-import { Button } from "../../../../../shared/components/atoms/button"
-import { Checkbox } from "../../../../../shared/components/atoms/checkbox"
-import { Label } from "../../../../../shared/components/atoms/label"
-import { RadioGroup, RadioGroupItem } from "../../../../../shared/components/atoms/radioGroup"
+import { Box } from "@/shared/components/atoms/box"
+import { Button } from "@/shared/components/atoms/button"
+import { Checkbox } from "@/shared/components/atoms/checkbox"
+import { Label } from "@/shared/components/atoms/label"
+import { RadioGroup, RadioGroupItem } from "@/shared/components/atoms/radioGroup"
 
 const checkeds = [
 	"Aprender novas habilidades",

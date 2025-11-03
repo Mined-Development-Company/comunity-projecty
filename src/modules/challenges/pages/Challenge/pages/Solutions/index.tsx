@@ -1,7 +1,7 @@
 "use client"
 
-import { Breadcrumb } from "../../../../../../shared/components/molecules/breadcrumb"
-import { SolutionCard } from "./components/SolutionCard"
+import { SolutionCard } from "@/modules/Challenges/pages/challenge/pages/Solutions/components/SolutionCard"
+import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
 
 const cardData = {
 	id: 1,

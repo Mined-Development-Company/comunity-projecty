@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from "@storybook/react"
 
-import { Button } from "../shared/components/atoms/button"
-import { Input } from "../shared/components/atoms/input/input"
-import { Label } from "../shared/components/atoms/label"
-import { Textarea } from "../shared/components/atoms/textArea"
-import { Modal } from "../shared/components/molecules/modal"
+import { Button } from "@/shared/components/atoms/button"
+import { Input } from "@/shared/components/atoms/input/input"
+import { Label } from "@/shared/components/atoms/label"
+import { Textarea } from "@/shared/components/atoms/textArea"
+import { Modal } from "@/shared/components/molecules/modal"
 
 const meta: Meta<typeof Modal> = {
 	title: "Molecules/Modal",

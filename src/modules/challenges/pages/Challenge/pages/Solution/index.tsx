@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation"
 
 import { useRouter } from "nextjs-toploader/app"
 
-import { Button } from "../../../../../../shared/components/atoms/button"
-import { Icon } from "../../../../../../shared/components/atoms/icon/Icon"
-import { Breadcrumb } from "../../../../../../shared/components/molecules/breadcrumb"
-import { AvatarInfo } from "../../../../../../shared/components/molecules/cardInfo"
+import { Button } from "@/shared/components/atoms/button"
+import { Icon } from "@/shared/components/atoms/icon/Icon"
+import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 
 export function Solution() {
 	const pathName = usePathname()

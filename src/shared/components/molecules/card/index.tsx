@@ -8,7 +8,7 @@ import {
 	CardHeader,
 	Card as CardRoot,
 	CardTitle
-} from "../../atoms/card"
+} from "@/shared/components/atoms/card"
 
 export type CardProps = {
 	title: string

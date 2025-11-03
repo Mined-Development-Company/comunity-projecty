@@ -2,7 +2,7 @@
 
 import { useState, type ChangeEvent, type ReactNode } from "react"
 
-import { cn } from "../../../utils/cn"
+import { cn } from "@/shared/utils/cn"
 
 import { Input } from "../../atoms/input/input"
 import { Label } from "../../atoms/label"

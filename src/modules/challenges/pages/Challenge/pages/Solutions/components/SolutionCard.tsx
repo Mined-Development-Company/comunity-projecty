@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 
-import { AvatarInfo } from "../../../../../../../shared/components/molecules/cardInfo"
+import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
 
 interface Card {
 	id: number
