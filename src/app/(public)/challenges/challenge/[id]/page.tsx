@@ -1,6 +1,6 @@
 "use client"
 
-import { Challenge } from "@/modules/challenges/pages/challenge"
+import { Challenge } from "@/modules/Challenges/pages/Challenge"
 
 export default function Page() {
 	return (

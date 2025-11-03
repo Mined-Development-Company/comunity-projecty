@@ -1,6 +1,6 @@
 "use client"
 
-import { SolutionCard } from "@/modules/challenges/pages/challenge/pages/Solutions/components/SolutionCard"
+import { SolutionCard } from "@/modules/Challenges/pages/Challenge/pages/Solutions/components/SolutionCard"
 import { Breadcrumb } from "@/shared/components/molecules/breadcrumb"
 
 const cardData = {
