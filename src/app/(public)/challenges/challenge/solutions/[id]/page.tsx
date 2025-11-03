@@ -1,4 +1,4 @@
-import { Solutions } from "@/modules/Challenges/pages/challenge/pages/Solutions"
+import { Solutions } from "@/modules/challenges/pages/challenge/pages/Solutions"
 
 export default function page() {
 	return (
