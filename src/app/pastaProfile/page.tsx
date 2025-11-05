@@ -51,7 +51,7 @@ export default function Page() {
 								/>
 							</div>
 							{tabActive === "Projetos" && (
-								<div className="flex h-[400px] flex-col gap-3 overflow-y-auto">
+								<div className="flex h-[400px] flex-col gap-3 overflow-y-auto bg-[#0f1018]">
 									{Array.from({ length: 3 }).map((_item, index) => (
 										<Card
 											key={index}
