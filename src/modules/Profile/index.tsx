@@ -1,3 +1,5 @@
 export default function Profile() {
-	return <div>Perfil</div>
+	return <div className="rouded">
+		sasa
+	</div>
 }
