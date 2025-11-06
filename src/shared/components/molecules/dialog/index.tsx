@@ -16,8 +16,8 @@ import {
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
 type DialogProps = {
-	title: string
-	description: string
+	title?: string
+	description?: string
 	trigger: ReactNode
 	layout?: "WithCloseAction" | "WithCustomActions" | undefined
 	customActions?: ReactNode | undefined
