@@ -13,7 +13,6 @@ import {
 	DialogTitle,
 	DialogTrigger
 } from "@/shared/components/atoms/dialog"
-import { Icon } from "@/shared/components/atoms/icon/Icon"
 
 type DialogProps = {
 	title?: string
