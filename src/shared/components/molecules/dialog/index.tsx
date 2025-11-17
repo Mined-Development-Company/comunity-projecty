@@ -13,7 +13,6 @@ import {
 	DialogTitle,
 	DialogTrigger
 } from "@/shared/components/atoms/dialog"
-import { Icon } from "@/shared/components/atoms/icon/Icon"
 
 type DialogProps = {
 	title?: string
@@ -51,9 +50,10 @@ const Dialog = forwardRef<React.ElementRef<typeof DialogContent>, DialogProps>(
 							{layout === "WithCustomActions" && typeof customActions != "undefined" ? (
 								<DialogActions>{customActions}</DialogActions>
 							) : (
-								<DialogClose className="absolute right-2.5 top-2.5 inline-flex size-10 justify-end">
-									<Icon name="X" size="20" />
-									<span className="sr-only">FECHAR</span>
+								<DialogClose className="absolute right-2.5 top-0 inline-flex  size-10 justify-end">
+									{/*Descomentar para mostrar o X*/}
+									{/* <Icon name="X" size="20" />
+									<span className="sr-only">FECHAR</span> */} 
 								</DialogClose>
 							)}
 						</DialogFooter>

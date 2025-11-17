@@ -5,20 +5,24 @@ import { EditProfile } from "./Dialog/EditProfile"
 import { IconEditProfile } from "./Dialog/IconEditProfile"
 
 
+
 export const InfoProfile = () => {
 	return (
-		<div className="relative w-fulloverflow-hidden rounded-md bg-[#0f1018] ring-1 ring-gray-500/20">
-			<img className="h-60 w-full max-w-4xl" src="/profile/banner1.png" alt="" />
-			<div className="flex justify-between">
+		<div className="relative overflow-hidden rounded-md bg-[#0f1018] ring-1 ring-gray-500/20">
+		
+			<img className="h-60 w-full object-cover" src="/profile/banner1.png" alt="" />
+			<div className="relative px-10">
 				<AvatarDefault
 					src="https://github.com/shadcn.png"
-					className="absolute mx-10 mt-[-80px] h-[156px] w-[156px] border-4 border-black"
+					className="absolute -top-20 h-[156px] w-[156px] border-4 border-black"
 				/>
 				
-				<Dialog					
-					trigger={<IconEditProfile/>}
-					children={<EditProfile/>}
-				/>
+				<div className="flex justify-end pt-4">
+					<Dialog	
+						trigger={<IconEditProfile/>}
+						children={<EditProfile/>}
+					/>
+				</div>
 			</div>
 
 			<div className="mb-2 mt-3 flex items-center justify-between">
