@@ -23,10 +23,10 @@ export function ProjectsCarousel() {
 	return (
 		<div className="flex w-full flex-col items-center justify-center gap-16">
 			<div className="space-y-1 text-center">
-				<h3 className="text-5xl font-bold text-content-primary text-opacity-100">
+				<h3 className="text-2xl font-bold text-content-primary text-opacity-100 md:text-4xl lg:text-5xl">
 					Projetos da Comunidade{" "}
 				</h3>
-				<p className="mx-auto w-[667px] text-[18px] text-content-tertiary">
+				<p className=":md:w-[667px] mx-auto text-content-tertiary md:text-[18px]">
 					Participe de{" "}
 					<strong className="font-medium text-green-hard">
 						{" "}
@@ -43,7 +43,9 @@ export function ProjectsCarousel() {
 				className="w-[80%]">
 				<CarouselContent>
 					{Array.from({ length: 5 }).map((_, index) => (
-						<CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
+						<CarouselItem
+							key={index}
+							className="md:basis-[60%] lg:basis-[45%] min-[1280px]:basis-1/3">
 							<ProjectCard classname="w-[350px]" {...mockData} />
 						</CarouselItem>
 					))}

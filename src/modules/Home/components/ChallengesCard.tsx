@@ -6,9 +6,9 @@ import { MarqueeDefault } from "./MarqueeDefault"
 
 export function ChallengesCard() {
 	return (
-		<div className="relative z-10 mx-auto flex w-[80%] flex-col gap-16 rounded-[38px] border border-content-shape-quaternary bg-[#FAFAFA] bg-opacity-[1%] py-16 backdrop-blur-[1px]">
-			<div className="space-y-1 text-center">
-				<h3 className="text-5xl font-bold text-content-primary text-opacity-100">
+		<div className="relative z-10 mx-auto flex w-[90%] flex-col gap-16 rounded-[38px] border border-content-shape-quaternary bg-[#FAFAFA] bg-opacity-[1%] py-16 backdrop-blur-[1px] 2xl:w-[80%]">
+			<div className="space-y-1 px-2 text-center">
+				<h3 className="text-3xl font-bold text-content-primary text-opacity-100 md:text-5xl">
 					Teste Seus Limites
 				</h3>
 				<p className="text-content-tertiary">
@@ -16,7 +16,7 @@ export function ChallengesCard() {
 				</p>
 			</div>
 
-			<div className="mx-auto w-[80%]">
+			<div className="mx-auto w-[90%] 2xl:w-[80%]">
 				<MarqueeDefault />
 			</div>
 
