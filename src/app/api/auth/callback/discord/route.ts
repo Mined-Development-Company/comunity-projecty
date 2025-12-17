@@ -1,9 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server"
 
-import jwt from "jsonwebtoken"
-
 // import { validateSchema } from "@/app/api/utils/validateSchema"
-import { BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET, JWT_SECRETE } from "@/shared/env"
+import { BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET } from "@/shared/env"
 import { prisma } from "@/shared/libs/prisma"
 
 import getUserData from "./getUserData"
