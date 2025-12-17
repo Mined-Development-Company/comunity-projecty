@@ -7,8 +7,11 @@ import { Button } from "@/shared/components/atoms/button"
 import { ChallengesCard } from "./components/ChallengesCard"
 import { DiscussionForum } from "./components/DiscussionForum"
 import { ProjectsCarousel } from "./components/ProjectsCarousel"
+import { useModel } from "./hooks/useModel"
 
 export default function Home() {
+	const {} = useModel()
+
 	return (
 		<div className="size-full space-y-[100px] pb-11">
 			<div className="container relative m-auto mt-20 flex w-full items-center px-4 md:mt-[101px] lg:px-[10px] xl:px-[7.5rem]">

@@ -7,5 +7,5 @@ type Props = {
 }
 
 export function TemplateDefault({ children }: Props) {
-	return <div className="container mx-auto max-w-[1280px] py-12">{children}</div>
+	return <div className="container mx-auto max-w-[1280px] py-6 lg:py-12">{children}</div>
 }

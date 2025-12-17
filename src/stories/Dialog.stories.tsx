@@ -1,34 +1,33 @@
+import React from "react"
+
 import { type Meta, type StoryObj } from "@storybook/react"
 
 import { Button } from "@/shared/components/atoms/button"
-import { Dialog } from "@/shared/components/molecules/dialog"
+import { DialogDefault } from "@/shared/components/molecules/DialogDefault"
 
-const meta: Meta<typeof Dialog> = {
+const meta: Meta<typeof DialogDefault> = {
 	title: "Molecules/Dialog",
-	component: Dialog,
+	component: DialogDefault,
 	parameters: {
 		controls: {
-			exclude: ["trigger", "children", "customActions"]
+			exclude: ["trigger", "content", "customActions"]
 		}
 	},
 	argTypes: {},
 	args: {
 		trigger: <Button>Open Dialog</Button>,
-		title: "Lorem ipsum",
-		description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-		children: (
+		content: (
 			<p>
 				Numquam quos minus veritatis, aperiam iure facilis exercitationem totam laboriosam
 				excepturi harum sunt aliquam ipsum. Perspiciatis earum alias laboriosam ad est
 				ullam!
 			</p>
-		),
-		layout: "WithCloseAction"
-	}
+		)
+	} as any
 }
 
 export default meta
 
-export const Default: StoryObj<typeof Dialog> = {
-	render: (args) => <Dialog {...args} />
+export const Default: StoryObj<typeof DialogDefault> = {
+	render: (args) => <DialogDefault {...args} />
 }

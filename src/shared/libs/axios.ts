@@ -1,6 +1,10 @@
+"use client"
+
 import axios from "axios"
 
+import { API_URL } from "../env"
+
 export const api = axios.create({
-	baseURL: process.env.NEXT_PUBLIC_DB_HOST,
+	baseURL: API_URL,
 	timeout: 500
 })

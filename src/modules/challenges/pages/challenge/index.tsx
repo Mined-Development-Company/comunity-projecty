@@ -42,13 +42,14 @@ export function Challenge() {
 					]}
 				/>
 				<div className="flex items-center justify-between">
-					<h2 className="text-3xl font-bold">{card.title}</h2>
+					<h2 className="text-2xl font-bold md:text-3xl">{card.title}</h2>
 
-					<div>
+					<div className="hidden lg:block">
 						<h2 className="text-xl font-semibold uppercase">{card.level}</h2>
 						<div className="h-0.5 w-full bg-green-hard"></div>
 					</div>
 				</div>
+
 				<div className="my-5 flex gap-3">
 					{card.skills.map((skill, index) => (
 						<p
@@ -58,28 +59,34 @@ export function Challenge() {
 						</p>
 					))}
 				</div>
-				<div className="w-[541px] text-content-quaternary">
+
+				<div className="block w-fit lg:hidden">
+					<h2 className="text-lg font-semibold uppercase">{card.level}</h2>
+					<div className="h-0.5 w-full bg-green-hard"></div>
+				</div>
+
+				<div className="text-content-quaternary lg:w-[541px]">
 					<p>{card.description}</p>
 				</div>
 			</div>
 
 			{/* BOTÕES */}
-			<div className="my-5 flex gap-5">
+			<div className="my-5 flex flex-wrap gap-2 md:gap-5">
 				<Button
 					variant="outline-green"
-					className="font-bold"
+					className="w-full font-bold md:w-fit"
 					onClick={() => router.push("/challenges/challenge/send-solution/1")}>
 					Enviar Solução
 					<Icon name="PaperPlaneRight" />
 				</Button>
 				<Button
 					variant="outline-green"
-					className="font-bold"
+					className="w-full font-bold md:w-fit"
 					onClick={() => router.push("/challenges/challenge/solutions/1")}>
 					Ver soluções
 					<Icon name="Lightbulb" />
 				</Button>
-				<Button variant="outline-green" className="font-bold">
+				<Button variant="outline-green" className="w-full font-bold md:w-fit">
 					Começar desafio
 					<Icon name="Handshake" />
 				</Button>
@@ -93,7 +100,7 @@ export function Challenge() {
 
 			{/* DESCRIÇÃO */}
 
-			<div className="flex w-full justify-between py-7">
+			<div className="flex w-full flex-wrap justify-between gap-6 pt-7">
 				<div className="max-w-[512px] space-y-4">
 					<h3 className="font-bold">Requisitos</h3>
 					<p className="text-content-quaternary">{card.requirements}</p>

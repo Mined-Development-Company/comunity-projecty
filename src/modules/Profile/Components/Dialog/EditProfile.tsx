@@ -3,7 +3,6 @@ import React from "react"
 import { Button } from "@/shared/components/atoms/button"
 import {
 	DialogClose,
-	DialogContent,
 	DialogFooter,
 	DialogHeader,
 	DialogTitle
@@ -25,7 +24,7 @@ const Logo = [
 
 export const EditProfile = () => {
 	return (
-		<DialogContent className="sm:max-w-[425px]">
+		<>
 			<DialogHeader>
 				<DialogTitle className="flex flex-col items-center gap-4">
 					<AvatarDefault
@@ -64,6 +63,6 @@ export const EditProfile = () => {
 				</DialogClose>
 				<Button type="submit">Salvar</Button>
 			</DialogFooter>
-		</DialogContent>
+		</>
 	)
 }

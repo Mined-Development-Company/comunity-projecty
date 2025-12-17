@@ -21,7 +21,7 @@ const mockData = {
 
 export function ProjectsCarousel() {
 	return (
-		<div className="flex w-full flex-col items-center justify-center gap-16">
+		<div className="container m-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-16 px-16">
 			<div className="space-y-1 text-center">
 				<h3 className="text-2xl font-bold text-content-primary text-opacity-100 md:text-4xl lg:text-5xl">
 					Projetos da Comunidade{" "}
@@ -40,13 +40,13 @@ export function ProjectsCarousel() {
 				opts={{
 					align: "start"
 				}}
-				className="w-[80%]">
+				className="w-full">
 				<CarouselContent>
 					{Array.from({ length: 5 }).map((_, index) => (
 						<CarouselItem
 							key={index}
-							className="md:basis-[60%] lg:basis-[45%] min-[1280px]:basis-1/3">
-							<ProjectCard classname="w-[350px]" {...mockData} />
+							className="basis-full md:basis-[40%] lg:basis-1/3 min-[1280px]:basis-1/4">
+							<ProjectCard classname="max-w-[283px]" {...mockData} />
 						</CarouselItem>
 					))}
 				</CarouselContent>

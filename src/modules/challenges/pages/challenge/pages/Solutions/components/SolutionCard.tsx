@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { AvatarInfo } from "@/shared/components/molecules/cardInfo"
@@ -23,9 +24,14 @@ export function SolutionCard({ cardData, redirectUrl }: ChallengeCardProps) {
 	return (
 		<Link href={redirectUrl}>
 			<div className="w-full overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary">
-				<div className="flex h-[272px] items-center justify-center overflow-hidden">
-					<img src={cardData.thumb} alt={"image card"} className="w-full object-cover" />
-				</div>
+				<Image
+					width={300}
+					height={272}
+					src={cardData.thumb}
+					alt={"image card"}
+					className="h-[272px] w-full object-cover"
+				/>
+
 				<div className="flex flex-col gap-y-6 p-7">
 					<p className="text-sm text-content-quaternary">Submitted over 2 years ago</p>
 					<h2 className="text-xl font-semibold capitalize">{cardData.title}</h2>

@@ -1,6 +1,6 @@
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
-import { Dialog } from "@/shared/components/molecules/dialog"
+import { DialogDefault } from "@/shared/components/molecules/DialogDefault"
 
 import { EditProfile } from "./Dialog/EditProfile"
 import { IconEditProfile } from "./Dialog/IconEditProfile"
@@ -9,14 +9,14 @@ export const InfoProfile = () => {
 	return (
 		<div className="overflow-hidden rounded-lg bg-content-shape-secondary ring-1 ring-gray-500/20">
 			<img className="h-60 w-full object-cover" src="/profile/banner1.png" alt="" />
-			<div className="h-[70px] px-10">
+			<div className="h-14 px-10 md:h-[70px]">
 				<AvatarDefault
 					src="https://github.com/shadcn.png"
-					className="absolute -top-20 h-[156px] w-[156px] border-4 border-black"
+					className="absolute -top-16 h-[120px] w-[120px] border-4 border-black md:-top-20 lg:h-[156px] lg:w-[156px]"
 				/>
 
-				<div className="flex justify-end px-3 pt-4">
-					<Dialog trigger={<IconEditProfile />} children={<EditProfile />} />
+				<div className="flex justify-end px-3 pt-12 md:pt-4">
+					<DialogDefault trigger={<IconEditProfile />} content={<EditProfile />} />
 				</div>
 			</div>
 

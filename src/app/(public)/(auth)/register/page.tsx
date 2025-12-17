@@ -1,11 +1,11 @@
-import React from "react"
+import React, { Suspense } from "react"
 
 import Register from "@/modules/Auth/pages/register"
 
 export default function Page() {
 	return (
-		<div className="flex flex-1 flex-col">
+		<Suspense fallback={<div>Carregando...</div>}>
 			<Register />
-		</div>
+		</Suspense>
 	)
 }

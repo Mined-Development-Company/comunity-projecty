@@ -15,8 +15,8 @@ export default function Profile() {
 	const tabs = [{ title: "projetos" }, { title: "desafios" }, { title: "perguntas" }]
 
 	return (
-		<div className="container mx-auto my-10 flex">
-			<div className="flex-1">
+		<div className="container mx-auto my-2 flex max-w-[1280px] flex-wrap p-2 md:p-4 lg:p-4 2xl:p-6">
+			<div className="flex flex-1 flex-col flex-wrap gap-2">
 				<InfoProfile />
 				<AtividadeArea
 					setState={(value) => setTabActive(value as TTabProps)}
@@ -24,7 +24,7 @@ export default function Profile() {
 					stateTabs={tabs}
 				/>
 			</div>
-			<div className="ml-6 hidden flex-col gap-[10px] lg:flex">
+			<div className="ml-6 hidden flex-col gap-6 lg:flex lg:gap-5">
 				<AsideArea />
 				<Donation />
 			</div>

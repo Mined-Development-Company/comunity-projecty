@@ -30,11 +30,13 @@ export function Solution() {
 			{/* HEADER */}
 			<Breadcrumb paths={paths} />
 
-			<div className="flex items-center justify-between">
-				<div className="flex flex-col gap-10">
+			<div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+				<div className="flex flex-col gap-6 md:gap-10">
 					<div className="space-y-2">
 						<p className="text-content-quaternary">Submitted over 2 years ago</p>
-						<h2 className="text-3xl font-bold">Pagina de vendas E-commerce</h2>
+						<h2 className="text-2xl font-bold md:text-3xl">
+							Pagina de vendas E-commerce
+						</h2>
 					</div>
 
 					<AvatarInfo
@@ -47,7 +49,7 @@ export function Solution() {
 					/>
 
 					{/* BOTÕES */}
-					<div className="my-5 flex gap-5">
+					<div className="flex gap-5 md:my-5">
 						<Button
 							variant="outline-green"
 							className="font-bold"
@@ -67,7 +69,7 @@ export function Solution() {
 
 				{/* IMAGEM */}
 				<iframe
-					className="h-[379px] w-[623px] rounded-md"
+					className="h-[280px] rounded-md md:w-[623px] lg:h-[379px]"
 					src="https://embed.figma.com/design/jrpkGxF4Px3jH4QhwEKwiY/Community-Project?embed-host=share"></iframe>
 			</div>
 		</div>

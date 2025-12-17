@@ -35,17 +35,17 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="pt-br">
+		<html className="" lang="pt-br">
 			<body
 				className={cn(
-					"flex flex-col bg-content-shape-primary text-content-primary antialiased",
+					"flex h-screen w-screen flex-col bg-content-shape-primary text-content-primary antialiased",
 					geistSans.variable,
 					geistMono.variable
 				)}>
 				<Provider>
 					<Header />
 					<div className="container m-auto flex min-h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]"></div>
-					<div className="flex-1">{children}</div>
+					<div className="h-full w-screen px-3">{children}</div>
 					<Footer />
 					<Toaster />
 				</Provider>

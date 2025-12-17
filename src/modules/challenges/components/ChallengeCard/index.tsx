@@ -29,13 +29,12 @@ export function ChallengeCard({ cardData, redirectUrl }: ChallengeCardProps) {
 	return (
 		<Link href={redirectUrl}>
 			<div className="w-full overflow-hidden rounded-lg border border-content-shape-quaternary bg-content-shape-secondary">
-				<div className="flex h-[272px] items-center justify-center overflow-hidden">
-					<img
-						src={cardData.thumb}
-						alt={cardData.alt || "image card "}
-						className="w-full object-cover"
-					/>
-				</div>
+				<img
+					src={cardData.thumb}
+					alt={cardData.alt || "image card "}
+					className="h-[272px] w-full object-fill object-top md:object-cover"
+				/>
+
 				<div className="flex flex-col gap-y-4 p-7">
 					<div className="flex">
 						<div>

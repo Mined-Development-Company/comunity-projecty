@@ -51,7 +51,7 @@ export function SelectDefault({
 
 	function handleValueChange(value: string) {
 		setValue(value)
-		onValueChange && onValueChange(value)
+		onValueChange(value)
 	}
 
 	return (

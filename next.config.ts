@@ -26,6 +26,17 @@ const baseConfig: NextConfig = {
 		]
 
 		return config
+	},
+	experimental: {
+		turbo: {
+			resolveAlias: {
+				".js": [".js", ".ts", ".tsx"],
+				".jsx": [".jsx", ".tsx"],
+				".ts": [".ts", ".tsx"],
+				".tsx": [".tsx"]
+			},
+			resolveExtensions: [".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"]
+		}
 	}
 }
 

@@ -25,7 +25,7 @@ const cardData = {
 
 export function Solutions() {
 	return (
-		<div className="mx-auto my-12 max-w-[1280px] space-y-8">
+		<div className="mx-auto my-6 max-w-[1280px] space-y-4 md:space-y-8 lg:my-12">
 			<div className="space-y-2">
 				<Breadcrumb
 					paths={[
@@ -34,10 +34,10 @@ export function Solutions() {
 						{ title: "Solução", href: "" }
 					]}
 				/>
-				<h2 className="text-3xl font-bold">Pagina de vendas E-commerce</h2>
+				<h2 className="text-2xl font-bold md:text-3xl">Pagina de vendas E-commerce</h2>
 			</div>
 
-			<div className="grid items-center justify-between gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<div className="m-auto grid grid-cols-1 items-center justify-between gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{Array.from({ length: 6 }).map((_, index) => (
 					<SolutionCard
 						key={index}

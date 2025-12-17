@@ -57,31 +57,31 @@ export function Challenges() {
 	]
 
 	return (
-		<div className="mx-auto my-12 max-w-[1280px] space-y-8">
-			<div className="flex justify-between p-10 xl:p-0">
-				<div className="flex flex-col gap-3 md:flex-row">
-					<h2 className="text-3xl capitalize">desafios</h2>
-					<div className="flex gap-3 lg:w-[505px]">
-						<InputDefault
-							className="min-w-[250px]"
-							placeholder="Pesquisar"
-							iconPosition="left"
-							icon="MagnifyingGlass"
-						/>
-						<MultiSelect
-							classTrigger="w-[250px]"
-							placeholder="Filtros"
-							max={3}
-							itemsWithTitle={itemsWithTitle}
-						/>
-					</div>
-				</div>
+		<div className="mx-auto max-w-[1280px] space-y-8 p-4 md:my-12">
+			<div className="flex flex-col gap-3 md:justify-between lg:flex-row">
+				<h2 className="text-3xl capitalize">desafios</h2>
 
-				<Button
-					className="hidden w-[141px] md:flex"
-					onClick={() => router.push("/challenges/create-challenge")}>
-					Criar seu Desafio
-				</Button>
+				<div className="md:jus flex flex-col gap-3 md:flex-row">
+					<MultiSelect
+						classTrigger="w-full md:min-w-[250px]"
+						placeholder="Filtros"
+						max={3}
+						itemsWithTitle={itemsWithTitle}
+					/>
+
+					<InputDefault
+						className="w-full md:min-w-[250px]"
+						placeholder="Pesquisar"
+						iconPosition="left"
+						icon="MagnifyingGlass"
+					/>
+
+					<Button
+						className="hidden h-fit w-[141px] md:flex"
+						onClick={() => router.push("/challenges/create-challenge")}>
+						Criar Desafio
+					</Button>
+				</div>
 			</div>
 
 			<div className="grid items-center justify-between gap-6 sm:grid-cols-2 lg:grid-cols-3">
