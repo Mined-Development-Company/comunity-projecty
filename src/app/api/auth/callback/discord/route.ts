@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
 
 		console.log("existe usuário?", user)
 
-		if (!user || user === null || user === undefined) {
+		if (user && user.length > 0) {
 			return NextResponse.json({ message: "Usuário já existe" }, { status: 200 })
 		}
 
