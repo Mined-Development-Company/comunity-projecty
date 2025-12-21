@@ -1,35 +1,19 @@
-import React, { useState } from "react"
+import React from "react"
 
 import { Button } from "@/shared/components/atoms/button"
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 
+import useModel from "../hooks/useModel"
+
 type AuthCardProps = {
 	action: "login" | "register"
-	isLoading: boolean
-	onClickDiscord?: () => void
-	onClickGithub?: () => void
 }
 
-export function AuthCard({
-	action,
-	isLoading,
-	onClickGithub,
-	onClickDiscord
-}: AuthCardProps) {
-	const [loads, setLoads] = useState({ discord: false, github: false })
-
-	function handleSetLoads(action: "github" | "discord") {
-		if (action === "github") {
-			onClickGithub!()
-			setLoads((prev) => ({ ...prev, github: true }))
-		} else {
-			onClickDiscord!()
-			setLoads((prev) => ({ ...prev, discord: true }))
-		}
-	}
+export function AuthCard({ action }: AuthCardProps) {
+	const { connectDiscord, loadDiscord } = useModel()
 
 	return (
-		<section className="flex w-[400px] flex-col items-center justify-center gap-5 rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-6">
+		<section className="flex w-full max-w-[400px] flex-col items-center justify-center gap-5 rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-6">
 			<div className="space-y-1 text-center text-content-primary">
 				<h1 className="text-2xl font-bold text-content-primary">
 					{action === "login" ? "Login" : "Registrar-se"}
@@ -41,7 +25,7 @@ export function AuthCard({
 				</p>
 			</div>
 			<div className="flex w-full flex-col gap-5">
-				<Button
+				{/* <Button
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
@@ -54,14 +38,14 @@ export function AuthCard({
 						weight="regular"
 					/>
 					Github
-				</Button>
+				</Button> */}
 				<Button
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
-					isLoading={loads.discord}
-					onClick={() => handleSetLoads("discord")}
-					disabled={isLoading}>
+					isLoading={loadDiscord}
+					onClick={() => connectDiscord(action)}
+					disabled={loadDiscord}>
 					<Icon
 						className="min-h-[20px] min-w-[20px]"
 						name="DiscordLogo"
