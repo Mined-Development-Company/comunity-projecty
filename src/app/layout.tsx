@@ -14,6 +14,7 @@ const geistSans = localFont({
 	variable: "--font-geist-sans",
 	weight: "100 900"
 })
+
 const geistMono = localFont({
 	src: "./fonts/GeistMonoVF.woff",
 	variable: "--font-geist-mono",
@@ -44,8 +45,8 @@ export default function RootLayout({
 				)}>
 				<Provider>
 					<Header />
-					<div className="container m-auto flex min-h-16 w-full items-center justify-between px-4 lg:px-[10px] xl:px-[7.5rem]"></div>
-					<div className="h-full w-screen px-3">{children}</div>
+					<div className="max-h-16 min-h-16 w-full"></div>
+					<div className="bg-background px-3">{children}</div>
 					<Footer />
 					<Toaster />
 				</Provider>

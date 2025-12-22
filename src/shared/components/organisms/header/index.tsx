@@ -21,7 +21,7 @@ export function Header() {
 		useHeader()
 
 	return (
-		<header className="fixed z-40 w-full bg-content-shape-secondary drop-shadow-[0px_2px_10px_rgba(0,0,0,0.10)]">
+		<header className="fixed z-40 w-full bg-content-shape-secondary drop-shadow-[2px_1px_5px_rgba(0,0,0,0.10)]">
 			<div className="container m-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-4 lg:px-[10px] xl:px-0">
 				<Link className="-ml-2 flex items-center gap-1" href="/">
 					<Image src={Logo} alt="Logo" priority />

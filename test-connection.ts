@@ -5,8 +5,17 @@ import { Pool } from "pg"
 
 import { PrismaClient } from "./src/app/generated/prisma/client"
 
+// Quando usando adapter-pg, devemos usar a conexão direta (DIRECT_URL)
+const connectionString = process.env.DIRECT_URL || process.env.DATABASE_URL
+
+if (!connectionString) {
+	throw new Error(
+		"Por favor, defina DATABASE_URL ou DIRECT_URL nas variáveis de ambiente"
+	)
+}
+
 const pool = new Pool({
-	connectionString: process.env.DATABASE_URL
+	connectionString
 })
 
 const adapter = new PrismaPg(pool)

@@ -2,10 +2,21 @@
 
 import type { ReactNode } from "react"
 
+import { cn } from "@/shared/utils/cn"
+
 type Props = {
 	children: ReactNode
+	className?: string
 }
 
-export function TemplateDefault({ children }: Props) {
-	return <div className="container mx-auto max-w-[1280px] py-6 lg:py-12">{children}</div>
+export function TemplateDefault({ children, className }: Props) {
+	return (
+		<div
+			className={cn(
+				"container mx-auto min-h-[calc(100vh-177px)] max-w-[1280px] py-6 lg:py-10",
+				className
+			)}>
+			{children}
+		</div>
+	)
 }
