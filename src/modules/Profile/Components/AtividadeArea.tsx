@@ -1,5 +1,4 @@
 import { NavigationTabs } from "@/shared/components/molecules/tabs"
-
 import { ProjectCard } from "./ProjectCard"
 
 type Props = {
