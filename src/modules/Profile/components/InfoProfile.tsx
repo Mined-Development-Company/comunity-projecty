@@ -1,9 +1,10 @@
 import { Icon } from "@/shared/components/atoms/icon/Icon"
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 import { DialogDefault } from "@/shared/components/molecules/DialogDefault"
-
-import { EditProfile } from "./Dialog/EditProfile"
 import { IconEditProfile } from "./Dialog/IconEditProfile"
+import { EditProfile } from "./Dialog/EditProfile"
+
+
 
 export const InfoProfile = () => {
 	return (
