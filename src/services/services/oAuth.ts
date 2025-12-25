@@ -1,9 +1,12 @@
 import getUserData from "@/app/api/auth/callback/discord/getUserData"
+import type { PrismaClient } from "@/app/generated/prisma"
+import * as runtime from "@/app/generated/prisma/runtime/client"
 import { BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET } from "@/shared/env"
 import { prisma } from "@/shared/libs/prisma"
 import { generateTokens } from "@/shared/utils/jwt"
 
 import { BadRequestError, ServerError, UnauthorizedError } from "../errors/HttpError"
+import { validateToken } from "../middleware/validateToken"
 import type { TRedirectUrlProps } from "../validators/oAuth"
 
 export async function connectService(action: TRedirectUrlProps["action"]) {
@@ -89,28 +92,17 @@ export async function callbackDiscordService(
 				}
 			})
 
-			const { token: newToken, refreshToken: newRefreshToken } = generateTokens(
+			const { newToken, newRefreshToken } = await generateSession(
 				createdUser.id,
-				createdUser.email
+				createdUser.email,
+				tx
 			)
-
-			await tx.session.create({
-				data: {
-					userId: createdUser.id,
-					sessionToken: newToken,
-					sessionRefreshToken: newRefreshToken,
-					expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
-				}
-			})
 
 			token = newToken
 			refreshToken = newRefreshToken
 		})
 	} else {
-		const { token: newToken, refreshToken: newRefreshToken } = generateTokens(
-			user.id,
-			user.email
-		)
+		const { newToken, newRefreshToken } = await generateSession(user.id, user.email)
 
 		token = newToken
 		refreshToken = newRefreshToken
@@ -121,4 +113,79 @@ export async function callbackDiscordService(
 	}
 
 	return { token, refreshToken }
+}
+
+export async function refreshTokenService(refreshToken: string) {
+	const decodedToken = await validateToken(refreshToken)
+
+	const { token: newToken, refreshToken: newRefreshToken } = generateTokens(
+		decodedToken.id,
+		decodedToken.userId,
+		decodedToken.email
+	)
+
+	const session = await prisma.session.findFirst({
+		where: {
+			id: decodedToken.id
+		}
+	})
+
+	if (!session) {
+		throw new UnauthorizedError("Session not found")
+	}
+
+	await prisma.session.update({
+		where: {
+			id: decodedToken.id
+		},
+		data: {
+			sessionToken: newToken,
+			sessionRefreshToken: newRefreshToken,
+			expiresAt: new Date(Date.now() + 1000 * 60 * 15)
+		}
+	})
+
+	return { token: newToken, refreshToken: newRefreshToken }
+}
+
+async function generateSession(
+	userId: string,
+	userEmail?: string | null,
+	tx?: Omit<PrismaClient, runtime.ITXClientDenyList>
+) {
+	const p = tx ?? prisma
+
+	// Cria uma nova sessão inicial vazia
+	const newSession = await p.session.create({
+		data: {
+			userId: userId,
+			sessionToken: "",
+			sessionRefreshToken: "",
+			expiresAt: new Date(Date.now() + 1000 * 60 * 15)
+		}
+	})
+
+	// Gera os tokens usando informações apropriadas
+	const { token: newToken, refreshToken: newRefreshToken } = generateTokens(
+		newSession.id,
+		userId,
+		userEmail
+	)
+
+	// Atualiza a sessão nova criada com os tokens
+	await p.session.update({
+		where: {
+			id: newSession.id
+		},
+		data: {
+			sessionToken: newToken,
+			sessionRefreshToken: newRefreshToken
+		}
+	})
+
+	if (!newToken || !newRefreshToken) {
+		throw new ServerError()
+	}
+
+	return { newToken, newRefreshToken }
 }

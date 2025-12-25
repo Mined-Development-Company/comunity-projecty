@@ -7,3 +7,13 @@ const discordParamsSchema = z.object({
 })
 
 export type TRedirectUrlProps = z.infer<typeof discordParamsSchema>
+
+export const payloadSchema = z.object({
+	id: z.string(),
+	userId: z.string(),
+	email: z.string().email().nullable().optional(),
+	iat: z.number(),
+	exp: z.number()
+})
+
+export type TPayloadProps = z.infer<typeof payloadSchema>

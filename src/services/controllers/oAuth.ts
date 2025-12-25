@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { callbackDiscordService, connectService } from "../services/oAuth"
+import { BadRequestError } from "../errors/HttpError"
+import {
+	callbackDiscordService,
+	connectService,
+	refreshTokenService
+} from "../services/oAuth"
 import type { TRedirectUrlProps } from "../validators/oAuth"
 
 export async function connectController(req: NextRequest) {
@@ -30,6 +35,40 @@ export async function callbackDiscordController(req: NextRequest) {
 	const { token, refreshToken } = await callbackDiscordService(code, action)
 
 	const response = NextResponse.json({ message: "conexão bem sucedida" }, { status: 200 })
+
+	response.cookies.set("token", token, {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === "production",
+		sameSite: "lax",
+		path: "/",
+		maxAge: 15 * 60
+	})
+
+	response.cookies.set("refreshToken", refreshToken, {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === "production",
+		sameSite: "lax",
+		path: "/",
+		maxAge: 7 * 24 * 60 * 60
+	})
+
+	return response
+}
+
+export async function refreshTokenController(req: NextRequest) {
+	const refreshTokenCookie = req.cookies.get("refreshToken")?.value
+	console.log("refreshTokenCookie", refreshTokenCookie)
+
+	if (!refreshTokenCookie) {
+		return new BadRequestError("Refresh token is required")
+	}
+
+	const { token, refreshToken } = await refreshTokenService(refreshTokenCookie)
+
+	const response = NextResponse.json(
+		{ message: "Token refreshed successfully" },
+		{ status: 200 }
+	)
 
 	response.cookies.set("token", token, {
 		httpOnly: true,

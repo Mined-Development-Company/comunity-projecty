@@ -7,17 +7,18 @@ export interface GenerateTokensResult {
 	refreshToken: string
 }
 
-export function generateTokens(userId: string, email?: string | null): GenerateTokensResult {
-	const token = jwt.sign(
-		{ userId, email, expiresIn: "15m" },
-		JWT_SECRETE
-	)
+export function generateTokens(
+	sessionId: string,
+	userId: string,
+	email?: string | null
+): GenerateTokensResult {
+	const token = jwt.sign({ id: sessionId, userId, email }, JWT_SECRETE, {
+		expiresIn: "15m"
+	})
 
-	const refreshToken = jwt.sign(
-		{ userId, expiresIn: "7d" },
-		JWT_SECRETE
-	)
+	const refreshToken = jwt.sign({ id: sessionId, userId, email }, JWT_SECRETE, {
+		expiresIn: "7d"
+	})
 
 	return { token, refreshToken }
 }
-
