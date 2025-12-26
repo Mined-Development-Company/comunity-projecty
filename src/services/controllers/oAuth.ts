@@ -1,16 +1,23 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { callbackDiscordService, connectService } from "../services/oAuth"
+import { callbackDiscordService, connectDiscordService, connectGithubService, callbackGithubService } from "../services/oAuth"
 import type { TRedirectUrlProps } from "../validators/oAuth"
 
 export async function connectController(req: NextRequest) {
 	const action = req.nextUrl.searchParams.get("action") as TRedirectUrlProps["action"]
+	const provider = req.nextUrl.searchParams.get("provider") as TRedirectUrlProps["provider"]
 
 	if (!action) {
 		return NextResponse.json({ error: "Action is required" }, { status: 400 })
 	}
 
-	const redirectUrl = await connectService(action)
+	let redirectUrl: string
+
+	if (provider === "discord") {
+		redirectUrl = await connectDiscordService(action)
+	} else {
+		redirectUrl = await connectGithubService("login")
+	}
 
 	return NextResponse.redirect(redirectUrl)
 }
@@ -28,6 +35,38 @@ export async function callbackDiscordController(req: NextRequest) {
 	}
 
 	const { token, refreshToken } = await callbackDiscordService(code, action)
+
+	const response = NextResponse.json({ message: "conexão bem sucedida" }, { status: 200 })
+
+	response.cookies.set("token", token, {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === "production",
+		sameSite: "lax",
+		path: "/",
+		maxAge: 15 * 60
+	})
+
+	response.cookies.set("refreshToken", refreshToken, {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === "production",
+		sameSite: "lax",
+		path: "/",
+		maxAge: 7 * 24 * 60 * 60
+	})
+
+	return response
+}
+
+	export async function callbackGithubController(code: string | null, state: string | null) {	
+
+	if (!code || !state) {
+		return NextResponse.json(
+			{ error: "Missing required fields: code and action" },
+			{ status: 400 }
+		)
+	}
+
+	const { token, refreshToken } = await callbackGithubService(code, state)
 
 	const response = NextResponse.json({ message: "conexão bem sucedida" }, { status: 200 })
 

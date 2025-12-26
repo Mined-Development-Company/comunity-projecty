@@ -83,6 +83,7 @@
 		"@types/react-dom": "^18.3.1",
 		"@types/tailwindcss": "^3.1.0",
 		"@types/three": "^0.177.0",
+		"dotenv-cli": "^11.0.0",
 		"eslint": "^9.15.0",
 		"eslint-plugin-import": "^2.31.0",
 		"eslint-plugin-react": "^7.37.2",

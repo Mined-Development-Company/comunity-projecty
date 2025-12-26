@@ -35,7 +35,8 @@ export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
 export namespace $Enums {
   export const AuthProvider: {
   DISCORD: 'DISCORD',
-  GOOGLE: 'GOOGLE'
+  GOOGLE: 'GOOGLE',
+  GITHUB: 'GITHUB'
 };
 
 export type AuthProvider = (typeof AuthProvider)[keyof typeof AuthProvider]

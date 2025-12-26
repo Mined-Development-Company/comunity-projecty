@@ -165,7 +165,8 @@ exports.Prisma.NullsOrder = {
 };
 exports.AuthProvider = exports.$Enums.AuthProvider = {
   DISCORD: 'DISCORD',
-  GOOGLE: 'GOOGLE'
+  GOOGLE: 'GOOGLE',
+  GITHUB: 'GITHUB'
 };
 
 exports.Prisma.ModelName = {
