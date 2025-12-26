@@ -10,7 +10,7 @@ type AuthCardProps = {
 }
 
 export function AuthCard({ action }: AuthCardProps) {
-	const { connectDiscord, loadDiscord } = useModel()
+	const { connectProvider, loadDiscord, loadGithub } = useModel()
 
 	return (
 		<section className="flex w-full max-w-[400px] flex-col items-center justify-center gap-5 rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-6">
@@ -25,26 +25,26 @@ export function AuthCard({ action }: AuthCardProps) {
 				</p>
 			</div>
 			<div className="flex w-full flex-col gap-5">
-				{/* <Button
+				<Button
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
-					onClick={() => handleSetLoads("github")}
-					isLoading={loads.github}
-					disabled={isLoading}>
+					isLoading={loadGithub}
+					onClick={() => connectProvider(action, "github")}
+					disabled={loadGithub}>			
 					<Icon
 						className="min-h-[20px] min-w-[20px]"
 						name="GithubLogo"
 						weight="regular"
 					/>
 					Github
-				</Button> */}
+				</Button>
 				<Button
 					className="w-full text-sm font-medium text-content-primary"
 					variant="secondary"
 					size="lg"
 					isLoading={loadDiscord}
-					onClick={() => connectDiscord(action)}
+					onClick={() => connectProvider(action, "discord")}
 					disabled={loadDiscord}>
 					<Icon
 						className="min-h-[20px] min-w-[20px]"

@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation"
 
 import { useMutation } from "@tanstack/react-query"
 
-import { getAuthDiscord } from "../api/getAuthDiscord"
+import { getAuth } from "../api/getAuth"
 
 export default function useModel() {
 	const searchParams = useSearchParams()
@@ -11,25 +11,40 @@ export default function useModel() {
 	const provider = searchParams.get("provider")
 
 	const [isConnectingDiscord, setIsConnectingDiscord] = useState(false)
+	const [isConnectingGithub, setIsConnectingGithub] = useState(false)
 
-	const connectDiscord = (action: "login" | "register") => {
-		setIsConnectingDiscord(true)
-		globalThis.location.href = `/api/auth/discord?action=${action}&provider=discord`
-	}
+	const connectProvider = (action: "login" | "register", provider: "discord" | "github") => {		
+		globalThis.location.href = `/api/auth/${provider}?action=${action}&provider=${provider}`
+
+		provider === "discord" ? setIsConnectingDiscord(true) : setIsConnectingGithub(true)
+		
+	}	
 
 	const { mutate: authDiscord, isPending: isAuthDiscord } = useMutation({
-		mutationFn: getAuthDiscord,
+		mutationFn: getAuth,
+		onSuccess: () => {},
+		onError: () => {}
+	})
+
+		const { mutate: authGithub, isPending: isAuthGithub } = useMutation({
+		mutationFn: getAuth,
 		onSuccess: () => {},
 		onError: () => {}
 	})
 
 	useEffect(() => {
-		if (code && provider) {
-			authDiscord({ code, action: "login", provider: provider as "discord" | "github" })
+		if (code && provider === "discord") {
+			authDiscord({ code, action: "login", provider: provider as "discord" })
+		}
+
+		if (code && provider === "github") {
+			authGithub({ code, action: "login", provider: provider as "github" })
 		}
 	}, [searchParams])
 
 	const loadDiscord = isConnectingDiscord || isAuthDiscord
 
-	return { connectDiscord, loadDiscord }
+	const loadGithub = isConnectingGithub || isAuthGithub
+
+	return { connectProvider, loadDiscord, loadGithub }
 }
