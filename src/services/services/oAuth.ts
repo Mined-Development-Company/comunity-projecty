@@ -1,7 +1,7 @@
 import getUserData from "@/app/api/auth/callback/discord/getUserData"
+import { BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET, GITHUB_CLIENT_ID, GITHUB_SECRET } from "@/shared/env"
 import type { PrismaClient } from "@/app/generated/prisma"
 import * as runtime from "@/app/generated/prisma/runtime/client"
-import { BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET } from "@/shared/env"
 import { prisma } from "@/shared/libs/prisma"
 import { generateTokens } from "@/shared/utils/jwt"
 
@@ -9,7 +9,7 @@ import { BadRequestError, ServerError, UnauthorizedError } from "../errors/HttpE
 import { validateToken } from "../middleware/validateToken"
 import type { TRedirectUrlProps } from "../validators/oAuth"
 
-export async function connectService(action: TRedirectUrlProps["action"]) {
+export async function connectDiscordService(action: TRedirectUrlProps["action"]) {
 	const params = new URLSearchParams({
 		client_id: DISCORD_CLIENT_ID,
 		response_type: "code",
@@ -18,6 +18,19 @@ export async function connectService(action: TRedirectUrlProps["action"]) {
 	})
 
 	const redirectUrl = new URL(`https://discord.com/oauth2/authorize?${params.toString()}`)
+
+	return redirectUrl.href
+}
+
+export async function connectGithubService(action: TRedirectUrlProps["action"]) {
+	const state = JSON.stringify({ action })
+
+	const params = new URLSearchParams({
+		client_id: GITHUB_CLIENT_ID,
+		state: Buffer.from(state).toString("base64"),
+	})
+
+	const redirectUrl = new URL(`https://github.com/login/oauth/authorize?${params.toString()}`)
 
 	return redirectUrl.href
 }
@@ -103,6 +116,106 @@ export async function callbackDiscordService(
 		})
 	} else {
 		const { newToken, newRefreshToken } = await generateSession(user.id, user.email)
+
+		token = newToken
+		refreshToken = newRefreshToken
+	}
+
+	if (!token || !refreshToken || token === "" || refreshToken === "") {
+		throw new ServerError()
+	}
+
+	return { token, refreshToken }
+}
+
+export async function callbackGithubService(
+	code: string,	
+) {
+	const tokenRes: any = await fetch(
+    "https://github.com/login/oauth/access_token",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json", 
+      },
+      body: new URLSearchParams({
+				client_id: GITHUB_CLIENT_ID,
+				client_secret: GITHUB_SECRET,
+				code: code,
+				redirect_uri: `${BASE_URL.replace(/\/$/, "")}/api/auth/callback/github?provider=github`,
+			}),
+    }
+  );
+
+	const tokenJson = await tokenRes.json();
+  const accessToken = tokenJson.access_token as string | undefined;
+
+	if (!accessToken) {
+    throw new UnauthorizedError("Github User data not found")
+	}
+
+	const res = await fetch("https://api.github.com/user", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/vnd.github+json",     
+    },
+  });
+
+	const githubUser = await res.json();
+		
+  const user = await prisma.user.findFirst({
+		where: {
+			email: githubUser.email,
+			OR: [
+				{
+					accounts: {
+						some: {
+							provider: "GITHUB",
+							providerAccountId: githubUser.id.toString()
+						}
+					}
+				}
+			]
+		}
+	})
+	
+
+	let token: string | undefined
+	let refreshToken: string | undefined
+
+	if (!user) {
+		await prisma.$transaction(async (tx) => {
+			const createdUser = await tx.user.create({
+				data: {
+					email: githubUser.email,
+					name: githubUser.name,
+					avatarUrl: githubUser.avatar_url
+				}
+			})
+
+			await tx.account.create({
+				data: {
+					userId: createdUser.id,
+					provider: "GITHUB",
+					providerAccountId: githubUser.id.toString()
+				}
+			})
+
+			const { newToken, newRefreshToken } = await generateSession(
+				createdUser.id,
+				createdUser.email,
+				tx
+			)
+
+			token = newToken
+			refreshToken = newRefreshToken
+		})
+	} else {
+		const { newToken, newRefreshToken } = await generateSession(
+				user.id,
+				user.email,
+			
+			)
 
 		token = newToken
 		refreshToken = newRefreshToken

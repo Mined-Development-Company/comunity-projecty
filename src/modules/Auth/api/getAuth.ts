@@ -2,14 +2,14 @@
 
 import { api } from "@/shared/libs/axios"
 
-type GetAuthDiscordProps = {
+type GetAuthProps = {
 	code: string
 	action: "login" | "register"
 	provider: "discord" | "github"
 }
 
-export async function getAuthDiscord({ code, action, provider }: GetAuthDiscordProps) {
-	const { data } = await api.post(`/api/auth/callback/discord`, {
+export async function getAuth({ code, action, provider }: GetAuthProps) {
+	const { data } = await api.post(`/api/auth/callback/${provider}`, {
 		code,
 		action,
 		provider
