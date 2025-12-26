@@ -4,9 +4,9 @@ import { useState } from "react"
 
 import { Donation } from "@/shared/components/organisms/donation"
 
-import { AsideArea } from "./Components/AsideArea"
-import { AtividadeArea } from "./Components/AtividadeArea"
-import { InfoProfile } from "./Components/InfoProfile"
+import { AsideArea } from "./components/AsideArea"
+import { AtividadeArea } from "./components/AtividadeArea"
+import { InfoProfile } from "./components/InfoProfile"
 
 type TTabProps = "projetos" | "desafios" | "perguntas"
 

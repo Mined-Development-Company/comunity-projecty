@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server"
 
+import { validateToken } from "@/services/middleware/validateToken"
+
+import { handleError } from "../utils/handleError"
+
 export async function POST(req: Request) {
 	try {
-		const { code, action } = await req.json()
+		const { token } = await req.json()
 
-		if (!code || !action) {
-			return NextResponse.json(
-				{ error: "Missing required fields: code and action" },
-				{ status: 400 }
-			)
-		}
+		const decodedToken = await validateToken(token)
+		console.log("decodedToken", decodedToken)
 
-		return NextResponse.json({ message: "Hello, world!" })
+		return NextResponse.json({ decodedToken })
 	} catch (error) {
 		console.log("error", error)
-		return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
+		return handleError(error)
 	}
 }

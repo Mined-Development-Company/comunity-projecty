@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { ProjectCard } from "../../../../shared/components/molecules/ProjectCard"
+import { ProjectCard } from "../../shared/components/molecules/ProjectCard"
 import { Filter } from "./components/Filter"
 
 export const projects = [

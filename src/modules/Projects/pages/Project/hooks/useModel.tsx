@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation"
 
-import { projects } from "../../Projects"
+import { projects } from "../../.."
 
 export function useModel() {
 	const searchParams = useSearchParams()
