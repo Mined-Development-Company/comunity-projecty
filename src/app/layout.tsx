@@ -14,6 +14,7 @@ const geistSans = localFont({
 	variable: "--font-geist-sans",
 	weight: "100 900"
 })
+
 const geistMono = localFont({
 	src: "./fonts/GeistMonoVF.woff",
 	variable: "--font-geist-mono",
@@ -35,16 +36,17 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="pt-br">
+		<html className="" lang="pt-br">
 			<body
 				className={cn(
-					"flex flex-col bg-content-shape-primary text-content-primary antialiased",
+					"flex h-screen w-screen flex-col bg-content-shape-primary text-content-primary antialiased",
 					geistSans.variable,
 					geistMono.variable
 				)}>
 				<Provider>
 					<Header />
-					<div className="flex-1">{children}</div>
+					<div className="max-h-16 min-h-16 w-full"></div>
+					<div className="bg-background px-3">{children}</div>
 					<Footer />
 					<Toaster />
 				</Provider>

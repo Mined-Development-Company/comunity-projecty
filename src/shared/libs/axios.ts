@@ -1,6 +1,14 @@
+"use client"
+
 import axios from "axios"
 
+import { API_URL } from "../env"
+
 export const api = axios.create({
-	baseURL: process.env.NEXT_PUBLIC_DB_HOST,
-	timeout: 500
+	baseURL: API_URL || "",
+	timeout: 30000,
+	withCredentials: true,
+	headers: {
+		"Content-Type": "application/json"
+	}
 })

@@ -10,7 +10,7 @@ import {
 	CardTitle
 } from "@/shared/components/atoms/card"
 
-type CardProps = {
+export type CardProps = {
 	title: string
 	description?: string
 	image?: ImageProps
@@ -45,6 +45,7 @@ export function Card({
 					) : (
 						<>
 							<CardTitle size={titleSize}>{title}</CardTitle>
+
 							{badges && (
 								<div className="flex flex-row items-center gap-2.5">{badges}</div>
 							)}

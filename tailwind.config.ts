@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "hsl(var(--background))",
+				background: "#090910",
 				// text
 				"content-primary": "#FAFAFA",
 				"content-secondary": "#DCDCDC",

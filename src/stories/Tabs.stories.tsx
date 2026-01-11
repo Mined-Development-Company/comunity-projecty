@@ -78,7 +78,7 @@ export default meta
 
 export const Default: StoryObj<typeof meta> = {
 	render: (args) => (
-		<section className="rounded-lg border border-content-shape-quaternary bg-content-shape-secondary">
+		<section className="max-w-[900px] rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-4">
 			<NavigationTabs {...args} />
 		</section>
 	)

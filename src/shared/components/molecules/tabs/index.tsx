@@ -12,21 +12,25 @@ interface IContent {
 
 type NavigationTabs = {
 	tabs: IContent[]
+	classNameTrigger?: string
 } & React.ComponentPropsWithoutRef<typeof Tabs>
 
 export const NavigationTabs = React.forwardRef<
 	React.ElementRef<typeof Tabs>,
 	NavigationTabs
->(({ tabs, className, ...props }, ref) => {
+>(({ tabs, className, classNameTrigger, ...props }, ref) => {
 	return (
 		<Tabs
 			ref={ref}
-			className={cn("space-y-4 text-base leading-4 text-white", className)}
+			className={cn("w-fit gap-2 space-y-4 text-base leading-4 text-white", className)}
 			{...props}>
 			<TabsList>
 				{tabs.map(({ title }, index) => {
 					return (
-						<TabsTrigger key={`${title}-${index}`} value={`${title}`}>
+						<TabsTrigger
+							className={cn(classNameTrigger)}
+							key={`${title}-${index}`}
+							value={`${title}`}>
 							{capitalize(title)}
 						</TabsTrigger>
 					)

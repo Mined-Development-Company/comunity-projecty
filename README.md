@@ -27,7 +27,7 @@ Uma área para:
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: React, Next.js, Tailwind CSS, storybook
+- **Frontend**: Next.js, Tailwind CSS, storybook, Axios, TanStack, zod, react-hook-form
 - **Outros**: Framer Motion, Tiptap, react hook form, axios, react query, Phosphor Icons
 
 ## Objetivo

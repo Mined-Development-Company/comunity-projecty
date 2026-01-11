@@ -31,12 +31,16 @@ const TextareaDefault = forwardRef<HTMLTextAreaElement, TextareaWithLabelProps>(
 		ref
 	) => {
 		return (
-			<div className={cn("grid w-full gap-1.5", rootClassName)}>
-				{label && <Label htmlFor="message">{label}</Label>}
+			<div className={cn("flex w-full flex-col gap-1.5", rootClassName)}>
+				{label && (
+					<Label htmlFor="message" className="font-bold">
+						{label}
+					</Label>
+				)}
 
 				<Textarea
 					ref={ref}
-					className={textareaClassName}
+					className={cn("flex-1", textareaClassName)}
 					placeholder={placeholder}
 					id="message"
 					{...props}

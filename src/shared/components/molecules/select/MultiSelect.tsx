@@ -2,6 +2,7 @@
 
 import {
 	useEffect,
+	useMemo,
 	useRef,
 	useState,
 	type Dispatch,
@@ -22,7 +23,8 @@ import { selectVariants } from "./selectVariants"
 type ISelectProps = {
 	max: number
 	hint?: HintProps
-	items: { label: ReactNode; value: string }[]
+	items?: { label: ReactNode; value: string }[]
+	itemsWithTitle?: { title: string; items: { label: ReactNode; value: string }[] }[]
 	label?: string
 	hasHint?: boolean
 	placeholder?: string
@@ -36,6 +38,7 @@ export const MultiSelect = ({
 	max,
 	hint,
 	items = [],
+	itemsWithTitle = [],
 	label,
 	hasHint = true,
 	className,
@@ -46,6 +49,7 @@ export const MultiSelect = ({
 }: ISelectProps) => {
 	const [values, setValues] = useState<string[]>(selectedValues ?? [])
 	const [widthContent, setWidthContent] = useState(0)
+	const previousSelectedValuesRef = useRef<string[]>()
 
 	const variantStyle = selectVariants({
 		showPlaceholder: values.length !== 0,
@@ -54,22 +58,54 @@ export const MultiSelect = ({
 
 	const triggerButtonRef = useRef<HTMLDivElement>(null)
 
+	// Memoiza a string dos valores selecionados para comparação
+	const selectedValuesStr = useMemo(
+		() => JSON.stringify([...(selectedValues ?? [])].sort((a, b) => a.localeCompare(b))),
+		[selectedValues]
+	)
+
+	// Sincroniza com selectedValues apenas se os valores forem diferentes
+	useEffect(() => {
+		if (selectedValues !== undefined) {
+			const previousStr = previousSelectedValuesRef.current
+				? JSON.stringify(
+						[...previousSelectedValuesRef.current].sort((a, b) => a.localeCompare(b))
+					)
+				: null
+
+			if (previousStr !== selectedValuesStr) {
+				setValues(selectedValues)
+				previousSelectedValuesRef.current = selectedValues
+			}
+		}
+	}, [selectedValues, selectedValuesStr])
+
 	useEffect(() => {
 		if (triggerButtonRef.current) {
 			setWidthContent(triggerButtonRef.current.offsetWidth)
 		}
-	}, [triggerButtonRef, classTrigger])
+	}, [classTrigger])
 
 	const handleSelectChange = (value: string) => {
 		const newSelectedValues = values.includes(value)
 			? values.filter((selectedValue) => selectedValue !== value)
 			: [...values, value]
-		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-		onValueChange && onValueChange(newSelectedValues)
-		setValues(newSelectedValues) 
+		setValues(newSelectedValues)
+		onValueChange?.(newSelectedValues)
 	}
 
 	const isOptionSelected = (value: string) => values.includes(value)
+
+	// Função auxiliar para obter todos os itens (de items e itemsWithTitle)
+	const getAllItems = () => {
+		const allItems: { label: ReactNode; value: string }[] = [...items]
+		for (const group of itemsWithTitle) {
+			allItems.push(...group.items)
+		}
+		return allItems
+	}
+
+	const allItems = getAllItems()
 
 	return (
 		<Popover>
@@ -79,12 +115,9 @@ export const MultiSelect = ({
 					<PopoverTrigger className="flex w-auto flex-1">
 						<div className={variantStyle} ref={triggerButtonRef}>
 							<div className="flex flex-1 items-end gap-1">
-								{values.length !== 0 && items.length ? (
-									items
-										.filter(
-											(item) =>
-												selectedValues.includes(item.value) || values.includes(item.value)
-										)
+								{values.length !== 0 &&
+									allItems
+										.filter((item) => values.includes(item.value))
 										.slice(0, max)
 										.map((item) => (
 											<div
@@ -96,11 +129,9 @@ export const MultiSelect = ({
 												}}>
 												{item.label}
 											</div>
-										))
-								) : (
-									<span>{placeholder}</span>
-								)}
+										))}
 
+								{values.length === 0 && <span>{placeholder}</span>}
 								{values.length > max && <span>...</span>}
 							</div>
 							<ChevronDown className="h-4 w-4 opacity-50" />
@@ -112,21 +143,51 @@ export const MultiSelect = ({
 			<PopoverContent
 				style={{ width: widthContent }}
 				onCloseAutoFocus={(e) => e.preventDefault()}>
-				{items.map(({ label, value }) => (
-					<button
-						key={value}
-						className="relative flex w-full cursor-default items-center rounded-sm py-1.5 pl-2 pr-8 text-sm text-content-primary outline-none hover:bg-content-shape-tertiary"
-						onClick={() => handleSelectChange(value)}>
-						{label}
-						<span
-							className={cn(
-								"absolute right-2 hidden h-3.5 w-3.5 items-center justify-center",
-								isOptionSelected(value) && "flex"
-							)}>
-							<Icon name="Check" className="h-4 w-4 text-white" />
-						</span>
-					</button>
-				))}
+				{items.length > 0 && (
+					<div>
+						{items.map(({ label, value }) => (
+							<button
+								key={value}
+								className="relative flex w-full cursor-default items-center rounded-sm py-1.5 pl-2 pr-8 text-sm text-content-primary outline-none hover:bg-content-shape-tertiary"
+								onClick={() => handleSelectChange(value)}>
+								{label}
+								<span
+									className={cn(
+										"absolute right-2 hidden h-3.5 w-3.5 items-center justify-center",
+										isOptionSelected(value) && "flex"
+									)}>
+									<Icon name="Check" className="h-4 w-4 text-white" />
+								</span>
+							</button>
+						))}
+					</div>
+				)}
+				{itemsWithTitle.length > 0 && (
+					<div>
+						{itemsWithTitle.map(({ title, items: groupItems }) => (
+							<div key={title}>
+								<span className="px-2 text-xs font-semibold text-content-quaternary">
+									{title}
+								</span>
+								{groupItems.map(({ label, value }) => (
+									<button
+										key={value}
+										className="relative flex w-full cursor-default items-center rounded-sm py-1.5 pl-2 pr-8 text-sm text-content-primary outline-none hover:bg-content-shape-tertiary"
+										onClick={() => handleSelectChange(value)}>
+										{label}
+										<span
+											className={cn(
+												"absolute right-2 hidden h-3.5 w-3.5 items-center justify-center",
+												isOptionSelected(value) && "flex"
+											)}>
+											<Icon name="Check" className="h-4 w-4 text-white" />
+										</span>
+									</button>
+								))}
+							</div>
+						))}
+					</div>
+				)}
 			</PopoverContent>
 		</Popover>
 	)
