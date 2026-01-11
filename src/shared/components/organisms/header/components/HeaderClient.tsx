@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+
 import { useRouter } from "nextjs-toploader/app"
 
 import { Button } from "@/shared/components/atoms/button"
@@ -10,13 +11,13 @@ import { ButtonSideBar } from "@/shared/components/organisms/header/components/B
 import { DiscordServer } from "@/shared/components/organisms/header/components/DiscordServer"
 import { NavLink } from "@/shared/components/organisms/header/components/NavLink"
 import Profile from "@/shared/components/organisms/header/components/Profile"
+import type { TUserData } from "@/shared/store/userDataStore"
 
 import { logoutAction } from "../actions/logoutAction"
-import type { TUserData } from "@/shared/store/userDataStore"
 
 const defaultNav = [
 	{ name: "Home", path: "/" },
-	{ name: "Ajuda", path: "" },
+	{ name: "Ajuda", path: "/help" },
 	{ name: "Desafio", path: "/challenges" },
 	{ name: "Projetos", path: "/projects" }
 ]
@@ -132,4 +133,3 @@ export function HeaderClient({ userData }: HeaderClientProps) {
 		</>
 	)
 }
-
