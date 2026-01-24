@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from "@storybook/react"
+import { type Meta, type StoryObj } from "@storybook/nextjs"
 
 import { AvatarDefault } from "@/shared/components/molecules/avatars/AvatarDefault"
 import { MultiAvatar as MultiAvatarType } from "@/shared/components/molecules/avatars/MultiAvatar"

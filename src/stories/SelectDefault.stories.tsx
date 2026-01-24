@@ -1,5 +1,5 @@
-import { type Meta, type StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
+import { type Meta, type StoryObj } from "@storybook/nextjs"
+import { fn } from "storybook/test"
 
 import { SelectDefault } from "@/shared/components/molecules/select/SelectDefault"
 

@@ -9,8 +9,8 @@ export type AvatarInfoProps = {
 	image: string
 	name: string
 	className?: string
-	rootClassName?: string
 	description: string
+	rootClassName?: string
 	showDescription?: boolean
 }
 
@@ -31,13 +31,12 @@ export function AvatarInfo({
 			<div
 				className={cn(
 					"flex flex-col items-start",
-					dp === "center" && "flex-row items-center gap-2",
-					className
+					dp === "center" && "flex-row items-center gap-2"
 				)}>
 				{dp === "top" && showDescription && (
 					<span className={variantDescription({ size })}>{description}</span>
 				)}
-				<span className={variantTitle({ size })}>{name}</span>
+				<span className={cn(variantTitle({ size }), className)}>{name}</span>
 				{(dp === "bottom" || dp === "center") && showDescription && (
 					<span className={variantDescription({ size })}>{description}</span>
 				)}

@@ -45,3 +45,5 @@ export const NavigationTabs = React.forwardRef<
 		</Tabs>
 	)
 })
+
+NavigationTabs.displayName = "NavigationTabs"

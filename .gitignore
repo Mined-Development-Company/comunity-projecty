@@ -49,3 +49,5 @@ WindowsPowerShell
 /generated/prisma
 
 /app/generated/prisma
+
+storybook-static

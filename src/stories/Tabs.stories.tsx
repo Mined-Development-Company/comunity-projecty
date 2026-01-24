@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from "@storybook/react"
+import { type Meta, type StoryObj } from "@storybook/nextjs"
 
 import { NavigationTabs } from "@/shared/components/molecules/tabs"
 
@@ -76,7 +76,7 @@ const meta: Meta<typeof NavigationTabs> = {
 
 export default meta
 
-export const Default: StoryObj<typeof meta> = {
+export const Default: StoryObj<typeof NavigationTabs> = {
 	render: (args) => (
 		<section className="max-w-[900px] rounded-lg border border-content-shape-quaternary bg-content-shape-secondary p-4">
 			<NavigationTabs {...args} />
